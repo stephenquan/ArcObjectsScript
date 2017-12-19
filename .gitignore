@@ -1,0 +1,7 @@
+*.ncb
+*.suo
+*_i.*
+*.aps
+*.user
+dlldata.c
+Output
