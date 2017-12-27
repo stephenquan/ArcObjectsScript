@@ -132,6 +132,9 @@ IDR_ARCOBJECTSFEATURELAYER REGISTRY                "ArcObjectsFeatureLayer.rgs"
 IDR_ARCOBJECTSFEATURELAYEREXTENDEDDEFINITION REGISTRY                "ArcObjectsFeatureLayerExtendedDefinition.rgs"
 IDR_ARCOBJECTSFEATURELAYERDEFINITION REGISTRY                "ArcObjectsFeatureLayerDefinition.rgs"
 IDR_ARCOBJECTSMAPDOCUMENT REGISTRY                "ArcObjectsMapDocument.rgs"
+IDR_ARCOBJECTSMAP       REGISTRY                "ArcObjectsMap.rgs"
+IDR_ARCOBJECTSLAYER     REGISTRY                "ArcObjectsLayer.rgs"
+IDR_ARCOBJECTSFEATURECLASS REGISTRY                "ArcObjectsFeatureClass.rgs"
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 

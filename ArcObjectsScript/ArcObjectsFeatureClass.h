@@ -1,4 +1,4 @@
-// ArcObjectsMapDocument.h : Declaration of the CArcObjectsMapDocument
+// ArcObjectsFeatureClass.h : Declaration of the CArcObjectsFeatureClass
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -12,25 +12,25 @@
 
 
 
-// CArcObjectsMapDocument
+// CArcObjectsFeatureClass
 
-class ATL_NO_VTABLE CArcObjectsMapDocument :
+class ATL_NO_VTABLE CArcObjectsFeatureClass :
     public CComObjectRootEx<CComSingleThreadModel>,
-    public CComCoClass<CArcObjectsMapDocument, &CLSID_ArcObjectsMapDocument>,
+    public CComCoClass<CArcObjectsFeatureClass, &CLSID_ArcObjectsFeatureClass>,
     public ISupportErrorInfo,
-    public IDispatchImpl<IArcObjectsMapDocument, &IID_IArcObjectsMapDocument, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public IDispatchImpl<IArcObjectsFeatureClass, &IID_IArcObjectsFeatureClass, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
     public CArcObjectsBase
 {
 public:
-    CArcObjectsMapDocument()
+    CArcObjectsFeatureClass()
     {
     }
 
-DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSMAPDOCUMENT)
+DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSFEATURECLASS)
 
 
-BEGIN_COM_MAP(CArcObjectsMapDocument)
-    COM_INTERFACE_ENTRY(IArcObjectsMapDocument)
+BEGIN_COM_MAP(CArcObjectsFeatureClass)
+    COM_INTERFACE_ENTRY(IArcObjectsFeatureClass)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
@@ -52,9 +52,7 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(IMapDocument, IID_IMapDocument, get_MapCount, get_MapCount, LONG *)
-    STDMETHOD(Map)(LONG index, VARIANT* map);
 
 };
 
-OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsMapDocument), CArcObjectsMapDocument)
+OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsFeatureClass), CArcObjectsFeatureClass)

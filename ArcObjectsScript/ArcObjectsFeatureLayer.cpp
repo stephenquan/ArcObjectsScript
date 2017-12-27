@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "ArcObjectsFeatureLayer.h"
+#include "ArcObjectsFeatureClass.h"
 
 // CArcObjectsFeatureLayer
 
@@ -20,19 +21,4 @@ STDMETHODIMP CArcObjectsFeatureLayer::InterfaceSupportsErrorInfo(REFIID riid)
     return S_FALSE;
 }
 
-STDMETHODIMP CArcObjectsFeatureLayer::get_FeatureClass(VARIANT* result)
-{
-    HRESULT hr = S_OK;
-
-    if (!result) return E_INVALIDARG;
-    if (!m_Inner) return E_POINTER;
-
-    CComPtr<IFeatureLayer> spInner;
-    CHECKHR(m_Inner->QueryInterface(IID_IFeatureLayer, (void**) &spInner));
-
-    CComPtr<IFeatureClass> spResult;
-    CHECKHR(spInner->get_FeatureClass(&spResult));
-    CHECKHR(CComVariant((IUnknown*) spResult).Detach(result));
-    return hr;
-}
-
+IMPLEMENT_ARCOBJECTS_STDMETHOD1_RET_V(FeatureLayer, IFeatureLayer, IID_IFeatureLayer, get_FeatureClass, get_FeatureClass, FeatureClass)

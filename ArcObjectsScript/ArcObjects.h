@@ -56,33 +56,6 @@ public:
     static HRESULT IsObject(VARIANT* obj, VARIANT_BOOL* result);
 
 public:
-    // IMapDocument
-
-    ARCOBJECTS_IS(IMapDocument, IsMapDocument)
-    ARCOBJECTS_INVOKE1(IMapDocument, MapDocument_MapCount, get_MapCount, LONG*)
-    ARCOBJECTS_INVOKE2_SV_RET(IMapDocument, MapDocument_Map, get_Map, LONG, IMap)
-
-    // IMap
-
-    ARCOBJECTS_IS(IMap, IsMap)
-    ARCOBJECTS_INVOKE1(IMap, Map_LayerCount, get_LayerCount, LONG*)
-    ARCOBJECTS_INVOKE2_SV_RET(IMap, Map_Layer, get_Layer, LONG, ILayer)
-
-    // ILayer
-
-    ARCOBJECTS_IS(ILayer, IsLayer)
-    ARCOBJECTS_INVOKE1(ILayer, Layer_Name, get_Name, BSTR*)
-    ARCOBJECTS_INVOKE1(ILayer, Layer_SetName, put_Name, BSTR)
-
-    // IFeatureLayer
-
-    ARCOBJECTS_IS(IFeatureLayer, IsFeatureLayer)
-    ARCOBJECTS_INVOKE1_V_RET(IFeatureLayer, FeatureLayer_FeatureClass, get_FeatureClass, IFeatureClass)
-
-    // IFeatureClass
-
-    ARCOBJECTS_IS(IFeatureClass, IsFeatureClass)
-
     // IClass
 
     ARCOBJECTS_IS(IClass, IsClass)
@@ -127,9 +100,12 @@ public:
     //ARCOBJECTS_INVOKE2(IEnumSubtype, EnumSubtype_Next, Next, LONG*, BSTR*);
     //ARCOBJECTS_INVOKE(IEnumSubtype, EnumSubtype_Reset, Reset)
 
+    STDMETHOD(FeatureClass)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureLayer)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureLayerDefinition)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureLayerExtendedDefinition)(VARIANT* inner, VARIANT* outer);
+    STDMETHOD(Layer)(VARIANT* inner, VARIANT* outer);
+    STDMETHOD(Map)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(MapDocument)(VARIANT* inner, VARIANT* outer);
 
 };

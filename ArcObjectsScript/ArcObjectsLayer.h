@@ -1,4 +1,4 @@
-// ArcObjectsMapDocument.h : Declaration of the CArcObjectsMapDocument
+// ArcObjectsLayer.h : Declaration of the CArcObjectsLayer
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -6,31 +6,32 @@
 #include "ArcObjectsScript_i.h"
 #include "ArcObjectsBase.h"
 
+
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
 #endif
 
 
 
-// CArcObjectsMapDocument
+// CArcObjectsLayer
 
-class ATL_NO_VTABLE CArcObjectsMapDocument :
+class ATL_NO_VTABLE CArcObjectsLayer :
     public CComObjectRootEx<CComSingleThreadModel>,
-    public CComCoClass<CArcObjectsMapDocument, &CLSID_ArcObjectsMapDocument>,
+    public CComCoClass<CArcObjectsLayer, &CLSID_ArcObjectsLayer>,
     public ISupportErrorInfo,
-    public IDispatchImpl<IArcObjectsMapDocument, &IID_IArcObjectsMapDocument, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public IDispatchImpl<IArcObjectsLayer, &IID_IArcObjectsLayer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
     public CArcObjectsBase
 {
 public:
-    CArcObjectsMapDocument()
+    CArcObjectsLayer()
     {
     }
 
-DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSMAPDOCUMENT)
+DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSLAYER)
 
 
-BEGIN_COM_MAP(CArcObjectsMapDocument)
-    COM_INTERFACE_ENTRY(IArcObjectsMapDocument)
+BEGIN_COM_MAP(CArcObjectsLayer)
+    COM_INTERFACE_ENTRY(IArcObjectsLayer)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
@@ -52,9 +53,9 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(IMapDocument, IID_IMapDocument, get_MapCount, get_MapCount, LONG *)
-    STDMETHOD(Map)(LONG index, VARIANT* map);
+    DECLARE_ARCOBJECTS_STDMETHOD1(ILayer, IID_ILayer, get_Name, get_Name, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(ILayer, IID_ILayer, put_Name, put_Name, BSTR)
 
 };
 
-OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsMapDocument), CArcObjectsMapDocument)
+OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsLayer), CArcObjectsLayer)

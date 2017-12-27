@@ -1,0 +1,22 @@
+// ArcObjectsLayer.cpp : Implementation of CArcObjectsLayer
+
+#include "stdafx.h"
+#include "ArcObjectsLayer.h"
+
+
+// CArcObjectsLayer
+
+STDMETHODIMP CArcObjectsLayer::InterfaceSupportsErrorInfo(REFIID riid)
+{
+    static const IID* arr[] = 
+    {
+        &IID_IArcObjectsLayer
+    };
+
+    for (int i=0; i < sizeof(arr) / sizeof(arr[0]); i++)
+    {
+        if (InlineIsEqualGUID(*arr[i],riid))
+            return S_OK;
+    }
+    return S_FALSE;
+}

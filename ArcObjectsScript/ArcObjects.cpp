@@ -2,9 +2,12 @@
 
 #include "stdafx.h"
 #include "ArcObjects.h"
+#include "ArcObjectsFeatureClass.h"
 #include "ArcObjectsFeatureLayer.h"
 #include "ArcObjectsFeatureLayerDefinition.h"
 #include "ArcObjectsFeatureLayerExtendedDefinition.h"
+#include "ArcObjectsLayer.h"
+#include "ArcObjectsMap.h"
 #include "ArcObjectsMapDocument.h"
 
 #define ARCOBJECTS_OUTER_CLASS_FACTORY(N, INNER_T, INNER_RIID, OUTER_T) \
@@ -183,7 +186,10 @@ STDMETHODIMP CArcObjects::Class_Fields(VARIANT* obj, VARIANT* value)
     return hr;
 }
 
+ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureClass, IFeatureClass, IID_IFeatureClass, CArcObjectsFeatureClass) 
 ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayer, IFeatureLayer, IID_IFeatureLayer, CArcObjectsFeatureLayer) 
 ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayerDefinition, IFeatureLayerDefinition, IID_IFeatureLayerDefinition, CArcObjectsFeatureLayerDefinition) 
 ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayerExtendedDefinition, IFeatureLayerExtendedDefinition, IID_IFeatureLayerExtendedDefinition, CArcObjectsFeatureLayerExtendedDefinition) 
+ARCOBJECTS_OUTER_CLASS_FACTORY(Layer, ILayer, IID_ILayer, CArcObjectsLayer) 
+ARCOBJECTS_OUTER_CLASS_FACTORY(Map, IMap, IID_IMap, CArcObjectsMap) 
 ARCOBJECTS_OUTER_CLASS_FACTORY(MapDocument, IMapDocument, IID_IMapDocument, CArcObjectsMapDocument) 

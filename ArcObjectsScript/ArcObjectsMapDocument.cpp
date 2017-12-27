@@ -1,6 +1,7 @@
 // ArcObjectsMapDocument.cpp : Implementation of CArcObjectsMapDocument
 
 #include "stdafx.h"
+#include "ArcObjectsMap.h"
 #include "ArcObjectsMapDocument.h"
 
 
@@ -20,3 +21,24 @@ STDMETHODIMP CArcObjectsMapDocument::InterfaceSupportsErrorInfo(REFIID riid)
     }
     return S_FALSE;
 }
+
+#ifdef X
+STDMETHODIMP CArcObjectsMapDocument::Map(LONG arg1, VARIANT* arg2)
+{
+    HRESULT hr = S_OK;
+    if (!arg2) return E_INVALIDARG;
+    VariantInit(arg2);
+    if (!m_Inner) return E_POINTER;
+    CComPtr<IMapDocument> spInner;
+    CHECKHR(m_Inner->QueryInterface(IID_IMapDocument, (void**) &spInner));
+    CComPtr<IMap> spInner2;
+    CHECKHR(spInner->get_Map(arg1, &spInner2));
+    CComObject<CArcObjectsMap>* ptrOuter2 = NULL;
+    CHECKHR(CComObject<CArcObjectsMap>::CreateInstance(&ptrOuter2));
+    ptrOuter2->m_Inner = spInner2;
+    CHECKHR(CComVariant((IDispatch*) ptrOuter2).Detach(arg2));
+    return hr;
+}
+#endif
+
+IMPLEMENT_ARCOBJECTS_STDMETHOD2_RET_V(MapDocument, IMapDocument, IID_IMapDocument, Map, get_Map, LONG, Map)
