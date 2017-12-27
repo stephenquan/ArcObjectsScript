@@ -8,99 +8,240 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
-	uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050),
-	version(1.0),
-	helpstring("ArcObjectsScript 1.0 Type Library")
+    uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050),
+    version(1.0),
+    helpstring("ArcObjectsScript 1.0 Type Library")
 ]
 library ArcObjectsScriptLib
 {
-	importlib("stdole2.tlb");
+    importlib("stdole2.tlb");
 
-	[
-		object,
-		uuid(2B86F8EE-B8D1-46DE-BF5F-D27FF81070C9),
-		dual,
-		nonextensible,
-		helpstring("IArcObjects Interface"),
-		pointer_default(unique)
-	]
-	interface IArcObjects : IDispatch{
-		//----------------------------------------------------------------------
+    //
+    //
+    //
 
-		[id(1)] HRESULT IsMapDocument([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+    interface IArcObjects;
+    interface IArcObjectsFeatureLayer;
 
-		[id(2)] HRESULT MapDocument_MapCount([in] VARIANT* obj, [out, retval] LONG* result);
-		[id(3)] HRESULT MapDocument_Map([in] VARIANT* obj, [in] LONG mapIndex, [out, retval] VARIANT* result);
+    //
+    //
+    //
 
-		//----------------------------------------------------------------------
+    [
+        object,
+        uuid(2B86F8EE-B8D1-46DE-BF5F-D27FF81070C9),
+        dual,
+        nonextensible,
+        helpstring("IArcObjects Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjects : IDispatch{
+        //----------------------------------------------------------------------
 
-		[id(4)] HRESULT IsMap([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(1)] HRESULT IsMapDocument([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
 
-		[id(5)] HRESULT Map_LayerCount([in] VARIANT* obj, [out, retval] LONG* result);
-		[id(6)] HRESULT Map_Layer([in] VARIANT* obj, [in] LONG mapIndex, [out, retval] VARIANT* result);
+        [id(2)] HRESULT MapDocument_MapCount([in] VARIANT* obj, [out, retval] LONG* result);
+        [id(3)] HRESULT MapDocument_Map([in] VARIANT* obj, [in] LONG mapIndex, [out, retval] VARIANT* result);
 
-		//----------------------------------------------------------------------
+        //----------------------------------------------------------------------
 
-		[id(7)] HRESULT IsLayer([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(8)] HRESULT Layer_Name([in] VARIANT* obj, [out, retval] BSTR* result);
-		[id(9)] HRESULT Layer_SetName([in] VARIANT* obj, [in] BSTR name);
+        [id(4)] HRESULT IsMap([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
 
-		//----------------------------------------------------------------------
+        [id(5)] HRESULT Map_LayerCount([in] VARIANT* obj, [out, retval] LONG* result);
+        [id(6)] HRESULT Map_Layer([in] VARIANT* obj, [in] LONG mapIndex, [out, retval] VARIANT* result);
 
-		[id(17)] HRESULT IsFeatureLayer([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(18)] HRESULT FeatureLayer_FeatureClass([in] VARIANT* obj, [out, retval] VARIANT* result);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(7)] HRESULT IsLayer([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(8)] HRESULT Layer_Name([in] VARIANT* obj, [out, retval] BSTR* result);
+        [id(9)] HRESULT Layer_SetName([in] VARIANT* obj, [in] BSTR name);
 
-		[id(31)] HRESULT IsFeatureClass([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(17)] HRESULT IsFeatureLayer([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(18)] HRESULT FeatureLayer_FeatureClass([in] VARIANT* obj, [out, retval] VARIANT* result);
 
-		[id(61)] HRESULT IsClass([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(62)] HRESULT Class_Fields([in] VARIANT* obj, [out, retval] VARIANT* result);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(31)] HRESULT IsFeatureClass([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
 
-		[id(71)] HRESULT IsField([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(72)] HRESULT Field_Name([in] VARIANT* obj, [out, retval] BSTR* fieldName);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(61)] HRESULT IsClass([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(62)] HRESULT Class_Fields([in] VARIANT* obj, [out, retval] VARIANT* result);
 
-		[id(81)] HRESULT IsDomain([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(71)] HRESULT IsField([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(72)] HRESULT Field_Name([in] VARIANT* obj, [out, retval] BSTR* fieldName);
 
-		[id(41)] HRESULT IsSubtypes([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(42)] HRESULT Subtypes_HasSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		[id(43)] HRESULT Subtypes_DefaultSubtypeCode([in] VARIANT* obj, [out, retval] LONG* result);
-		[id(44)] HRESULT Subtypes_SetDefaultSubtypeCode([in] VARIANT* obj, [in] LONG subtypeCode);
-		[id(45)] HRESULT Subtypes_DefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
-		[id(46)] HRESULT Subtypes_SetDefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT value);
-		[id(47)] HRESULT Subtypes_Domain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
-		[id(48)] HRESULT Subtypes_SetDomain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT* domain);
-		[id(49)] HRESULT Subtypes_SubtypeFieldName([in] VARIANT* obj, [out, retval] BSTR* fieldName);
-		[id(50)] HRESULT Subtypes_SetSubtypeFieldName([in] VARIANT* obj, [in] BSTR fieldName);
-		[id(51)] HRESULT Subtypes_SubtypeFieldIndex([in] VARIANT* obj, [out,retval] LONG* index);
-		[id(52)] HRESULT Subtypes_SubtypeName([in] VARIANT* obj, [in] LONG subtypeCode, [out,retval] BSTR* subtypeName);
-		[id(53)] HRESULT Subtypes_Subtypes([in] VARIANT* obj, [out,retval] VARIANT* enumSubtypes);
-		[id(54)] HRESULT Subtypes_AddSubtype([in] VARIANT* obj, [in] LONG subtypeCode, [in] BSTR subtypeName);
-		[id(55)] HRESULT Subtypes_DeleteSubtype([in] VARIANT* obj, [in] LONG subtypeCode);
+        //----------------------------------------------------------------------
 
-		//----------------------------------------------------------------------
+        [id(81)] HRESULT IsDomain([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
 
-		//[id(61)] HRESULT IsEnumSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-		//[id(62)] HRESULT EnumSubtype_Next([in] VARIANT* obj, [out] LONG* subtypeCode, [out, retval] BSTR* subtypeName);
-		//[id(63)] HRESULT EnumSubtype_Reset([in] VARIANT* obj);
+        //----------------------------------------------------------------------
+
+        [id(41)] HRESULT IsSubtypes([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(42)] HRESULT Subtypes_HasSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        [id(43)] HRESULT Subtypes_DefaultSubtypeCode([in] VARIANT* obj, [out, retval] LONG* result);
+        [id(44)] HRESULT Subtypes_SetDefaultSubtypeCode([in] VARIANT* obj, [in] LONG subtypeCode);
+        [id(45)] HRESULT Subtypes_DefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
+        [id(46)] HRESULT Subtypes_SetDefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT value);
+        [id(47)] HRESULT Subtypes_Domain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
+        [id(48)] HRESULT Subtypes_SetDomain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT* domain);
+        [id(49)] HRESULT Subtypes_SubtypeFieldName([in] VARIANT* obj, [out, retval] BSTR* fieldName);
+        [id(50)] HRESULT Subtypes_SetSubtypeFieldName([in] VARIANT* obj, [in] BSTR fieldName);
+        [id(51)] HRESULT Subtypes_SubtypeFieldIndex([in] VARIANT* obj, [out,retval] LONG* index);
+        [id(52)] HRESULT Subtypes_SubtypeName([in] VARIANT* obj, [in] LONG subtypeCode, [out,retval] BSTR* subtypeName);
+        [id(53)] HRESULT Subtypes_Subtypes([in] VARIANT* obj, [out,retval] VARIANT* enumSubtypes);
+        [id(54)] HRESULT Subtypes_AddSubtype([in] VARIANT* obj, [in] LONG subtypeCode, [in] BSTR subtypeName);
+        [id(55)] HRESULT Subtypes_DeleteSubtype([in] VARIANT* obj, [in] LONG subtypeCode);
+
+        //----------------------------------------------------------------------
+
+        //[id(61)] HRESULT IsEnumSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
+        //[id(62)] HRESULT EnumSubtype_Next([in] VARIANT* obj, [out] LONG* subtypeCode, [out, retval] BSTR* subtypeName);
+        //[id(63)] HRESULT EnumSubtype_Reset([in] VARIANT* obj);
+
+        //
+        //
+        //
+
+        [id(100)] HRESULT FeatureLayer([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
+        [id(101)] HRESULT FeatureLayerDefinition([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
+        [id(102)] HRESULT FeatureLayerExtendedDefinition([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
+        [id(103)] HRESULT MapDocument([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
 
 
-	};
+    };
 
-	[
-		uuid(28769970-F310-4461-8F7A-809170A485C9),
-		helpstring("ArcObjects Class")
-	]
-	coclass ArcObjects
-	{
-		[default] interface IArcObjects;
-	};
+    [
+        uuid(28769970-F310-4461-8F7A-809170A485C9),
+        helpstring("ArcObjects Class")
+    ]
+    coclass ArcObjects
+    {
+        [default] interface IArcObjects;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(46D538AA-09F6-41b2-8B54-DCA59AD66335),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayer Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayer : IDispatch{
+        [id(18), propget] HRESULT FeatureClass([out, retval] VARIANT* result);
+    }
+
+    //
+    //
+    //
+
+    [
+        uuid(F486D1BA-6EB6-481F-B446-93908A1B55A0),
+        helpstring("ArcObjectsFeatureLayer Class")
+    ]
+    coclass ArcObjectsFeatureLayer
+    {
+        [default] interface IArcObjectsFeatureLayer;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(EDEBC24E-0607-4E49-89DD-44E65B5A4194),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayerDefinition Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayerDefinition : IDispatch{
+        [propget] HRESULT DefinitionExpression([out, retval] BSTR* expression);
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(9841539F-1640-4957-A244-425BC461BA44),
+        helpstring("ArcObjectsFeatureLayerDefinition Class")
+    ]
+    coclass ArcObjectsFeatureLayerDefinition
+    {
+        [default] interface IArcObjectsFeatureLayerDefinition;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(1E2BF6C5-97DB-453A-97DC-2A67F5600652),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayerExtendedDefinition Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayerExtendedDefinition : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(A4F5A94C-41B0-4C8B-B421-4497EE3C53D6),
+        helpstring("ArcObjectsFeatureLayerExtendedDefinition Class")
+    ]
+    coclass ArcObjectsFeatureLayerExtendedDefinition
+    {
+        [default] interface IArcObjectsFeatureLayerExtendedDefinition;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(6B8647B7-618D-4CCF-85D4-1DA37A5A850E),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsMapDocument Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsMapDocument : IDispatch{
+        [propget] HRESULT MapCount([out, retval] LONG* mapCount);
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(F4441B0B-52FA-4064-AFFF-EFA435D72773),
+        helpstring("ArcObjectsMapDocument Class")
+    ]
+    coclass ArcObjectsMapDocument
+    {
+        [default] interface IArcObjectsMapDocument;
+    };
+
+
+    //
+    //
+    //
+
 };

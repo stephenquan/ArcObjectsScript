@@ -128,6 +128,10 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
 //
 
 IDR_ARCOBJECTS          REGISTRY                "ArcObjects.rgs"
+IDR_ARCOBJECTSFEATURELAYER REGISTRY                "ArcObjectsFeatureLayer.rgs"
+IDR_ARCOBJECTSFEATURELAYEREXTENDEDDEFINITION REGISTRY                "ArcObjectsFeatureLayerExtendedDefinition.rgs"
+IDR_ARCOBJECTSFEATURELAYERDEFINITION REGISTRY                "ArcObjectsFeatureLayerDefinition.rgs"
+IDR_ARCOBJECTSMAPDOCUMENT REGISTRY                "ArcObjectsMapDocument.rgs"
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 

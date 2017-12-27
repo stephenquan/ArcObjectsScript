@@ -13,7 +13,7 @@
 #define _ATL_APARTMENT_THREADED
 #define _ATL_NO_AUTOMATIC_NAMESPACE
 
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS    // some CString constructors will be explicit
 
 #include "resource.h"
 #include <atlbase.h>
@@ -55,9 +55,136 @@ using namespace ATL;
 
 #ifndef CHECKHR
 #define CHECKHR(stmt) \
-	hr = (stmt); \
-	if (FAILED(hr)) \
-	{ \
-		return hr; \
-	}
+    hr = (stmt); \
+    if (FAILED(hr)) \
+    { \
+        return hr; \
+    }
 #endif
+
+
+#define ARCOBJECTS_IS(T, N) \
+    STDMETHOD(N)(VARIANT* value, VARIANT_BOOL* result) { return IsObject<IID_##T, ##T>(value, result); }
+
+#define ARCOBJECTS_INVOKE(T, N, M) \
+    STDMETHOD(N)(VARIANT* obj) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        hr = sp->##M(); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE1(T, N, M, T1) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        hr = sp->##M(arg1); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE1_V_RET(T, N, M, T1) \
+    STDMETHOD(N)(VARIANT* obj, VARIANT* arg1) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        CComPtr<T1> sp1; \
+        hr = sp->##M(&sp1); \
+        if (FAILED(hr)) return hr; \
+        hr = CComVariant((IUnknown*) sp1).Detach(arg1); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE2(T, N, M, T1, T2) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1, T2 arg2) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        hr = sp->##M(arg1, arg2); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE2_SV_RET(T, N, M, T1, T2) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1, VARIANT* arg2) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!arg2) return E_INVALIDARG; \
+        VariantInit(arg2); \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        CComPtr<##T2> sp2; \
+        hr = sp->##M(arg1, &sp2); \
+        if (FAILED(hr)) return hr; \
+        hr = CComVariant((IUnknown*) sp2).Detach(arg2); \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE3(T, N, M, T1, T2, T3) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1, T2 arg2, T3 arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        hr = sp->##M(arg1, arg2, arg3); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE3_SSV(T, N, M, T1, T2, T3) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1, T2 arg2, VARIANT* arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        CComPtr<##T3> sp3; \
+        hr = GetObject<IID_##T3, ##T3>(arg3, &sp3); \
+        if (FAILED(hr)) return hr; \
+        hr = sp->##M(arg1, arg2, sp3); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define ARCOBJECTS_INVOKE3_SSV_RET(T, N, M, T1, T2, T3) \
+    STDMETHOD(N)(VARIANT* obj, T1 arg1, T2 arg2, VARIANT* arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!arg3) return E_INVALIDARG; \
+        VariantInit(arg3); \
+        CComPtr<##T> sp; \
+        hr = GetObject<IID_##T, ##T>(obj, &sp); \
+        if (FAILED(hr)) return hr; \
+        CComPtr<T3> sp3; \
+        hr = sp->##M(arg1, arg2, &sp3); \
+        if (FAILED(hr)) return hr; \
+        hr = CComVariant((IUnknown*) sp3).Detach(arg3); \
+        return hr; \
+    }
+
+#define DECLARE_ARCOBJECTS_STDMETHOD1(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1) \
+    STDMETHOD(OUTER_NAME)(##T1 arg1) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        hr = m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner); \
+        if (FAILED(hr)) return hr; \
+        hr = spInner->##INNER_NAME(arg1); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }

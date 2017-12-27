@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.FeatureLayerDefinition = s 'ArcObjectsFeatureLayerDefinition Class'
+    {
+        CLSID = s '{9841539F-1640-4957-A244-425BC461BA44}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {9841539F-1640-4957-A244-425BC461BA44} = s 'ArcObjectsFeatureLayerDefinition Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.FeatureLayerDefinition'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.FeatureLayerDefinition'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

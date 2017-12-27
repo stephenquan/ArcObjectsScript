@@ -3,8 +3,8 @@
 LIBRARY      "ArcObjectsScript.DLL"
 
 EXPORTS
-	DllCanUnloadNow		PRIVATE
-	DllGetClassObject	PRIVATE
-	DllRegisterServer	PRIVATE
-	DllUnregisterServer	PRIVATE
-	DllInstall		PRIVATE
+    DllCanUnloadNow        PRIVATE
+    DllGetClassObject    PRIVATE
+    DllRegisterServer    PRIVATE
+    DllUnregisterServer    PRIVATE
+    DllInstall        PRIVATE
