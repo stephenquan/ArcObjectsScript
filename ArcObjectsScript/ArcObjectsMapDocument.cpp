@@ -41,4 +41,4 @@ STDMETHODIMP CArcObjectsMapDocument::Map(LONG arg1, VARIANT* arg2)
 }
 #endif
 
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_RET_V(MapDocument, IMapDocument, IID_IMapDocument, Map, get_Map, LONG, Map)
+IMPLEMENT_ARCOBJECTS_STDMETHOD2_SV_RET(MapDocument, IMapDocument, IID_IMapDocument, Map, get_Map, LONG, Map)

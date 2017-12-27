@@ -100,6 +100,7 @@ public:
     //ARCOBJECTS_INVOKE2(IEnumSubtype, EnumSubtype_Next, Next, LONG*, BSTR*);
     //ARCOBJECTS_INVOKE(IEnumSubtype, EnumSubtype_Reset, Reset)
 
+    STDMETHOD(Domain)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureClass)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureLayer)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(FeatureLayerDefinition)(VARIANT* inner, VARIANT* outer);
@@ -107,6 +108,7 @@ public:
     STDMETHOD(Layer)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(Map)(VARIANT* inner, VARIANT* outer);
     STDMETHOD(MapDocument)(VARIANT* inner, VARIANT* outer);
+    STDMETHOD(Subtypes)(VARIANT* inner, VARIANT* outer);
 
 };
 

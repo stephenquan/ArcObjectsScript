@@ -189,6 +189,32 @@ using namespace ATL;
         return hr; \
     }
 
+#define DECLARE_ARCOBJECTS_STDMETHOD2(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2) \
+    STDMETHOD(OUTER_NAME)(##T1 arg1, ##T2 arg2) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        hr = m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner); \
+        if (FAILED(hr)) return hr; \
+        hr = spInner->##INNER_NAME(arg1, arg2); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define DECLARE_ARCOBJECTS_STDMETHOD3(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2, T3) \
+    STDMETHOD(OUTER_NAME)(##T1 arg1, ##T2 arg2, ##T3 arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        hr = m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner); \
+        if (FAILED(hr)) return hr; \
+        hr = spInner->##INNER_NAME(arg1, arg2, arg3); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
 #define IMPLEMENT_ARCOBJECTS_STDMETHOD1_RET_V(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1) \
     STDMETHODIMP CArcObjects##OUTER_TYPE::##OUTER_NAME(VARIANT* arg1) \
     { \
@@ -207,7 +233,7 @@ using namespace ATL;
         return hr; \
     }
 
-#define IMPLEMENT_ARCOBJECTS_STDMETHOD2_RET_V(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2) \
+#define IMPLEMENT_ARCOBJECTS_STDMETHOD2_SV_RET(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2) \
     STDMETHODIMP CArcObjects##OUTER_TYPE::##OUTER_NAME(T1 arg1, VARIANT* arg2) \
     { \
         HRESULT hr = S_OK; \
@@ -222,6 +248,41 @@ using namespace ATL;
         CHECKHR(CComObject<CArcObjects##T2>::CreateInstance(&ptrOuter2)); \
         ptrOuter2->m_Inner = spInner2; \
         CHECKHR(CComVariant((IDispatch*) ptrOuter2).Detach(arg2)); \
+        return hr; \
+    }
+
+
+#define IMPLEMENT_ARCOBJECTS_STDMETHOD3_SSV(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2, T3) \
+    STDMETHODIMP CArcObjects##OUTER_TYPE::##OUTER_NAME(T1 arg1, T2 arg2, VARIANT* arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!arg3) return E_INVALIDARG; \
+        VariantInit(arg3); \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        CHECKHR(m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner)); \
+        CComPtr<I##T3> spInner3; \
+        hr = (CArcObjects::GetObject<IID_I##T3, I##T3>(arg3, &spInner3)); \
+        if (FAILED(hr)) return hr; \
+        CHECKHR(spInner->##INNER_NAME(arg1, arg2, spInner3)); \
+        return hr; \
+    }
+
+#define IMPLEMENT_ARCOBJECTS_STDMETHOD3_SSV_RET(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2, T3) \
+    STDMETHODIMP CArcObjects##OUTER_TYPE::##OUTER_NAME(T1 arg1, T2 arg2, VARIANT* arg3) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!arg3) return E_INVALIDARG; \
+        VariantInit(arg3); \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        CHECKHR(m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner)); \
+        CComPtr<I##T3> spInner3; \
+        CHECKHR(spInner->##INNER_NAME(arg1, arg2, &spInner3)); \
+        CComObject<CArcObjects##T3>* ptrOuter3 = NULL; \
+        CHECKHR(CComObject<CArcObjects##T3>::CreateInstance(&ptrOuter3)); \
+        ptrOuter3->m_Inner = spInner3; \
+        CHECKHR(CComVariant((IDispatch*) ptrOuter3).Detach(arg3)); \
         return hr; \
     }
 

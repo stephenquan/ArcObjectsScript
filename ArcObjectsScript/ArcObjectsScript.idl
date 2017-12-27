@@ -8,16 +8,6 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
-    object,
-    uuid(4BC4FDCF-878D-42DB-A28E-ED2927DC2D8E),
-    dual,
-    nonextensible,
-    helpstring("IArcObjectsFeatureClass Interface"),
-    pointer_default(unique)
-]
-interface IArcObjectsFeatureClass : IDispatch{
-};
-[
     uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050),
     version(1.0),
     helpstring("ArcObjectsScript 1.0 Type Library")
@@ -52,8 +42,6 @@ library ArcObjectsScriptLib
 
         //----------------------------------------------------------------------
 
-        [id(81)] HRESULT IsDomain([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-
         //----------------------------------------------------------------------
 
         [id(41)] HRESULT IsSubtypes([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
@@ -82,6 +70,7 @@ library ArcObjectsScriptLib
         //
         //
 
+        [id(80)] HRESULT Domain([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(90)] HRESULT FeatureClass([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(100)] HRESULT FeatureLayer([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(101)] HRESULT FeatureLayerDefinition([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
@@ -89,6 +78,7 @@ library ArcObjectsScriptLib
         [id(103)] HRESULT Layer([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(113)] HRESULT Map([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(123)] HRESULT MapDocument([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
+        [id(133)] HRESULT Subtypes([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
 
 
     };
@@ -282,6 +272,20 @@ library ArcObjectsScriptLib
     //
     //
 
+    [
+        object,
+        uuid(4BC4FDCF-878D-42DB-A28E-ED2927DC2D8E),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureClass : IDispatch{
+    };
+
+    //
+    //
+    //
 
     [
         uuid(F031CF0C-88CA-482C-9FF8-188300272205),
@@ -290,5 +294,75 @@ library ArcObjectsScriptLib
     coclass ArcObjectsFeatureClass
     {
         [default] interface IArcObjectsFeatureClass;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(22B75AA7-23FC-4F76-8471-C20789509FF1),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSubtypes Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSubtypes : IDispatch{
+        [propget] HRESULT HasSubtype([out, retval] VARIANT_BOOL* value);
+        [propget] HRESULT DefaultSubtypeCode([out, retval] LONG* value);
+        [propput] HRESULT DefaultSubtypeCode([in] LONG value);
+        HRESULT GetDefaultValue(LONG l, BSTR b, [out, retval] VARIANT* value);
+        HRESULT SetDefaultValue(LONG l, BSTR b, [in] VARIANT value);
+        [propget] HRESULT SubtypeFieldName([out, retval] BSTR* name);
+        [propput] HRESULT SubtypeFieldName([in] BSTR name);
+        [propget] HRESULT SubtypeFieldIndex([out, retval] LONG* value);
+        HRESULT GetSubtypeName([in] LONG index, [out, retval] BSTR* value);
+        HRESULT DeleteSubtype([in] LONG index);
+        HRESULT AddSubtype([in] LONG index, [in] BSTR name);
+        [propget] HRESULT Subtypes([out, retval] VARIANT* subtypes);
+        HRESULT GetDomain([in] LONG, [in] BSTR, [out, retval] VARIANT*);
+        HRESULT SetDomain([in] LONG, [in] BSTR, [in] VARIANT*);
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(9CED7FA7-2522-4730-805E-88555783F05C),
+        helpstring("ArcObjectsSubtypes Class")
+    ]
+    coclass ArcObjectsSubtypes
+    {
+        [default] interface IArcObjectsSubtypes;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(4BBBE44F-A3BA-40F0-ACA5-C5396C3D9FBD),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsDomain Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsDomain : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(3C7DB8B9-C332-4188-822C-9815CA65222A),
+        helpstring("ArcObjectsDomain Class")
+    ]
+    coclass ArcObjectsDomain
+    {
+        [default] interface IArcObjectsDomain;
     };
 };

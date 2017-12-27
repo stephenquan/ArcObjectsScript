@@ -135,6 +135,8 @@ IDR_ARCOBJECTSMAPDOCUMENT REGISTRY                "ArcObjectsMapDocument.rgs"
 IDR_ARCOBJECTSMAP       REGISTRY                "ArcObjectsMap.rgs"
 IDR_ARCOBJECTSLAYER     REGISTRY                "ArcObjectsLayer.rgs"
 IDR_ARCOBJECTSFEATURECLASS REGISTRY                "ArcObjectsFeatureClass.rgs"
+IDR_ARCOBJECTSSUBTYPES  REGISTRY                "ArcObjectsSubtypes.rgs"
+IDR_ARCOBJECTSDOMAIN    REGISTRY                "ArcObjectsDomain.rgs"
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 

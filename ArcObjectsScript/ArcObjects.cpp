@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "ArcObjects.h"
+#include "ArcObjectsDomain.h"
 #include "ArcObjectsFeatureClass.h"
 #include "ArcObjectsFeatureLayer.h"
 #include "ArcObjectsFeatureLayerDefinition.h"
@@ -9,8 +10,9 @@
 #include "ArcObjectsLayer.h"
 #include "ArcObjectsMap.h"
 #include "ArcObjectsMapDocument.h"
+#include "ArcObjectsSubtypes.h"
 
-#define ARCOBJECTS_OUTER_CLASS_FACTORY(N, INNER_T, INNER_RIID, OUTER_T) \
+#define IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(N, INNER_T, INNER_RIID, OUTER_T) \
     STDMETHODIMP CArcObjects::N(VARIANT* inner, VARIANT* outer) \
     { \
         HRESULT hr = S_OK; \
@@ -186,10 +188,12 @@ STDMETHODIMP CArcObjects::Class_Fields(VARIANT* obj, VARIANT* value)
     return hr;
 }
 
-ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureClass, IFeatureClass, IID_IFeatureClass, CArcObjectsFeatureClass) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayer, IFeatureLayer, IID_IFeatureLayer, CArcObjectsFeatureLayer) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayerDefinition, IFeatureLayerDefinition, IID_IFeatureLayerDefinition, CArcObjectsFeatureLayerDefinition) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(FeatureLayerExtendedDefinition, IFeatureLayerExtendedDefinition, IID_IFeatureLayerExtendedDefinition, CArcObjectsFeatureLayerExtendedDefinition) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(Layer, ILayer, IID_ILayer, CArcObjectsLayer) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(Map, IMap, IID_IMap, CArcObjectsMap) 
-ARCOBJECTS_OUTER_CLASS_FACTORY(MapDocument, IMapDocument, IID_IMapDocument, CArcObjectsMapDocument) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Domain, IDomain, IID_IDomain, CArcObjectsDomain) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureClass, IFeatureClass, IID_IFeatureClass, CArcObjectsFeatureClass) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureLayer, IFeatureLayer, IID_IFeatureLayer, CArcObjectsFeatureLayer) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureLayerDefinition, IFeatureLayerDefinition, IID_IFeatureLayerDefinition, CArcObjectsFeatureLayerDefinition) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureLayerExtendedDefinition, IFeatureLayerExtendedDefinition, IID_IFeatureLayerExtendedDefinition, CArcObjectsFeatureLayerExtendedDefinition) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Layer, ILayer, IID_ILayer, CArcObjectsLayer) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Map, IMap, IID_IMap, CArcObjectsMap) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(MapDocument, IMapDocument, IID_IMapDocument, CArcObjectsMapDocument) 
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Subtypes, ISubtypes, IID_ISubtypes, CArcObjectsSubtypes) 

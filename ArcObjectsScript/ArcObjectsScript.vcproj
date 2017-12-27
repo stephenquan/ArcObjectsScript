@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsDomain.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureClass.cpp"
 				>
 			</File>
@@ -251,6 +255,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsScript.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSubtypes.cpp"
 				>
 			</File>
 			<File
@@ -310,6 +318,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsDomain.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureClass.h"
 				>
 			</File>
@@ -338,6 +350,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsSubtypes.h"
+				>
+			</File>
+			<File
 				RelativePath=".\dllmain.h"
 				>
 			</File>
@@ -361,6 +377,10 @@
 			>
 			<File
 				RelativePath=".\ArcObjects.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsDomain.rgs"
 				>
 			</File>
 			<File
@@ -397,6 +417,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsScript.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSubtypes.rgs"
 				>
 			</File>
 		</Filter>
