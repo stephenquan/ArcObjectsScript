@@ -44,7 +44,6 @@ END_COM_MAP()
 
     HRESULT FinalConstruct()
     {
-        OutputDebugString(L"FeatureLayer::FinalConstruct");
         return S_OK;
     }
 

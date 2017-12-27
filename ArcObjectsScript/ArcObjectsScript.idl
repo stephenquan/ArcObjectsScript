@@ -309,20 +309,20 @@ library ArcObjectsScriptLib
         pointer_default(unique)
     ]
     interface IArcObjectsSubtypes : IDispatch{
-        [propget] HRESULT HasSubtype([out, retval] VARIANT_BOOL* value);
-        [propget] HRESULT DefaultSubtypeCode([out, retval] LONG* value);
-        [propput] HRESULT DefaultSubtypeCode([in] LONG value);
-        HRESULT GetDefaultValue(LONG l, BSTR b, [out, retval] VARIANT* value);
-        HRESULT SetDefaultValue(LONG l, BSTR b, [in] VARIANT value);
-        [propget] HRESULT SubtypeFieldName([out, retval] BSTR* name);
-        [propput] HRESULT SubtypeFieldName([in] BSTR name);
-        [propget] HRESULT SubtypeFieldIndex([out, retval] LONG* value);
-        HRESULT GetSubtypeName([in] LONG index, [out, retval] BSTR* value);
-        HRESULT DeleteSubtype([in] LONG index);
-        HRESULT AddSubtype([in] LONG index, [in] BSTR name);
+        [propget] HRESULT HasSubtype([out, retval] VARIANT_BOOL* hasSubtype);
+        [propget] HRESULT DefaultSubtypeCode([out, retval] LONG* subtypeCode);
+        [propput] HRESULT DefaultSubtypeCode([in] LONG subtypeCode);
+        HRESULT GetDefaultValue([in] LONG subtypeCode, [in] BSTR fieldName, [out, retval] VARIANT* value);
+        HRESULT SetDefaultValue([in] LONG subtypeCode, [in] BSTR fieldName, [in] VARIANT value);
+        HRESULT GetDomain([in] LONG subtypeCode, [in] BSTR fieldName, [out, retval] VARIANT* domain);
+        HRESULT SetDomain([in] LONG subtypeCode, [in] BSTR fieldName, [in] VARIANT* domain);
+        [propget] HRESULT SubtypeFieldName([out, retval] BSTR* fieldName);
+        [propput] HRESULT SubtypeFieldName([in] BSTR fieldName);
+        [propget] HRESULT SubtypeFieldIndex([out, retval] LONG* index);
+        HRESULT GetSubtypeName([in] LONG subtypeCode, [out, retval] BSTR* value);
         [propget] HRESULT Subtypes([out, retval] VARIANT* subtypes);
-        HRESULT GetDomain([in] LONG, [in] BSTR, [out, retval] VARIANT*);
-        HRESULT SetDomain([in] LONG, [in] BSTR, [in] VARIANT*);
+        HRESULT AddSubtype([in] LONG subtypeCode, [in] BSTR subtypeName);
+        HRESULT DeleteSubtype([in] LONG subtypeCode);
     };
 
     //

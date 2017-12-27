@@ -58,16 +58,15 @@ public:
     DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_DefaultSubtypeCode, put_DefaultSubtypeCode, LONG)
     DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, GetDefaultValue, get_DefaultValue, LONG, BSTR, VARIANT*)
     DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, GetSubtypeName, get_SubtypeName, LONG, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, DeleteSubtype, DeleteSubtype, LONG)
-    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, AddSubtype, AddSubtype, LONG, BSTR)
     STDMETHOD(GetDomain)(LONG, BSTR, VARIANT*);
     STDMETHOD(SetDomain)(LONG, BSTR, VARIANT*);
+    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, GetSubtypeName, get_SubtypeName, LONG, BSTR*)
     STDMETHOD(get_Subtypes)(VARIANT* subtypes);
-
+    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, AddSubtype, AddSubtype, LONG, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, DeleteSubtype, DeleteSubtype, LONG)
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsSubtypes), CArcObjectsSubtypes)
