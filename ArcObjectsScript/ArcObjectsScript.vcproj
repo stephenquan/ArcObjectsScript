@@ -210,7 +210,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsBase.cpp"
+				RelativePath=".\ArcObjectsClass.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsClassInner.cpp"
 				>
 			</File>
 			<File
@@ -231,6 +235,14 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsField.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsInner.cpp"
 				>
 			</File>
 			<File
@@ -314,7 +326,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsBase.h"
+				RelativePath=".\ArcObjectsClass.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsClassInner.h"
 				>
 			</File>
 			<File
@@ -335,6 +351,14 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsField.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsInner.h"
 				>
 			</File>
 			<File
@@ -380,6 +404,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsClass.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsDomain.rgs"
 				>
 			</File>
@@ -397,6 +425,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsField.rgs"
 				>
 			</File>
 			<File

@@ -29,52 +29,12 @@ library ArcObjectsScriptLib
         pointer_default(unique)
     ]
     interface IArcObjects : IDispatch{
-        
-        //----------------------------------------------------------------------
-
-        [id(61)] HRESULT IsClass([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-        [id(62)] HRESULT Class_Fields([in] VARIANT* obj, [out, retval] VARIANT* result);
-
-        //----------------------------------------------------------------------
-
-        [id(71)] HRESULT IsField([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-        [id(72)] HRESULT Field_Name([in] VARIANT* obj, [out, retval] BSTR* fieldName);
-
-        //----------------------------------------------------------------------
-
-        //----------------------------------------------------------------------
-
-        [id(41)] HRESULT IsSubtypes([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-        [id(42)] HRESULT Subtypes_HasSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-        [id(43)] HRESULT Subtypes_DefaultSubtypeCode([in] VARIANT* obj, [out, retval] LONG* result);
-        [id(44)] HRESULT Subtypes_SetDefaultSubtypeCode([in] VARIANT* obj, [in] LONG subtypeCode);
-        [id(45)] HRESULT Subtypes_DefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
-        [id(46)] HRESULT Subtypes_SetDefaultValue([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT value);
-        [id(47)] HRESULT Subtypes_Domain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [out, retval] VARIANT* result);
-        [id(48)] HRESULT Subtypes_SetDomain([in] VARIANT* obj, [in] LONG subtypeCode, BSTR fieldName, [in] VARIANT* domain);
-        [id(49)] HRESULT Subtypes_SubtypeFieldName([in] VARIANT* obj, [out, retval] BSTR* fieldName);
-        [id(50)] HRESULT Subtypes_SetSubtypeFieldName([in] VARIANT* obj, [in] BSTR fieldName);
-        [id(51)] HRESULT Subtypes_SubtypeFieldIndex([in] VARIANT* obj, [out,retval] LONG* index);
-        [id(52)] HRESULT Subtypes_SubtypeName([in] VARIANT* obj, [in] LONG subtypeCode, [out,retval] BSTR* subtypeName);
-        [id(53)] HRESULT Subtypes_Subtypes([in] VARIANT* obj, [out,retval] VARIANT* enumSubtypes);
-        [id(54)] HRESULT Subtypes_AddSubtype([in] VARIANT* obj, [in] LONG subtypeCode, [in] BSTR subtypeName);
-        [id(55)] HRESULT Subtypes_DeleteSubtype([in] VARIANT* obj, [in] LONG subtypeCode);
-
-        //----------------------------------------------------------------------
-
-        //[id(61)] HRESULT IsEnumSubtype([in] VARIANT* obj, [out, retval] VARIANT_BOOL* result);
-        //[id(62)] HRESULT EnumSubtype_Next([in] VARIANT* obj, [out] LONG* subtypeCode, [out, retval] BSTR* subtypeName);
-        //[id(63)] HRESULT EnumSubtype_Reset([in] VARIANT* obj);
-
-        //
-        //
-        //
-
         [id(80)] HRESULT Domain([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(90)] HRESULT FeatureClass([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(100)] HRESULT FeatureLayer([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(101)] HRESULT FeatureLayerDefinition([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(102)] HRESULT FeatureLayerExtendedDefinition([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
+        [id(12)] HRESULT Field([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(103)] HRESULT Layer([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(113)] HRESULT Map([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
         [id(123)] HRESULT MapDocument([in, optional] VARIANT* inner, [out,retval] VARIANT* outer);
@@ -274,34 +234,6 @@ library ArcObjectsScriptLib
 
     [
         object,
-        uuid(4BC4FDCF-878D-42DB-A28E-ED2927DC2D8E),
-        dual,
-        nonextensible,
-        helpstring("IArcObjectsFeatureClass Interface"),
-        pointer_default(unique)
-    ]
-    interface IArcObjectsFeatureClass : IDispatch{
-    };
-
-    //
-    //
-    //
-
-    [
-        uuid(F031CF0C-88CA-482C-9FF8-188300272205),
-        helpstring("ArcObjectsFeatureClass Class")
-    ]
-    coclass ArcObjectsFeatureClass
-    {
-        [default] interface IArcObjectsFeatureClass;
-    };
-
-    //
-    //
-    //
-
-    [
-        object,
         uuid(22B75AA7-23FC-4F76-8471-C20789509FF1),
         dual,
         nonextensible,
@@ -365,4 +297,92 @@ library ArcObjectsScriptLib
     {
         [default] interface IArcObjectsDomain;
     };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(BD55CC31-347E-4E17-A00F-182A9D04BED3),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsClass : IDispatch{
+        [propget] HRESULT Fields([out, retval] VARIANT* fields);
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(1CBEC865-753B-47F3-952F-D87386824729),
+        helpstring("ArcObjectsClass Class")
+    ]
+    coclass ArcObjectsClass
+    {
+        [default] interface IArcObjectsClass;
+    };
+
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(4BC4FDCF-878D-42DB-A28E-ED2927DC2D8E),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureClass : IArcObjectsClass {
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(F031CF0C-88CA-482C-9FF8-188300272205),
+        helpstring("ArcObjectsFeatureClass Class")
+    ]
+    coclass ArcObjectsFeatureClass
+    {
+        [default] interface IArcObjectsFeatureClass;
+    };
+
+    [
+        object,
+        uuid(56504920-EFE1-4448-9CD4-AD2C2DA28F31),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsField Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsField : IDispatch{
+        [propget] HRESULT Name([out, retval] BSTR* name);
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(46711B21-F34D-4EBB-BCB1-021909A1AA7C),
+        helpstring("ArcObjectsField Class")
+    ]
+    coclass ArcObjectsField
+    {
+        [default] interface IArcObjectsField;
+    };
+
+    //
+    //
+    //
+
 };

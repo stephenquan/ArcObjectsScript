@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.Field = s 'ArcObjectsField Class'
+    {
+        CLSID = s '{46711B21-F34D-4EBB-BCB1-021909A1AA7C}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {46711B21-F34D-4EBB-BCB1-021909A1AA7C} = s 'ArcObjectsField Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.Field'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.Field'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

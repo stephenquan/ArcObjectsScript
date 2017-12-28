@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsBase.h"
+#include "ArcObjectsInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -19,10 +19,10 @@ class ATL_NO_VTABLE CArcObjectsFeatureLayer :
     public CComCoClass<CArcObjectsFeatureLayer, &CLSID_ArcObjectsFeatureLayer>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsFeatureLayer, &IID_IArcObjectsFeatureLayer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsBase
+    public CArcObjectsInner
 {
 public:
-    CArcObjectsFeatureLayer() : CArcObjectsBase()
+    CArcObjectsFeatureLayer() : CArcObjectsInner()
     {
     }
 

@@ -14,6 +14,8 @@
 #define IDR_ARCOBJECTSFEATURECLASS      109
 #define IDR_ARCOBJECTSSUBTYPES          110
 #define IDR_ARCOBJECTSDOMAIN            111
+#define IDR_ARCOBJECTSCLASS             112
+#define IDR_ARCOBJECTSFIELD             113
 
 // Next default values for new objects
 // 
@@ -22,6 +24,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        201
 #define _APS_NEXT_COMMAND_VALUE         32768
 #define _APS_NEXT_CONTROL_VALUE         201
-#define _APS_NEXT_SYMED_VALUE           112
+#define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif

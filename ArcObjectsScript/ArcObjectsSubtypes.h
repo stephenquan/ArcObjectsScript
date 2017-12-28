@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsBase.h"
+#include "ArcObjectsInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsSubtypes :
     public CComCoClass<CArcObjectsSubtypes, &CLSID_ArcObjectsSubtypes>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsSubtypes, &IID_IArcObjectsSubtypes, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsBase
+    public CArcObjectsInner
 {
 public:
     CArcObjectsSubtypes()
