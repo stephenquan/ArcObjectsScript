@@ -53,6 +53,22 @@ END_COM_MAP()
     }
 
 public:
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, get_DomainID, get_DomainID, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, put_DomainID, put_DomainID, LONG)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, get_Description, get_Description, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, put_Description, put_Description, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IDomain, IID_IDomain, get_FieldType, get_FieldType, esriFieldType)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E(IDomain, IID_IDomain, put_FieldType, put_FieldType, esriFieldType)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IDomain, IID_IDomain, get_MergePolicy, get_MergePolicy, esriMergePolicyType)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E(IDomain, IID_IDomain, put_MergePolicy, put_MergePolicy, esriMergePolicyType)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IDomain, IID_IDomain, get_SplitPolicy, get_SplitPolicy, esriSplitPolicyType)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E(IDomain, IID_IDomain, put_SplitPolicy, put_SplitPolicy, esriSplitPolicyType)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, get_Name, get_Name, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, put_Name, put_Name, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, get_Owner, get_Owner, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(IDomain, IID_IDomain, put_Owner, put_Owner, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IDomain, IID_IDomain, get_Type, get_Type, esriDomainType)
+    DECLARE_ARCOBJECTS_STDMETHOD2(IDomain, IID_IDomain, MemberOf, MemberOf, VARIANT, VARIANT_BOOL*);
 
 };
 

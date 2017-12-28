@@ -75,6 +75,34 @@ using namespace ATL;
         return hr; \
     }
 
+#define DECLARE_ARCOBJECTS_STDMETHOD1_E(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, ENUM_TYPE) \
+    STDMETHOD(OUTER_NAME)(LONG arg1) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        hr = m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner); \
+        if (FAILED(hr)) return hr; \
+        hr = spInner->##INNER_NAME((ENUM_TYPE) arg1); \
+        if (FAILED(hr)) return hr; \
+        return hr; \
+    }
+
+#define DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, ENUM_TYPE) \
+    STDMETHOD(OUTER_NAME)(LONG* argReturn) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        hr = m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner); \
+        if (FAILED(hr)) return hr; \
+        ENUM_TYPE valueReturn; \
+        hr = spInner->##INNER_NAME(&valueReturn); \
+        if (FAILED(hr)) return hr; \
+        *argReturn = (LONG) valueReturn; \
+        return hr; \
+    }
+
 #define DECLARE_ARCOBJECTS_STDMETHOD2(INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, T1, T2) \
     STDMETHOD(OUTER_NAME)(##T1 arg1, ##T2 arg2) \
     { \

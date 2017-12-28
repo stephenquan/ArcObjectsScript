@@ -7,6 +7,22 @@
 import "oaidl.idl";
 import "ocidl.idl";
 
+enum
+{
+    PROPID_BASE = 1024,
+    PROPID_Description,
+    PROPID_DomainID,
+    PROPID_FieldType,
+    PROPID_MergePolicy,
+    PROPID_Name,
+    PROPID_Owner,
+    PROPID_SplitPolicy,
+    PROPID_Type,
+
+    METHID_BASE = 2048,
+    METHID_MemberOf,
+};
+
 [
     uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050),
     version(1.0),
@@ -283,6 +299,22 @@ library ArcObjectsScriptLib
         pointer_default(unique)
     ]
     interface IArcObjectsDomain : IDispatch{
+        [id(PROPID_DomainID), propget] HRESULT DomainID([out, retval] LONG* domainID);
+        [id(PROPID_DomainID), propput] HRESULT DomainID([in] LONG domainID);
+        [id(PROPID_Description), propget] HRESULT Description([out, retval] BSTR* description);
+        [id(PROPID_Description), propput] HRESULT Description([in] BSTR description);
+        [id(PROPID_FieldType), propget] HRESULT FieldType([out, retval] LONG* fieldType);
+        [id(PROPID_FieldType), propput] HRESULT FieldType([in] LONG fieldType);
+        [id(PROPID_MergePolicy), propget] HRESULT MergePolicy([out, retval] LONG* mergePolicy);
+        [id(PROPID_MergePolicy), propput] HRESULT MergePolicy([in] LONG mergePolicy);
+        [id(PROPID_SplitPolicy), propget] HRESULT SplitPolicy([out, retval] LONG* splitPolicy);
+        [id(PROPID_SplitPolicy), propput] HRESULT SplitPolicy([in] LONG splitPolicy);
+        [id(PROPID_Name), propget] HRESULT Name([out, retval] BSTR* name);
+        [id(PROPID_Name), propput] HRESULT Name([in] BSTR name);
+        [id(PROPID_Owner), propget] HRESULT Owner([out, retval] BSTR* description);
+        [id(PROPID_Owner), propput] HRESULT Owner([in] BSTR description);
+        [id(PROPID_Type), propget] HRESULT Type([out, retval] LONG* type);
+        [id(METHID_MemberOf)] HRESULT MemberOf([in] VARIANT value, [out, retval] VARIANT_BOOL* isMember);
     };
 
     //
