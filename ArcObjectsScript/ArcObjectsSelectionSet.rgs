@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.SelectionSet = s 'ArcObjectsSelectionSet Class'
+    {
+        CLSID = s '{8ECEC491-F45D-4930-9300-DF16AD5D4E06}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {8ECEC491-F45D-4930-9300-DF16AD5D4E06} = s 'ArcObjectsSelectionSet Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.SelectionSet'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.SelectionSet'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

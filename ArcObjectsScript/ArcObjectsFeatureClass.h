@@ -55,21 +55,21 @@ public:
     // IClass
     STDMETHOD(get_Fields)(VARIANT *fields) { return CArcObjectsClassInner::get_Fields(fields); }
 
-	// IFeatureClass
+    // IFeatureClass
     DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IFeatureClass, IID_IFeatureClass, get_ShapeType, get_ShapeType, esriGeometryType)
     DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(IFeatureClass, IID_IFeatureClass, get_FeatureType, get_FeatureType, esriFeatureType)
     DECLARE_ARCOBJECTS_STDMETHOD1(IFeatureClass, IID_IFeatureClass, get_ShapeFieldName, get_ShapeFieldName, BSTR*)
-	STDMETHOD(get_AreaField)(VARIANT* field);
-	STDMETHOD(get_LengthField)(VARIANT* field);
-	STDMETHOD(get_FeatureDataset)(VARIANT* featureDataset);
-	STDMETHOD(CreateFeature)(VARIANT* feature);
-	STDMETHOD(GetFeatures)(VARIANT fids, VARIANT_BOOL recycling, VARIANT* featureCursor);
-	STDMETHOD(CreateFeatureBuffer)(VARIANT* featureBuffer);
-	STDMETHOD(FeatureCount)(VARIANT queryFilter, LONG* numFeatures);
-	STDMETHOD(Search)(VARIANT queryFilter, VARIANT_BOOL recycling, VARIANT* featureCursor);
-	STDMETHOD(Update)(VARIANT queryFilter, VARIANT_BOOL recycling, VARIANT* featureCursor);
-	STDMETHOD(Insert)(VARIANT_BOOL recycling, VARIANT* featureCursor);
-	STDMETHOD(Select)(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* selectionSet);
+    STDMETHOD(get_AreaField)(VARIANT* field);
+    STDMETHOD(get_LengthField)(VARIANT* field);
+    STDMETHOD(get_FeatureDataset)(VARIANT* featureDataset);
+    STDMETHOD(CreateFeature)(VARIANT* feature);
+    STDMETHOD(GetFeatures)(VARIANT fids, VARIANT_BOOL recycling, VARIANT* featureCursor);
+    STDMETHOD(CreateFeatureBuffer)(VARIANT* featureBuffer);
+    STDMETHOD(FeatureCount)(VARIANT queryFilter, LONG* numFeatures);
+    STDMETHOD(Search)(VARIANT queryFilter, VARIANT_BOOL recycling, VARIANT* featureCursor);
+    STDMETHOD(Update)(VARIANT queryFilter, VARIANT_BOOL recycling, VARIANT* featureCursor);
+    STDMETHOD(Insert)(VARIANT_BOOL recycling, VARIANT* featureCursor);
+    STDMETHOD(Select)(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* selectionSet);
 
 };
 

@@ -15,41 +15,41 @@
 // CArcObjectsWorkspace
 
 class ATL_NO_VTABLE CArcObjectsWorkspace :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CArcObjectsWorkspace, &CLSID_ArcObjectsWorkspace>,
-	public ISupportErrorInfo,
-	public IDispatchImpl<IArcObjectsWorkspace, &IID_IArcObjectsWorkspace, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public CArcObjectsInner
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CArcObjectsWorkspace, &CLSID_ArcObjectsWorkspace>,
+    public ISupportErrorInfo,
+    public IDispatchImpl<IArcObjectsWorkspace, &IID_IArcObjectsWorkspace, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public CArcObjectsInner
 {
 public:
-	CArcObjectsWorkspace()
-	{
-	}
+    CArcObjectsWorkspace()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSWORKSPACE)
 
 
 BEGIN_COM_MAP(CArcObjectsWorkspace)
-	COM_INTERFACE_ENTRY(IArcObjectsWorkspace)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+    COM_INTERFACE_ENTRY(IArcObjectsWorkspace)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
 END_COM_MAP()
 
 // ISupportsErrorInfo
-	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
+    STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+    HRESULT FinalConstruct()
+    {
+        return S_OK;
+    }
 
-	void FinalRelease()
-	{
-	}
+    void FinalRelease()
+    {
+    }
 
 public:
 

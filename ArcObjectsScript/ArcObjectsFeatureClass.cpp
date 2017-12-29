@@ -9,6 +9,7 @@
 #include "ArcObjectsFeatureCursor.h"
 #include "ArcObjectsFeatureDataset.h"
 #include "ArcObjectsQueryFilter.h"
+#include "ArcObjectsSelectionSet.h"
 
 
 // CArcObjectsFeatureClass
@@ -39,19 +40,32 @@ IMPLEMENT_ARCOBJECTS_STDMETHOD3_OSO_RET(FeatureClass, IFeatureClass, IID_IFeatur
 IMPLEMENT_ARCOBJECTS_STDMETHOD3_OSO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, Update, Update, QueryFilter, VARIANT_BOOL, FeatureCursor)
 IMPLEMENT_ARCOBJECTS_STDMETHOD2_SO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, Insert, Insert, VARIANT_BOOL, FeatureCursor)
 
-STDMETHODIMP CArcObjectsFeatureClass::Select(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* selectionSet)
+STDMETHODIMP CArcObjectsFeatureClass::Select(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* argResult)
 {
-	return E_NOTIMPL;
+    HRESULT hr = S_OK;
+    if (!argResult) return E_INVALIDARG;
+    VariantInit(argResult);
+    if (!m_Inner) return E_POINTER;
+    CComPtr<IFeatureClass> spInner;
+    CHECKHR(m_Inner->QueryInterface(IID_IFeatureClass, (void**) &spInner));
+    CComPtr<IQueryFilter> spInnerObject;
+    hr = (CArcObjects::GetObject(&queryFilter, IID_IQueryFilter, (void**) &spInnerObject));
+    if (FAILED(hr)) return hr;
+    CComPtr<IWorkspace> spInnerObject2;
+    hr = (CArcObjects::GetObject(&workspace, IID_IWorkspace, (void**) &spInnerObject2));
+    if (FAILED(hr)) return hr;
+    CComPtr<ISelectionSet> spInnerResult;
+    CHECKHR(spInner->Select(spInnerObject, (esriSelectionType) selectionType, (esriSelectionOption) selectionOption, spInnerObject2, &spInnerResult));
+    if (!spInnerResult)
+    {
+        argResult->vt = VT_DISPATCH;
+        V_DISPATCH(argResult) = NULL;
+        return S_FALSE;
+    }
+    CComObject<CArcObjectsSelectionSet>* ptrOuterResult = NULL;
+    CHECKHR(CComObject<CArcObjectsSelectionSet>::CreateInstance(&ptrOuterResult));
+    ptrOuterResult->m_Inner = spInnerResult;
+    CHECKHR(CComVariant((IDispatch*) ptrOuterResult).Detach(argResult));
+    return hr;
+    return E_NOTIMPL;
 }
-
-#ifdef TODO
-      virtual HRESULT __stdcall Select (
-        /*[in]*/ struct IQueryFilter * QueryFilter,
-        /*[in]*/ enum esriSelectionType selType,
-        /*[in]*/ enum esriSelectionOption selOption,
-        /*[in]*/ struct IWorkspace * selectionContainer,
-        /*[out,retval]*/ struct ISelectionSet * * SelectionSet ) = 0;
-	STDMETHOD(Select)(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* selectionSet);
-
-#endif
-

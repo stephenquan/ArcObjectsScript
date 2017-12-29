@@ -19,6 +19,7 @@
 #include "ArcObjectsQueryFilter.h"
 #include "ArcObjectsRow.h"
 #include "ArcObjectsRowBuffer.h"
+#include "ArcObjectsSelectionSet.h"
 #include "ArcObjectsSpatialReference.h"
 #include "ArcObjectsSubtypes.h"
 #include "ArcObjectsWorkspace.h"
@@ -217,6 +218,7 @@ IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(MapDocument)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(QueryFilter)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Row)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(RowBuffer)
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(SelectionSet)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(SpatialReference)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(Subtypes)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Workspace)

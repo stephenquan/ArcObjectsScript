@@ -25,6 +25,7 @@
 #define IDR_ARCOBJECTSFEATUREBUFFER     120
 #define IDR_ARCOBJECTSFEATUREDATASET    121
 #define IDR_ARCOBJECTSWORKSPACE         122
+#define IDR_ARCOBJECTSSELECTIONSET      123
 
 // Next default values for new objects
 // 
@@ -33,6 +34,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        201
 #define _APS_NEXT_COMMAND_VALUE         32768
 #define _APS_NEXT_CONTROL_VALUE         201
-#define _APS_NEXT_SYMED_VALUE           123
+#define _APS_NEXT_SYMED_VALUE           124
 #endif
 #endif
