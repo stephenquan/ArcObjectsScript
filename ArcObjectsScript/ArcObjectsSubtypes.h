@@ -59,7 +59,7 @@ public:
     DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, GetDefaultValue, get_DefaultValue, LONG, BSTR, VARIANT*)
     DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
     STDMETHOD(GetDomain)(LONG, BSTR, VARIANT*);
-    STDMETHOD(SetDomain)(LONG, BSTR, VARIANT*);
+    STDMETHOD(SetDomain)(LONG, BSTR, VARIANT);
     DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
     DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
     DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)

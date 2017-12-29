@@ -1,0 +1,21 @@
+HKCR
+{
+	Scripting.ArcObjects.QueryFilter = s 'ArcObjectsQueryFilter Class'
+	{
+		CLSID = s '{3B94564D-A3F3-4E56-B06C-530F90DC41FC}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3B94564D-A3F3-4E56-B06C-530F90DC41FC} = s 'ArcObjectsQueryFilter Class'
+		{
+			ProgID = s 'Scripting.ArcObjects.QueryFilter'
+			VersionIndependentProgID = s 'Scripting.ArcObjects.QueryFilter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+		}
+	}
+}

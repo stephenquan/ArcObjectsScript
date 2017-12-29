@@ -21,4 +21,4 @@ STDMETHODIMP CArcObjectsMap::InterfaceSupportsErrorInfo(REFIID riid)
     return S_FALSE;
 }
 
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_SV_RET(Map, IMap, IID_IMap, Layer, get_Layer, LONG, Layer)
+IMPLEMENT_ARCOBJECTS_STDMETHOD2_SO_RET(Map, IMap, IID_IMap, Layer, get_Layer, LONG, Layer)

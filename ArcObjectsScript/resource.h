@@ -16,6 +16,13 @@
 #define IDR_ARCOBJECTSDOMAIN            111
 #define IDR_ARCOBJECTSCLASS             112
 #define IDR_ARCOBJECTSFIELD             113
+#define IDR_ARCOBJECTSFEATURECURSOR     114
+#define IDR_ARCOBJECTSQUERYFILTER       115
+#define IDR_ARCOBJECTSFEATURE           116
+#define IDR_ARCOBJECTSROW               117
+#define IDR_ARCOBJECTSSPATIALREFERENCE  118
+#define IDR_ARCOBJECTSROWBUFFER         119
+#define IDR_ARCOBJECTSFEATUREBUFFER     120
 
 // Next default values for new objects
 // 
@@ -24,6 +31,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        201
 #define _APS_NEXT_COMMAND_VALUE         32768
 #define _APS_NEXT_CONTROL_VALUE         201
-#define _APS_NEXT_SYMED_VALUE           114
+#define _APS_NEXT_SYMED_VALUE           121
 #endif
 #endif

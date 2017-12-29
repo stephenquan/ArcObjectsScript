@@ -222,7 +222,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeature.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureBuffer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureClass.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureCursor.cpp"
 				>
 			</File>
 			<File
@@ -258,6 +270,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsQueryFilter.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRow.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRowBuffer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsScript.cpp"
 				>
 			</File>
@@ -267,6 +291,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsScript.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSpatialReference.cpp"
 				>
 			</File>
 			<File
@@ -338,7 +366,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeature.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureBuffer.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureClass.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureCursor.h"
 				>
 			</File>
 			<File
@@ -371,6 +411,22 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsMapDocument.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsQueryFilter.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRow.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRowBuffer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSpatialReference.h"
 				>
 			</File>
 			<File
@@ -412,7 +468,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeature.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureBuffer.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureClass.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureCursor.rgs"
 				>
 			</File>
 			<File
@@ -444,11 +512,27 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsQueryFilter.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRow.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRowBuffer.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsScript.rc"
 				>
 			</File>
 			<File
 				RelativePath=".\ArcObjectsScript.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSpatialReference.rgs"
 				>
 			</File>
 			<File

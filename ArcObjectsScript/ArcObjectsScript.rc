@@ -139,6 +139,13 @@ IDR_ARCOBJECTSSUBTYPES  REGISTRY                "ArcObjectsSubtypes.rgs"
 IDR_ARCOBJECTSDOMAIN    REGISTRY                "ArcObjectsDomain.rgs"
 IDR_ARCOBJECTSCLASS     REGISTRY                "ArcObjectsClass.rgs"
 IDR_ARCOBJECTSFIELD     REGISTRY                "ArcObjectsField.rgs"
+IDR_ARCOBJECTSFEATURECURSOR REGISTRY                "ArcObjectsFeatureCursor.rgs"
+IDR_ARCOBJECTSQUERYFILTER REGISTRY                "ArcObjectsQueryFilter.rgs"
+IDR_ARCOBJECTSFEATURE   REGISTRY                "ArcObjectsFeature.rgs"
+IDR_ARCOBJECTSROW       REGISTRY                "ArcObjectsRow.rgs"
+IDR_ARCOBJECTSSPATIALREFERENCE REGISTRY                "ArcObjectsSpatialReference.rgs"
+IDR_ARCOBJECTSROWBUFFER REGISTRY                "ArcObjectsRowBuffer.rgs"
+IDR_ARCOBJECTSFEATUREBUFFER REGISTRY                "ArcObjectsFeatureBuffer.rgs"
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 

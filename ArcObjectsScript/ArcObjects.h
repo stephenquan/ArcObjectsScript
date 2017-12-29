@@ -10,6 +10,11 @@
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
 #endif
 
+#define DECLARE_ARCOBJECTS_CLASS_FACTORY(T) \
+	public: \
+		STDMETHOD(T)(VARIANT inner, VARIANT* outer);
+
+
 
 // CArcObjects
 
@@ -52,17 +57,24 @@ public:
     static HRESULT GetObject(VARIANT* obj, REFIID riid, void** ptr);
 
 public:
-    STDMETHOD(Class)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(Domain)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(FeatureClass)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(FeatureLayer)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(FeatureLayerDefinition)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(FeatureLayerExtendedDefinition)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(Field)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(Layer)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(Map)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(MapDocument)(VARIANT* inner, VARIANT* outer);
-    STDMETHOD(Subtypes)(VARIANT* inner, VARIANT* outer);
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Class)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Domain)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Feature)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureBuffer)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureClass)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureCursor)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayer)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayerDefinition)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayerExtendedDefinition)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Field)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Layer)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Map)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(MapDocument)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(QueryFilter)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Row)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(RowBuffer)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(SpatialReference)
+    DECLARE_ARCOBJECTS_CLASS_FACTORY(Subtypes)
 
 };
 
