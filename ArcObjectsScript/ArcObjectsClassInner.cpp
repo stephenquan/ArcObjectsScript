@@ -1,6 +1,7 @@
 // ArcObjects.cpp : Implementation of CArcObjects
 
 #include "stdafx.h"
+#include "ArcObjects.h"
 #include "ArcObjectsClassInner.h"
 #include "ArcObjectsField.h"
 
@@ -36,3 +37,27 @@ STDMETHODIMP CArcObjectsClassInner::get_Fields(VARIANT* value)
 
     return hr;
 }
+
+STDMETHODIMP CArcObjectsClassInner::get_Indexes(VARIANT* indexes)
+{
+    return E_NOTIMPL;
+}
+
+IMPLEMENT_ARCOBJECTS_STDMETHOD1_O(ClassInner, IClass, IID_IClass, AddField, AddField, Field)
+IMPLEMENT_ARCOBJECTS_STDMETHOD1_O(ClassInner, IClass, IID_IClass, DeleteField, DeleteField, Field)
+
+STDMETHODIMP CArcObjectsClassInner::AddIndex(VARIANT index)
+{
+    return E_NOTIMPL;
+}
+
+STDMETHODIMP CArcObjectsClassInner::DeleteIndex(VARIANT index)
+{
+    return E_NOTIMPL;
+}
+
+STDMETHODIMP CArcObjectsClassInner::get_ExtensionProperties(VARIANT* propertySet)
+{
+    return E_NOTIMPL;
+}
+

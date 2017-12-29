@@ -53,7 +53,19 @@ END_COM_MAP()
 
 public:
     // IClass
+    STDMETHOD(FindField)(BSTR name, LONG* fieldIndex) { return CArcObjectsClassInner::FindField(name, fieldIndex); }
     STDMETHOD(get_Fields)(VARIANT *fields) { return CArcObjectsClassInner::get_Fields(fields); }
+    STDMETHOD(get_Indexes)(VARIANT *indexes) { return CArcObjectsClassInner::get_Indexes(indexes); }
+    STDMETHOD(AddField)(VARIANT field) { return CArcObjectsClassInner::AddField(field); }
+    STDMETHOD(DeleteField)(VARIANT field) { return CArcObjectsClassInner::DeleteField(field); }
+    STDMETHOD(AddIndex)(VARIANT index) { return CArcObjectsClassInner::AddIndex(index); }
+    STDMETHOD(DeleteIndex)(VARIANT index) { return CArcObjectsClassInner::DeleteIndex(index); }
+    STDMETHOD(get_HasOID)(VARIANT_BOOL *hasOID) { return CArcObjectsClassInner::get_HasOID(hasOID); }
+    STDMETHOD(get_OIDFieldName)(BSTR *name) { return CArcObjectsClassInner::get_OIDFieldName(name); }
+    STDMETHOD(get_CLSID)(VARIANT* clsid) { return CArcObjectsClassInner::get_CLSID(clsid); }
+    STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return CArcObjectsClassInner::get_EXTCLSID(clsid); }
+    STDMETHOD(get_Extension)(VARIANT* extension) { return CArcObjectsClassInner::get_Extension(extension); }
+    STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return CArcObjectsClassInner::get_ExtensionProperties(propertySet); }
 
     // IObjectClass
     STDMETHOD(get_ObjectClassID)(LONG* objectClassID) { return CArcObjectsObjectClassInner::get_ObjectClassID(objectClassID); }

@@ -21,11 +21,19 @@ enum
     PROPID_AliasName,
     PROPID_AreaField,
 
+    PROPID_C = 0x10300,
+    PROPID_CLSID,
+
     PROPID_D = 0x10400,
     PROPID_DefaultSubtypeCode,
     PROPID_DefinitionExpression,
     PROPID_Description,
     PROPID_DomainID,
+
+    PROPID_E = 0x10500,
+    PROPID_Extension,
+    PROPID_ExtensionProperties,
+    PROPID_EXTCLSID,
 
     PROPID_F = 0x10600,
     PROPID_FeatureClass,
@@ -35,7 +43,15 @@ enum
     PROPID_FieldType,
 
     PROPID_H = 0x10800,
+    PROPID_HasOID,
     PROPID_HasSubtype,
+
+    PROPID_I = 0x10900,
+    PROPID_Indexes,
+
+    PROPID_J = 0x10A00,
+
+    PROPID_K = 0x10B00,
 
     PROPID_L = 0x10C00,
     PROPID_LayerCount,
@@ -50,6 +66,7 @@ enum
 
     PROPID_O = 0x10F00,
     PROPID_ObjectClassID,
+    PROPID_OIDFieldName,
     PROPID_Owner,
 
     PROPID_P = 0x11000,
@@ -82,6 +99,7 @@ enum
 
     METHID_A = 0x20100,
     METHID_AddField,
+    METHID_AddIndex,
     METHID_AddSubtype,
 
     METHID_C = 0x20300,
@@ -90,6 +108,8 @@ enum
 
     METHID_D = 0x20400,
     METHID_DeleteFeature,
+    METHID_DeleteField,
+    METHID_DeleteIndex,
     METHID_DeleteSubtype,
     METHID_Domain,
 
@@ -503,7 +523,20 @@ library ArcObjectsScriptLib
         pointer_default(unique)
     ]
     interface IArcObjectsClass : IDispatch{
+        [id(METHID_FindField)] HRESULT FindField([in] BSTR name, [out, retval] LONG* fieldIndex);
         [id(PROPID_Fields), propget] HRESULT Fields([out, retval] VARIANT* fields);
+        [id(PROPID_Indexes), propget] HRESULT Indexes([out, retval] VARIANT* indexes);
+        [id(METHID_AddField)] HRESULT AddField([in] VARIANT field);
+        [id(METHID_DeleteField)] HRESULT DeleteField([in] VARIANT field);
+        [id(METHID_AddIndex)] HRESULT AddIndex([in] VARIANT index);
+        [id(METHID_DeleteIndex)] HRESULT DeleteIndex([in] VARIANT index);
+        [id(PROPID_HasOID), propget] HRESULT HasOID([out, retval] VARIANT_BOOL* hasOID);
+        [id(PROPID_OIDFieldName), propget] HRESULT OIDFieldName([out, retval] BSTR* name);
+        [id(PROPID_CLSID), propget] HRESULT CLSID([out, retval] VARIANT* clsid);
+        [id(PROPID_EXTCLSID), propget] HRESULT EXTCLSID([out, retval] VARIANT* clsid);
+        [id(PROPID_Extension), propget] HRESULT Extension([out, retval] VARIANT* extension);
+        [id(PROPID_ExtensionProperties), propget] HRESULT ExtensionProperties([out, retval] VARIANT* extensionProperties);
+
     };
 
     //
