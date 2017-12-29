@@ -15,41 +15,41 @@
 // CArcObjectsSpatialReference
 
 class ATL_NO_VTABLE CArcObjectsSpatialReference :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CArcObjectsSpatialReference, &CLSID_ArcObjectsSpatialReference>,
-	public ISupportErrorInfo,
-	public IDispatchImpl<IArcObjectsSpatialReference, &IID_IArcObjectsSpatialReference, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public CArcObjectsInner
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CArcObjectsSpatialReference, &CLSID_ArcObjectsSpatialReference>,
+    public ISupportErrorInfo,
+    public IDispatchImpl<IArcObjectsSpatialReference, &IID_IArcObjectsSpatialReference, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public CArcObjectsInner
 {
 public:
-	CArcObjectsSpatialReference()
-	{
-	}
+    CArcObjectsSpatialReference()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSSPATIALREFERENCE)
 
 
 BEGIN_COM_MAP(CArcObjectsSpatialReference)
-	COM_INTERFACE_ENTRY(IArcObjectsSpatialReference)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+    COM_INTERFACE_ENTRY(IArcObjectsSpatialReference)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
 END_COM_MAP()
 
 // ISupportsErrorInfo
-	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
+    STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+    HRESULT FinalConstruct()
+    {
+        return S_OK;
+    }
 
-	void FinalRelease()
-	{
-	}
+    void FinalRelease()
+    {
+    }
 
 public:
 

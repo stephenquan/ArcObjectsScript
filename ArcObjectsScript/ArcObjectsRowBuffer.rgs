@@ -1,21 +1,21 @@
 HKCR
 {
-	Scripting.ArcObjects.RowBuffer = s 'ArcObjectsRowBuffer Class'
-	{
-		CLSID = s '{F31F451F-1745-45FD-BAA4-870702F1F8E9}'
-	}
-	NoRemove CLSID
-	{
-		ForceRemove {F31F451F-1745-45FD-BAA4-870702F1F8E9} = s 'ArcObjectsRowBuffer Class'
-		{
-			ProgID = s 'Scripting.ArcObjects.RowBuffer'
-			VersionIndependentProgID = s 'Scripting.ArcObjects.RowBuffer'
-			ForceRemove 'Programmable'
-			InprocServer32 = s '%MODULE%'
-			{
-				val ThreadingModel = s 'Apartment'
-			}
-			'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
-		}
-	}
+    Scripting.ArcObjects.RowBuffer = s 'ArcObjectsRowBuffer Class'
+    {
+        CLSID = s '{F31F451F-1745-45FD-BAA4-870702F1F8E9}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {F31F451F-1745-45FD-BAA4-870702F1F8E9} = s 'ArcObjectsRowBuffer Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.RowBuffer'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.RowBuffer'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
 }

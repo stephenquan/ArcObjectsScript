@@ -15,41 +15,41 @@
 // CArcObjectsQueryFilter
 
 class ATL_NO_VTABLE CArcObjectsQueryFilter :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CArcObjectsQueryFilter, &CLSID_ArcObjectsQueryFilter>,
-	public ISupportErrorInfo,
-	public IDispatchImpl<IArcObjectsQueryFilter, &IID_IArcObjectsQueryFilter, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public CArcObjectsInner
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CArcObjectsQueryFilter, &CLSID_ArcObjectsQueryFilter>,
+    public ISupportErrorInfo,
+    public IDispatchImpl<IArcObjectsQueryFilter, &IID_IArcObjectsQueryFilter, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public CArcObjectsInner
 {
 public:
-	CArcObjectsQueryFilter()
-	{
-	}
+    CArcObjectsQueryFilter()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSQUERYFILTER)
 
 
 BEGIN_COM_MAP(CArcObjectsQueryFilter)
-	COM_INTERFACE_ENTRY(IArcObjectsQueryFilter)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+    COM_INTERFACE_ENTRY(IArcObjectsQueryFilter)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
 END_COM_MAP()
 
 // ISupportsErrorInfo
-	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
+    STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+    HRESULT FinalConstruct()
+    {
+        return S_OK;
+    }
 
-	void FinalRelease()
-	{
-	}
+    void FinalRelease()
+    {
+    }
 
 public:
     DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, get_SubFields, get_SubFields, BSTR*)
@@ -57,8 +57,8 @@ public:
     DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, AddField, AddField, BSTR)
     DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, get_WhereClause, get_WhereClause, BSTR*)
     DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, put_WhereClause, put_WhereClause, BSTR)
-	STDMETHOD(GetOutputSpatialReference)(BSTR fieldName, VARIANT* spatialReference);
-	STDMETHOD(SetOutputSpatialReference)(BSTR fieldName, VARIANT spatialReference);
+    STDMETHOD(GetOutputSpatialReference)(BSTR fieldName, VARIANT* spatialReference);
+    STDMETHOD(SetOutputSpatialReference)(BSTR fieldName, VARIANT spatialReference);
 
 };
 

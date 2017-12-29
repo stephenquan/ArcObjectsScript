@@ -1,21 +1,21 @@
 HKCR
 {
-	Scripting.ArcObjects.SpatialReference = s 'ArcObjectsSpatialReference Class'
-	{
-		CLSID = s '{339C3A63-AEDF-442B-B5B3-A612F8FEA92D}'
-	}
-	NoRemove CLSID
-	{
-		ForceRemove {339C3A63-AEDF-442B-B5B3-A612F8FEA92D} = s 'ArcObjectsSpatialReference Class'
-		{
-			ProgID = s 'Scripting.ArcObjects.SpatialReference'
-			VersionIndependentProgID = s 'Scripting.ArcObjects.SpatialReference'
-			ForceRemove 'Programmable'
-			InprocServer32 = s '%MODULE%'
-			{
-				val ThreadingModel = s 'Apartment'
-			}
-			'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
-		}
-	}
+    Scripting.ArcObjects.SpatialReference = s 'ArcObjectsSpatialReference Class'
+    {
+        CLSID = s '{339C3A63-AEDF-442B-B5B3-A612F8FEA92D}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {339C3A63-AEDF-442B-B5B3-A612F8FEA92D} = s 'ArcObjectsSpatialReference Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.SpatialReference'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.SpatialReference'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
 }

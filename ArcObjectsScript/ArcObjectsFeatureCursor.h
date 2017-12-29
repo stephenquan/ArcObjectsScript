@@ -15,50 +15,50 @@
 // CArcObjectsFeatureCursor
 
 class ATL_NO_VTABLE CArcObjectsFeatureCursor :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CArcObjectsFeatureCursor, &CLSID_ArcObjectsFeatureCursor>,
-	public ISupportErrorInfo,
-	public IDispatchImpl<IArcObjectsFeatureCursor, &IID_IArcObjectsFeatureCursor, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public CArcObjectsInner
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CArcObjectsFeatureCursor, &CLSID_ArcObjectsFeatureCursor>,
+    public ISupportErrorInfo,
+    public IDispatchImpl<IArcObjectsFeatureCursor, &IID_IArcObjectsFeatureCursor, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public CArcObjectsInner
 {
 public:
-	CArcObjectsFeatureCursor()
-	{
-	}
+    CArcObjectsFeatureCursor()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSFEATURECURSOR)
 
 
 BEGIN_COM_MAP(CArcObjectsFeatureCursor)
-	COM_INTERFACE_ENTRY(IArcObjectsFeatureCursor)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+    COM_INTERFACE_ENTRY(IArcObjectsFeatureCursor)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
 END_COM_MAP()
 
 // ISupportsErrorInfo
-	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
+    STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+    HRESULT FinalConstruct()
+    {
+        return S_OK;
+    }
 
-	void FinalRelease()
-	{
-	}
+    void FinalRelease()
+    {
+    }
 
 public:
     DECLARE_ARCOBJECTS_STDMETHOD2(IFeatureCursor, IID_IFeatureCursor, FindField, FindField, BSTR, LONG*)
-	STDMETHOD(get_Fields)(VARIANT* fields);
-	STDMETHOD(NextFeature)(VARIANT* feature);
-	STDMETHOD(UpdateFeature)(VARIANT feature);
-	DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, DeleteFeature, DeleteFeature);
-	STDMETHOD(InsertFeature)(VARIANT featureBuffer, VARIANT* id);
-	DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, Flush, Flush);
+    STDMETHOD(get_Fields)(VARIANT* fields);
+    STDMETHOD(NextFeature)(VARIANT* feature);
+    STDMETHOD(UpdateFeature)(VARIANT feature);
+    DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, DeleteFeature, DeleteFeature);
+    STDMETHOD(InsertFeature)(VARIANT featureBuffer, VARIANT* id);
+    DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, Flush, Flush);
 
 };
 

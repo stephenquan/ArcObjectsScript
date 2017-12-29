@@ -11,8 +11,8 @@
 #endif
 
 #define DECLARE_ARCOBJECTS_CLASS_FACTORY(T) \
-	public: \
-		STDMETHOD(T)(VARIANT inner, VARIANT* outer);
+    public: \
+        STDMETHOD(T)(VARIANT inner, VARIANT* outer);
 
 
 

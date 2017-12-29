@@ -1,21 +1,21 @@
 HKCR
 {
-	Scripting.ArcObjects.FeatureCursor = s 'ArcObjectsFeatureCursor Class'
-	{
-		CLSID = s '{A959131E-E7B9-4441-846A-ADA93E68AFD2}'
-	}
-	NoRemove CLSID
-	{
-		ForceRemove {A959131E-E7B9-4441-846A-ADA93E68AFD2} = s 'ArcObjectsFeatureCursor Class'
-		{
-			ProgID = s 'Scripting.ArcObjects.FeatureCursor'
-			VersionIndependentProgID = s 'Scripting.ArcObjects.FeatureCursor'
-			ForceRemove 'Programmable'
-			InprocServer32 = s '%MODULE%'
-			{
-				val ThreadingModel = s 'Apartment'
-			}
-			'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
-		}
-	}
+    Scripting.ArcObjects.FeatureCursor = s 'ArcObjectsFeatureCursor Class'
+    {
+        CLSID = s '{A959131E-E7B9-4441-846A-ADA93E68AFD2}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {A959131E-E7B9-4441-846A-ADA93E68AFD2} = s 'ArcObjectsFeatureCursor Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.FeatureCursor'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.FeatureCursor'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
 }

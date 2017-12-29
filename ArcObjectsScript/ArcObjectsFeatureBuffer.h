@@ -16,41 +16,41 @@
 // CArcObjectsFeatureBuffer
 
 class ATL_NO_VTABLE CArcObjectsFeatureBuffer :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CArcObjectsFeatureBuffer, &CLSID_ArcObjectsFeatureBuffer>,
-	public ISupportErrorInfo,
-	public IDispatchImpl<IArcObjectsFeatureBuffer, &IID_IArcObjectsFeatureBuffer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public CArcObjectsInner
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CArcObjectsFeatureBuffer, &CLSID_ArcObjectsFeatureBuffer>,
+    public ISupportErrorInfo,
+    public IDispatchImpl<IArcObjectsFeatureBuffer, &IID_IArcObjectsFeatureBuffer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public CArcObjectsInner
 {
 public:
-	CArcObjectsFeatureBuffer()
-	{
-	}
+    CArcObjectsFeatureBuffer()
+    {
+    }
 
 DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSFEATUREBUFFER)
 
 
 BEGIN_COM_MAP(CArcObjectsFeatureBuffer)
-	COM_INTERFACE_ENTRY(IArcObjectsFeatureBuffer)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+    COM_INTERFACE_ENTRY(IArcObjectsFeatureBuffer)
+    COM_INTERFACE_ENTRY(IDispatch)
+    COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
 END_COM_MAP()
 
 // ISupportsErrorInfo
-	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
+    STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+    HRESULT FinalConstruct()
+    {
+        return S_OK;
+    }
 
-	void FinalRelease()
-	{
-	}
+    void FinalRelease()
+    {
+    }
 
 public:
 
