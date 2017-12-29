@@ -16,6 +16,7 @@
 #include "ArcObjectsLayer.h"
 #include "ArcObjectsMap.h"
 #include "ArcObjectsMapDocument.h"
+#include "ArcObjectsObjectClass.h"
 #include "ArcObjectsQueryFilter.h"
 #include "ArcObjectsRow.h"
 #include "ArcObjectsRowBuffer.h"
@@ -215,6 +216,7 @@ IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Field)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(Layer)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Map)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(MapDocument)
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(ObjectClass)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(QueryFilter)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Row)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(RowBuffer)

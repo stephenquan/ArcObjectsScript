@@ -18,6 +18,7 @@ enum
     //
 
     PROPID_A = 0x10100,
+    PROPID_AliasName,
     PROPID_AreaField,
 
     PROPID_D = 0x10400,
@@ -48,11 +49,14 @@ enum
     PROPID_Name,
 
     PROPID_O = 0x10F00,
+    PROPID_ObjectClassID,
     PROPID_Owner,
 
     PROPID_P = 0x11000,
     PROPID_Q = 0x11100,
+
     PROPID_R = 0x11200,
+    PROPID_RelationshipClasses,
 
     PROPID_S = 0x11300,
     PROPID_ShapeFieldName,
@@ -129,6 +133,11 @@ enum
     METHID_N = 0x20E00,
     METHID_NextFeature,
 
+    METHID_O = 0x20F00,
+    METHID_ObjectClass,
+
+    METHID_P = 0x21000,
+
     METHID_Q = 0x21100,
     METHID_QueryFilter,
 
@@ -169,16 +178,6 @@ enum
 //
 
 [
-    object,
-    uuid(556ECD7E-70E1-4975-A5D1-662DA1B68CFE),
-    dual,
-    nonextensible,
-    helpstring("IArcObjectsSelectionSet Interface"),
-    pointer_default(unique)
-]
-interface IArcObjectsSelectionSet : IDispatch{
-};
-[
     uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050),
     version(1.0),
     helpstring("ArcObjectsScript 1.0 Type Library")
@@ -210,6 +209,7 @@ library ArcObjectsScriptLib
         [id(METHID_Layer)] HRESULT Layer([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Map)] HRESULT Map([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_MapDocument)] HRESULT MapDocument([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_ObjectClass)] HRESULT ObjectClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_QueryFilter)] HRESULT QueryFilter([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Row)] HRESULT Row([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_SelectionSet)] HRESULT SelectionSet([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
@@ -519,6 +519,37 @@ library ArcObjectsScriptLib
         [default] interface IArcObjectsClass;
     };
 
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(657B1AEC-BE5B-4DAC-8256-4014EE9E4360),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsObjectClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsObjectClass : IArcObjectsClass{
+        [id(PROPID_ObjectClassID), propget] HRESULT ObjectClassID([out, retval] LONG* objectClassID);
+        [id(PROPID_RelationshipClasses), propget] HRESULT RelationshipClasses([in] LONG relRole, [out, retval] VARIANT* relationshipClasses);
+        [id(PROPID_AliasName), propget] HRESULT AliasName([out, retval] BSTR* name);
+
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(B8EF8668-B6E8-4C73-92A3-46CA75F78EDB),
+        helpstring("ArcObjectsObjectClass Class")
+    ]
+    coclass ArcObjectsObjectClass
+    {
+        [default] interface IArcObjectsObjectClass;
+    };
 
     //
     //
@@ -532,7 +563,7 @@ library ArcObjectsScriptLib
         helpstring("IArcObjectsFeatureClass Interface"),
         pointer_default(unique)
     ]
-    interface IArcObjectsFeatureClass : IArcObjectsClass {
+    interface IArcObjectsFeatureClass : IArcObjectsObjectClass {
         [id(PROPID_ShapeType), propget] HRESULT ShapeType([out, retval] LONG* geometryType);
         [id(PROPID_FeatureType), propget] HRESULT FeatureType([out, retval] LONG* featureType);
         [id(PROPID_ShapeFieldName), propget] HRESULT ShapeFieldName([out, retval] BSTR* fieldName);
@@ -853,6 +884,26 @@ library ArcObjectsScriptLib
     {
         [default] interface IArcObjectsWorkspace;
     };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(556ECD7E-70E1-4975-A5D1-662DA1B68CFE),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSelectionSet Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSelectionSet : IDispatch{
+    };
+
+    //
+    //
+    //
+
     [
         uuid(8ECEC491-F45D-4930-9300-DF16AD5D4E06),
         helpstring("ArcObjectsSelectionSet Class")
@@ -861,4 +912,9 @@ library ArcObjectsScriptLib
     {
         [default] interface IArcObjectsSelectionSet;
     };
+
+    //
+    //
+    //
+
 };

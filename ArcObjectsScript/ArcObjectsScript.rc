@@ -149,6 +149,7 @@ IDR_ARCOBJECTSFEATUREBUFFER REGISTRY                "ArcObjectsFeatureBuffer.rgs
 IDR_ARCOBJECTSFEATUREDATASET REGISTRY                "ArcObjectsFeatureDataset.rgs"
 IDR_ARCOBJECTSWORKSPACE REGISTRY                "ArcObjectsWorkspace.rgs"
 IDR_ARCOBJECTSSELECTIONSET REGISTRY                "ArcObjectsSelectionSet.rgs"
+IDR_ARCOBJECTSOBJECTCLASS REGISTRY                "ArcObjectsObjectClass.rgs"
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 
