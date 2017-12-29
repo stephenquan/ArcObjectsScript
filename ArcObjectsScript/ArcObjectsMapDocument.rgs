@@ -1,19 +1,14 @@
 HKCR
 {
-    Scripting.ArcObjects.MapDocument.1 = s 'ArcObjectsMapDocument Class'
-    {
-        CLSID = s '{F4441B0B-52FA-4064-AFFF-EFA435D72773}'
-    }
     Scripting.ArcObjects.MapDocument = s 'ArcObjectsMapDocument Class'
     {
         CLSID = s '{F4441B0B-52FA-4064-AFFF-EFA435D72773}'
-        CurVer = s 'Scripting.ArcObjects.MapDocument.1'
     }
     NoRemove CLSID
     {
         ForceRemove {F4441B0B-52FA-4064-AFFF-EFA435D72773} = s 'ArcObjectsMapDocument Class'
         {
-            ProgID = s 'Scripting.ArcObjects.MapDocument.1'
+            ProgID = s 'Scripting.ArcObjects.MapDocument'
             VersionIndependentProgID = s 'Scripting.ArcObjects.MapDocument'
             ForceRemove 'Programmable'
             InprocServer32 = s '%MODULE%'

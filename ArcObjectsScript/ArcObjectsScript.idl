@@ -17,6 +17,9 @@ enum
     //
     //
 
+    PROPID_A = 0x10100, 
+	PROPID_AreaField,
+
     PROPID_D = 0x10400, 
     PROPID_DefaultSubtypeCode,
     PROPID_DefinitionExpression, 
@@ -24,7 +27,9 @@ enum
     PROPID_DomainID,
 
     PROPID_F = 0x10600, 
-    PROPID_FeatureClass, 
+    PROPID_FeatureClass,
+    PROPID_FeatureDataset,
+	PROPID_FeatureType,
     PROPID_Fields, 
     PROPID_FieldType, 
 
@@ -33,6 +38,7 @@ enum
 
     PROPID_L = 0x10C00, 
     PROPID_LayerCount, 
+    PROPID_LengthField, 
 
     PROPID_M = 0x10D00, 
     PROPID_MapCount, 
@@ -49,6 +55,8 @@ enum
     PROPID_R = 0x11200, 
 
     PROPID_S = 0x11300, 
+	PROPID_ShapeFieldName,
+	PROPID_ShapeType,
     PROPID_SplitPolicy, 
     PROPID_SubFields, 
     PROPID_SubtypeFieldIndex,
@@ -72,6 +80,10 @@ enum
     METHID_AddField, 
     METHID_AddSubtype,
 
+    METHID_C = 0x20300, 
+    METHID_CreateFeature,
+    METHID_CreateFeatureBuffer,
+
     METHID_D = 0x20400, 
     METHID_DeleteFeature,
     METHID_DeleteSubtype,
@@ -79,6 +91,9 @@ enum
 
     METHID_F = 0x20600, 
     METHID_Feature, 
+    METHID_FeatureClass, 
+    METHID_FeatureCount, 
+    METHID_FeatureDataset, 
     METHID_FeatureLayer, 
     METHID_FeatureLayerDefinition, 
     METHID_FeatureLayerExtendedDefinition, 
@@ -89,12 +104,14 @@ enum
     METHID_G = 0x20700, 
     METHID_GetDefaultValue,
     METHID_GetDomain,
+    METHID_GetFeatures,
     METHID_GetOutputSpatialReference, 
     METHID_GetSubtypeName,
 
     METHID_H = 0x20800, 
 
     METHID_I = 0x20900, 
+    METHID_Insert,
     METHID_InsertFeature,
 
     METHID_J = 0x20A00, 
@@ -119,6 +136,8 @@ enum
     METHID_Row, 
 
     METHID_S = 0x21300, 
+    METHID_Search,
+    METHID_Select,
     METHID_SetDefaultValue,
     METHID_SetDomain,
     METHID_SetOutputSpatialReference, 
@@ -128,6 +147,7 @@ enum
     METHID_T = 0x21400, 
 
     METHID_U = 0x21500, 
+    METHID_Update,
     METHID_UpdateFeature,
 
 };
@@ -136,26 +156,6 @@ enum
 //
 //
 
-[
-    object,
-    uuid(045870E4-C01D-47DA-ABD7-5AE12BC4DEEB),
-    dual,
-    nonextensible,
-    helpstring("IArcObjectsRowBuffer Interface"),
-    pointer_default(unique)
-]
-interface IArcObjectsRowBuffer : IDispatch{
-};
-[
-    object,
-    uuid(9B1E4173-B553-4FDA-8206-B57BBBCA404A),
-    dual,
-    nonextensible,
-    helpstring("IArcObjectsFeatureBuffer Interface"),
-    pointer_default(unique)
-]
-interface IArcObjectsFeatureBuffer : IDispatch{
-};
 [
     uuid(DAE30B55-BB5F-436E-8A60-5E6CD71E9050), 
     version(1.0), 
@@ -178,7 +178,9 @@ library ArcObjectsScriptLib
     ]
     interface IArcObjects : IDispatch{
         [id(METHID_Domain)] HRESULT Domain([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
-        [id(METHID_Feature)] HRESULT FeatureClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_Feature)] HRESULT Feature([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_FeatureClass)] HRESULT FeatureClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_FeatureDataset)] HRESULT FeatureDataset([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_FeatureLayer)] HRESULT FeatureLayer([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_FeatureLayerDefinition)] HRESULT FeatureLayerDefinition([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_FeatureLayerExtendedDefinition)] HRESULT FeatureLayerExtendedDefinition([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
@@ -506,6 +508,21 @@ library ArcObjectsScriptLib
         pointer_default(unique)
     ]
     interface IArcObjectsFeatureClass : IArcObjectsClass {
+		[id(PROPID_ShapeType), propget] HRESULT ShapeType([out, retval] LONG* geometryType);
+		[id(PROPID_FeatureType), propget] HRESULT FeatureType([out, retval] LONG* featureType);
+		[id(PROPID_ShapeFieldName), propget] HRESULT ShapeFieldName([out, retval] BSTR* fieldName);
+		[id(PROPID_AreaField), propget] HRESULT AreaField([out, retval] VARIANT* field);
+		[id(PROPID_LengthField), propget] HRESULT LengthField([out, retval] VARIANT* field);
+		[id(PROPID_FeatureDataset), propget] HRESULT FeatureDataset([out, retval] VARIANT* featureDataset);
+		[id(METHID_CreateFeature)] HRESULT CreateFeature([out, retval] VARIANT* feature);
+		[id(METHID_GetFeatures)] HRESULT GetFeatures([in] VARIANT fids, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+		[id(METHID_CreateFeatureBuffer)] HRESULT CreateFeatureBuffer([out, retval] VARIANT* featureBuffer);
+		[id(METHID_FeatureCount)] HRESULT FeatureCount([in] VARIANT queryFilter, [out, retval] LONG* numFeatures);
+		[id(METHID_Search)] HRESULT Search([in] VARIANT queryFilter, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+		[id(METHID_Update)] HRESULT Update([in] VARIANT queryFilter, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+		[id(METHID_Insert)] HRESULT Insert([in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+		[id(METHID_Select)] HRESULT Select([in] VARIANT queryFilter, [in] LONG selectionType, [in] LONG selectionOption, [in] VARIANT workspace, [out, retval] VARIANT* selectionSet);
+
     };
 
     //
@@ -700,6 +717,20 @@ library ArcObjectsScriptLib
         [default] interface IArcObjectsSpatialReference;
     };
 
+    //
+    //
+    //
+
+	[
+		object,
+		uuid(045870E4-C01D-47DA-ABD7-5AE12BC4DEEB),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsRowBuffer Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsRowBuffer : IDispatch{
+	};
 
     //
     //
@@ -713,6 +744,26 @@ library ArcObjectsScriptLib
     {
         [default] interface IArcObjectsRowBuffer;
     };
+
+	//
+	//
+	//
+
+	[
+		object,
+		uuid(9B1E4173-B553-4FDA-8206-B57BBBCA404A),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsFeatureBuffer Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsFeatureBuffer : IDispatch{
+	};
+
+	//
+	//
+	//
+
     [
         uuid(F657386C-3528-4509-B8DF-B7AA078F00C0),
         helpstring("ArcObjectsFeatureBuffer Class")
@@ -721,4 +772,60 @@ library ArcObjectsScriptLib
     {
         [default] interface IArcObjectsFeatureBuffer;
     };
+
+	//
+	//
+	//
+
+	[
+		object,
+		uuid(1C6949C5-EE65-46D4-BCC2-066D9AA4181A),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsFeatureDataset Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsFeatureDataset : IDispatch{
+	};
+
+	//
+	//
+	//
+
+	[
+		uuid(6FAB68D7-92A3-4A9E-8C29-4B0C232F0A8E),
+		helpstring("ArcObjectsFeatureDataset Class")
+	]
+	coclass ArcObjectsFeatureDataset
+	{
+		[default] interface IArcObjectsFeatureDataset;
+	};
+
+	//
+	//
+	//
+
+	[
+		object,
+		uuid(BC446B31-25E9-4E18-A628-05B4ECC2F592),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsWorkspace Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsWorkspace : IDispatch{
+	};
+
+	//
+	//
+	//
+
+	[
+		uuid(8B7CEAC7-DDEC-47C9-ACD9-E16934E41D22),
+		helpstring("ArcObjectsWorkspace Class")
+	]
+	coclass ArcObjectsWorkspace
+	{
+		[default] interface IArcObjectsWorkspace;
+	};
 };

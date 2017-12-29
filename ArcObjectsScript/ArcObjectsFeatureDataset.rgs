@@ -1,0 +1,21 @@
+HKCR
+{
+	Scripting.ArcObjects.FeatureDataset = s 'ArcObjectsFeatureDataset Class'
+	{
+		CLSID = s '{6FAB68D7-92A3-4A9E-8C29-4B0C232F0A8E}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6FAB68D7-92A3-4A9E-8C29-4B0C232F0A8E} = s 'ArcObjectsFeatureDataset Class'
+		{
+			ProgID = s 'Scripting.ArcObjects.FeatureDataset'
+			VersionIndependentProgID = s 'Scripting.ArcObjects.FeatureDataset'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+		}
+	}
+}

@@ -8,6 +8,7 @@
 #include "ArcObjectsFeatureBuffer.h"
 #include "ArcObjectsFeatureClass.h"
 #include "ArcObjectsFeatureCursor.h"
+#include "ArcObjectsFeatureDataset.h"
 #include "ArcObjectsFeatureLayer.h"
 #include "ArcObjectsFeatureLayerDefinition.h"
 #include "ArcObjectsFeatureLayerExtendedDefinition.h"
@@ -20,6 +21,7 @@
 #include "ArcObjectsRowBuffer.h"
 #include "ArcObjectsSpatialReference.h"
 #include "ArcObjectsSubtypes.h"
+#include "ArcObjectsWorkspace.h"
 
 class CVariantHelper
 {
@@ -204,6 +206,7 @@ IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Feature)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(FeatureBuffer)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureClass)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureCursor)
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureDataset)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureLayer)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(FeatureLayerDefinition)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(FeatureLayerExtendedDefinition)
@@ -216,3 +219,4 @@ IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Row)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(RowBuffer)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(SpatialReference)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(Subtypes)
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Workspace)

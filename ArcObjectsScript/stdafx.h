@@ -266,3 +266,30 @@ using namespace ATL;
         return hr; \
     }
 
+#define IMPLEMENT_ARCOBJECTS_STDMETHOD3_OSO_RET(OUTER_TYPE, INNER_TYPE, INNER_RIID, OUTER_NAME, INNER_NAME, OBJECT_TYPE, T2, RETURN_TYPE) \
+    STDMETHODIMP CArcObjects##OUTER_TYPE::##OUTER_NAME(VARIANT argObject, T2 arg2, VARIANT* argResult) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!argResult) return E_INVALIDARG; \
+        VariantInit(argResult); \
+        if (!m_Inner) return E_POINTER; \
+        CComPtr<##INNER_TYPE> spInner; \
+        CHECKHR(m_Inner->QueryInterface(##INNER_RIID, (void**) &spInner)); \
+        CComPtr<I##OBJECT_TYPE> spInnerObject; \
+        hr = (CArcObjects::GetObject(&argObject, IID_I##OBJECT_TYPE, (void**) &spInnerObject)); \
+        if (FAILED(hr)) return hr; \
+        CComPtr<I##RETURN_TYPE> spInnerResult; \
+        CHECKHR(spInner->##INNER_NAME(spInnerObject, arg2, &spInnerResult)); \
+        if (!spInnerResult) \
+        { \
+            argResult->vt = VT_DISPATCH; \
+            V_DISPATCH(argResult) = NULL; \
+            return S_FALSE; \
+        } \
+        CComObject<CArcObjects##RETURN_TYPE>* ptrOuterResult = NULL; \
+        CHECKHR(CComObject<CArcObjects##RETURN_TYPE>::CreateInstance(&ptrOuterResult)); \
+        ptrOuterResult->m_Inner = spInnerResult; \
+        CHECKHR(CComVariant((IDispatch*) ptrOuterResult).Detach(argResult)); \
+        return hr; \
+    }
+

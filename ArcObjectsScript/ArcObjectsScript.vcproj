@@ -238,6 +238,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeatureDataset.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureLayer.cpp"
 				>
 			</File>
@@ -299,6 +303,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSubtypes.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsWorkspace.cpp"
 				>
 			</File>
 			<File
@@ -382,6 +390,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeatureDataset.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureLayer.h"
 				>
 			</File>
@@ -434,6 +446,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsWorkspace.h"
+				>
+			</File>
+			<File
 				RelativePath=".\dllmain.h"
 				>
 			</File>
@@ -455,6 +471,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\arcobjec.bin"
+				>
+			</File>
 			<File
 				RelativePath=".\ArcObjects.rgs"
 				>
@@ -481,6 +501,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureCursor.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureDataset.rgs"
 				>
 			</File>
 			<File
@@ -532,11 +556,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsSelectionSet.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSelectionSet1.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsSpatialReference.rgs"
 				>
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSubtypes.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsWorkspace.rgs"
 				>
 			</File>
 		</Filter>
