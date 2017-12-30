@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsQueryFilter :
     public CComCoClass<CArcObjectsQueryFilter, &CLSID_ArcObjectsQueryFilter>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsQueryFilter, &IID_IArcObjectsQueryFilter, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IQueryFilter>
 {
 public:
     CArcObjectsQueryFilter()
@@ -52,13 +52,13 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, get_SubFields, get_SubFields, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, put_SubFields, put_SubFields, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, AddField, AddField, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, get_WhereClause, get_WhereClause, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(IQueryFilter, IID_IQueryFilter, put_WhereClause, put_WhereClause, BSTR)
-    STDMETHOD(GetOutputSpatialReference)(BSTR fieldName, VARIANT* spatialReference);
-    STDMETHOD(SetOutputSpatialReference)(BSTR fieldName, VARIANT spatialReference);
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubFields, get_SubFields, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(put_SubFields, put_SubFields, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(AddField, AddField, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_WhereClause, get_WhereClause, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(put_WhereClause, put_WhereClause, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD2_SO_RET(GetOutputSpatialReference, get_OutputSpatialReference, BSTR, ISpatialReference)
+    DECLARE_ARCOBJECTS_STDMETHOD2_SO(SetOutputSpatialReference, putref_OutputSpatialReference, BSTR, ISpatialReference)
 
 };
 

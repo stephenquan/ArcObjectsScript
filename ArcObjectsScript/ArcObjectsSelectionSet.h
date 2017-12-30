@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsSelectionSet :
     public CComCoClass<CArcObjectsSelectionSet, &CLSID_ArcObjectsSelectionSet>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsSelectionSet, &IID_IArcObjectsSelectionSet, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<ISelectionSet>
 {
 public:
     CArcObjectsSelectionSet()

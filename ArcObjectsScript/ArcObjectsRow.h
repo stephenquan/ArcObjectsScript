@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsRow :
     public CComCoClass<CArcObjectsRow, &CLSID_ArcObjectsRow>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsRow, &IID_IArcObjectsRow, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IRow>
 {
 public:
     CArcObjectsRow()

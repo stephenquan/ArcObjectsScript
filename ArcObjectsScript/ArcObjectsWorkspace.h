@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsWorkspace :
     public CComCoClass<CArcObjectsWorkspace, &CLSID_ArcObjectsWorkspace>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsWorkspace, &IID_IArcObjectsWorkspace, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IWorkspace>
 {
 public:
     CArcObjectsWorkspace()

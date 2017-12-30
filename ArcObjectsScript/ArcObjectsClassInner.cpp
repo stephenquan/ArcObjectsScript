@@ -2,9 +2,10 @@
 
 #include "stdafx.h"
 #include "ArcObjects.h"
-#include "ArcObjectsClassInner.h"
+#include "ArcObjectsInner.h"
 #include "ArcObjectsField.h"
 
+#ifdef X
 STDMETHODIMP CArcObjectsClassInner::get_Fields(VARIANT* value)
 {
     HRESULT hr = S_OK;
@@ -61,3 +62,4 @@ STDMETHODIMP CArcObjectsClassInner::get_ExtensionProperties(VARIANT* propertySet
     return E_NOTIMPL;
 }
 
+#endif

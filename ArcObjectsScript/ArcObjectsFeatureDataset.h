@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsFeatureDataset :
     public CComCoClass<CArcObjectsFeatureDataset, &CLSID_ArcObjectsFeatureDataset>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsFeatureDataset, &IID_IArcObjectsFeatureDataset, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IFeatureDataset>
 {
 public:
     CArcObjectsFeatureDataset()

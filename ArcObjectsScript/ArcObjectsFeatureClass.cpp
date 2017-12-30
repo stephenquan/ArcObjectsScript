@@ -29,17 +29,6 @@ STDMETHODIMP CArcObjectsFeatureClass::InterfaceSupportsErrorInfo(REFIID riid)
     return S_FALSE;
 }
 
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, get_AreaField, get_AreaField, Field)
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, get_LengthField, get_LengthField, Field)
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, get_FeatureDataset, get_FeatureDataset, FeatureDataset)
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, CreateFeature, CreateFeature, Feature)
-IMPLEMENT_ARCOBJECTS_STDMETHOD3_SSO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, GetFeatures, GetFeatures, VARIANT, VARIANT_BOOL, FeatureCursor)
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, CreateFeatureBuffer, CreateFeatureBuffer, FeatureBuffer)
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_OS(FeatureClass, IFeatureClass, IID_IFeatureClass, FeatureCount, FeatureCount, QueryFilter, LONG*)
-IMPLEMENT_ARCOBJECTS_STDMETHOD3_OSO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, Search, Search, QueryFilter, VARIANT_BOOL, FeatureCursor)
-IMPLEMENT_ARCOBJECTS_STDMETHOD3_OSO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, Update, Update, QueryFilter, VARIANT_BOOL, FeatureCursor)
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_SO_RET(FeatureClass, IFeatureClass, IID_IFeatureClass, Insert, Insert, VARIANT_BOOL, FeatureCursor)
-
 STDMETHODIMP CArcObjectsFeatureClass::Select(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* argResult)
 {
     HRESULT hr = S_OK;

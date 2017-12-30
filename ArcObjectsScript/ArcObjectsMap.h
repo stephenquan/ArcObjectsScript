@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsMap :
     public CComCoClass<CArcObjectsMap, &CLSID_ArcObjectsMap>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsMap, &IID_IArcObjectsMap, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IMap>
 {
 public:
     CArcObjectsMap()
@@ -53,8 +53,8 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(IMap, IID_IMap, get_LayerCount, get_LayerCount, LONG *)
-    STDMETHOD(Layer)(LONG index, VARIANT* layer);
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_LayerCount, get_LayerCount, LONG *)
+    DECLARE_ARCOBJECTS_STDMETHOD2_SO_RET(Layer, get_Layer, LONG, ILayer)
 
 };
 

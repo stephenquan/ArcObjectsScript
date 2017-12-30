@@ -24,9 +24,6 @@ STDMETHODIMP CArcObjectsFeatureCursor::InterfaceSupportsErrorInfo(REFIID riid)
     return S_FALSE;
 }
 
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureCursor, IFeatureCursor, IID_IFeatureCursor, NextFeature, NextFeature, Feature)
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O(FeatureCursor, IFeatureCursor, IID_IFeatureCursor, UpdateFeature, UpdateFeature, Feature)
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_OS(FeatureCursor, IFeatureCursor, IID_IFeatureCursor, InsertFeature, InsertFeature, FeatureBuffer, VARIANT*)
 
 STDMETHODIMP CArcObjectsFeatureCursor::get_Fields(VARIANT* fields)
 {

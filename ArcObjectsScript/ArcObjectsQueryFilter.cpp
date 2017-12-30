@@ -21,6 +21,3 @@ STDMETHODIMP CArcObjectsQueryFilter::InterfaceSupportsErrorInfo(REFIID riid)
     }
     return S_FALSE;
 }
-
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_SO_RET(QueryFilter, IQueryFilter, IID_IQueryFilter, GetOutputSpatialReference, get_OutputSpatialReference, BSTR, SpatialReference)
-IMPLEMENT_ARCOBJECTS_STDMETHOD2_SO(QueryFilter, IQueryFilter, IID_IQueryFilter, SetOutputSpatialReference, putref_OutputSpatialReference, BSTR, SpatialReference)

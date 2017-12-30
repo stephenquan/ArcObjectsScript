@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsFeature :
     public CComCoClass<CArcObjectsFeature, &CLSID_ArcObjectsFeature>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsFeature, &IID_IArcObjectsFeature, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IFeature>
 {
 public:
     CArcObjectsFeature()

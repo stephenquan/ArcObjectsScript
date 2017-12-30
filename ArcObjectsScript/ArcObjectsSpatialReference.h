@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsSpatialReference :
     public CComCoClass<CArcObjectsSpatialReference, &CLSID_ArcObjectsSpatialReference>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsSpatialReference, &IID_IArcObjectsSpatialReference, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<ISpatialReference>
 {
 public:
     CArcObjectsSpatialReference()

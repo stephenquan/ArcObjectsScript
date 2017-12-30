@@ -34,7 +34,8 @@ public:
         HRESULT hr = S_OK;
         CComObject<OUTER_TYPE>* ptrOuter = NULL;
         CHECKHR(CComObject<OUTER_TYPE>::CreateInstance(&ptrOuter));
-        ptrOuter->m_Inner = inner;
+        //ptrOuter->m_Inner = inner;
+        inner->QueryInterface(&ptrOuter->m_Inner);
         CHECKHR(CComVariant((IDispatch*) ptrOuter).Detach(outer));
         return S_OK;
     }

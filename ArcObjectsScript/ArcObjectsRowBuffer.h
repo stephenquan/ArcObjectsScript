@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsRowBuffer :
     public CComCoClass<CArcObjectsRowBuffer, &CLSID_ArcObjectsRowBuffer>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsRowBuffer, &IID_IArcObjectsRowBuffer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IRowBuffer>
 {
 public:
     CArcObjectsRowBuffer()

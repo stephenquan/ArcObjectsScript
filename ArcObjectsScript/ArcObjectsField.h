@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsField :
     public CComCoClass<CArcObjectsField, &CLSID_ArcObjectsField>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsField, &IID_IArcObjectsField, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IField>
 {
 public:
     CArcObjectsField()
@@ -52,7 +52,7 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(IField, IID_IField, get_Name, get_Name, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_Name, get_Name, BSTR*)
 
 };
 

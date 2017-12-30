@@ -23,9 +23,6 @@ STDMETHODIMP CArcObjectsSubtypes::InterfaceSupportsErrorInfo(REFIID riid)
     return S_FALSE;
 }
 
-IMPLEMENT_ARCOBJECTS_STDMETHOD3_SSO_RET(Subtypes, ISubtypes, IID_ISubtypes, GetDomain, get_Domain, LONG, BSTR, Domain)
-IMPLEMENT_ARCOBJECTS_STDMETHOD3_SSO(Subtypes, ISubtypes, IID_ISubtypes, SetDomain, putref_Domain, LONG, BSTR, Domain)
-
 STDMETHODIMP CArcObjectsSubtypes::get_Subtypes(VARIANT* subtypes)
 {
     HRESULT hr = S_OK;

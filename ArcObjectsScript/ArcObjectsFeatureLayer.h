@@ -19,10 +19,10 @@ class ATL_NO_VTABLE CArcObjectsFeatureLayer :
     public CComCoClass<CArcObjectsFeatureLayer, &CLSID_ArcObjectsFeatureLayer>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsFeatureLayer, &IID_IArcObjectsFeatureLayer, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IFeatureLayer>
 {
 public:
-    CArcObjectsFeatureLayer() : CArcObjectsInner()
+    CArcObjectsFeatureLayer()
     {
     }
 
@@ -52,7 +52,8 @@ END_COM_MAP()
     }
 
 public:
-    STDMETHOD(get_FeatureClass)(VARIANT* result);
+    DECLARE_ARCOBJECTS_STDMETHOD1_O_RET(get_FeatureClass, get_FeatureClass, IFeatureClass)
+
 
 };
 

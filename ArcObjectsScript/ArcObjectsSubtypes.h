@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsSubtypes :
     public CComCoClass<CArcObjectsSubtypes, &CLSID_ArcObjectsSubtypes>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsSubtypes, &IID_IArcObjectsSubtypes, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<ISubtypes>
 {
 public:
     CArcObjectsSubtypes()
@@ -53,20 +53,21 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_HasSubtype, get_HasSubtype, VARIANT_BOOL*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_DefaultSubtypeCode, get_DefaultSubtypeCode, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_DefaultSubtypeCode, put_DefaultSubtypeCode, LONG)
-    DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, GetDefaultValue, get_DefaultValue, LONG, BSTR, VARIANT*)
-    DECLARE_ARCOBJECTS_STDMETHOD3(ISubtypes, IID_ISubtypes, SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
-    STDMETHOD(GetDomain)(LONG, BSTR, VARIANT*);
-    STDMETHOD(SetDomain)(LONG, BSTR, VARIANT);
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, GetSubtypeName, get_SubtypeName, LONG, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_HasSubtype, get_HasSubtype, VARIANT_BOOL*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_DefaultSubtypeCode, get_DefaultSubtypeCode, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(put_DefaultSubtypeCode, put_DefaultSubtypeCode, LONG)
+    DECLARE_ARCOBJECTS_STDMETHOD3(GetDefaultValue, get_DefaultValue, LONG, BSTR, VARIANT*)
+    DECLARE_ARCOBJECTS_STDMETHOD3(SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
+    DECLARE_ARCOBJECTS_STDMETHOD3_SSO_RET(GetDomain, get_Domain, LONG, BSTR, IDomain)
+    DECLARE_ARCOBJECTS_STDMETHOD3_SSO(SetDomain, putref_Domain, LONG, BSTR, IDomain)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD2(GetSubtypeName, get_SubtypeName, LONG, BSTR*)
     STDMETHOD(get_Subtypes)(VARIANT* subtypes);
-    DECLARE_ARCOBJECTS_STDMETHOD2(ISubtypes, IID_ISubtypes, AddSubtype, AddSubtype, LONG, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(ISubtypes, IID_ISubtypes, DeleteSubtype, DeleteSubtype, LONG)
+    DECLARE_ARCOBJECTS_STDMETHOD2(AddSubtype, AddSubtype, LONG, BSTR)
+    DECLARE_ARCOBJECTS_STDMETHOD1(DeleteSubtype, DeleteSubtype, LONG)
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsSubtypes), CArcObjectsSubtypes)

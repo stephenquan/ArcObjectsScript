@@ -19,7 +19,7 @@ class ATL_NO_VTABLE CArcObjectsFeatureCursor :
     public CComCoClass<CArcObjectsFeatureCursor, &CLSID_ArcObjectsFeatureCursor>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsFeatureCursor, &IID_IArcObjectsFeatureCursor, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsInner
+    public XInner<IFeatureCursor>
 {
 public:
     CArcObjectsFeatureCursor()
@@ -52,13 +52,13 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD2(IFeatureCursor, IID_IFeatureCursor, FindField, FindField, BSTR, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD2(FindField, FindField, BSTR, LONG*)
     STDMETHOD(get_Fields)(VARIANT* fields);
-    STDMETHOD(NextFeature)(VARIANT* feature);
-    STDMETHOD(UpdateFeature)(VARIANT feature);
-    DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, DeleteFeature, DeleteFeature);
-    STDMETHOD(InsertFeature)(VARIANT featureBuffer, VARIANT* id);
-    DECLARE_ARCOBJECTS_STDMETHOD0(IFeatureCursor, IID_IFeatureCursor, Flush, Flush);
+    DECLARE_ARCOBJECTS_STDMETHOD1_O_RET(NextFeature, NextFeature, IFeature)
+    DECLARE_ARCOBJECTS_STDMETHOD1_O(UpdateFeature, UpdateFeature, IFeature)
+    DECLARE_ARCOBJECTS_STDMETHOD0(DeleteFeature, DeleteFeature);
+    DECLARE_ARCOBJECTS_STDMETHOD2_OS(InsertFeature, InsertFeature, IFeatureBuffer, VARIANT*);
+    DECLARE_ARCOBJECTS_STDMETHOD0(Flush, Flush);
 
 };
 

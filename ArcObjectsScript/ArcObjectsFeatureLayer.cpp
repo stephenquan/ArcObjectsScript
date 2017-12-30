@@ -20,5 +20,3 @@ STDMETHODIMP CArcObjectsFeatureLayer::InterfaceSupportsErrorInfo(REFIID riid)
     }
     return S_FALSE;
 }
-
-IMPLEMENT_ARCOBJECTS_STDMETHOD1_O_RET(FeatureLayer, IFeatureLayer, IID_IFeatureLayer, get_FeatureClass, get_FeatureClass, FeatureClass)

@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsObjectClassInner.h"
+#include "ArcObjectsInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -20,7 +20,7 @@ class ATL_NO_VTABLE CArcObjectsObjectClass :
     public CComCoClass<CArcObjectsObjectClass, &CLSID_ArcObjectsObjectClass>,
     public ISupportErrorInfo,
     public IDispatchImpl<IArcObjectsObjectClass, &IID_IArcObjectsObjectClass, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public CArcObjectsObjectClassInner
+    public XInner<IObjectClass>
 {
 public:
     CArcObjectsObjectClass()
@@ -54,24 +54,24 @@ END_COM_MAP()
 
 public:
     // IClass
-    STDMETHOD(FindField)(BSTR name, LONG* fieldIndex) { return CArcObjectsClassInner::FindField(name, fieldIndex); }
-    STDMETHOD(get_Fields)(VARIANT *fields) { return CArcObjectsClassInner::get_Fields(fields); }
-    STDMETHOD(get_Indexes)(VARIANT *indexes) { return CArcObjectsClassInner::get_Indexes(indexes); }
-    STDMETHOD(AddField)(VARIANT field) { return CArcObjectsClassInner::AddField(field); }
-    STDMETHOD(DeleteField)(VARIANT field) { return CArcObjectsClassInner::DeleteField(field); }
-    STDMETHOD(AddIndex)(VARIANT index) { return CArcObjectsClassInner::AddIndex(index); }
-    STDMETHOD(DeleteIndex)(VARIANT index) { return CArcObjectsClassInner::DeleteIndex(index); }
-    STDMETHOD(get_HasOID)(VARIANT_BOOL *hasOID) { return CArcObjectsClassInner::get_HasOID(hasOID); }
-    STDMETHOD(get_OIDFieldName)(BSTR *name) { return CArcObjectsClassInner::get_OIDFieldName(name); }
-    STDMETHOD(get_CLSID)(VARIANT* clsid) { return CArcObjectsClassInner::get_CLSID(clsid); }
-    STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return CArcObjectsClassInner::get_EXTCLSID(clsid); }
-    STDMETHOD(get_Extension)(VARIANT* extension) { return CArcObjectsClassInner::get_Extension(extension); }
-    STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return CArcObjectsClassInner::get_ExtensionProperties(propertySet); }
+    DECLARE_ARCOBJECTS_STDMETHOD2(FindField, FindField, BSTR, LONG*)
+    DECLARE_ARCOBJECTS_STDMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+    STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
+    STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
+    STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }
+    STDMETHOD(AddIndex)(VARIANT index) { return E_NOTIMPL; }
+    STDMETHOD(DeleteIndex)(VARIANT index) { return E_NOTIMPL; }
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_HasOID, get_HasOID, VARIANT_BOOL*)
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_OIDFieldName, get_OIDFieldName, BSTR*)
+    STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
+    STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return E_NOTIMPL; }
+    STDMETHOD(get_Extension)(VARIANT* extension) { return E_NOTIMPL; }
+    STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return E_NOTIMPL; }
 
     // IObjectClass
-    STDMETHOD(get_ObjectClassID)(LONG* objectClassID) { return CArcObjectsObjectClassInner::get_ObjectClassID(objectClassID); }
-    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return CArcObjectsObjectClassInner::get_RelationshipClasses(relRole, relationshipClasses); }
-    STDMETHOD(get_AliasName)(BSTR* name) { return CArcObjectsObjectClassInner::get_AliasName(name); }
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_ObjectClassID, get_ObjectClassID, LONG*)
+    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return E_NOTIMPL;  }
+    DECLARE_ARCOBJECTS_STDMETHOD1(get_AliasName, get_AliasName, BSTR*)
 
 };
 
