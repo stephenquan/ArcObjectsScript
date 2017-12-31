@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -53,8 +53,8 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_LayerCount, get_LayerCount, LONG *)
-    DECLARE_ARCOBJECTS_STDMETHOD2_SO_RET(Layer, get_Layer, LONG, ILayer)
+    XMETHOD1(get_LayerCount, PLONG)
+    XMETHOD2_B(Layer, get_Layer, LONG, PILayer)
 
 };
 

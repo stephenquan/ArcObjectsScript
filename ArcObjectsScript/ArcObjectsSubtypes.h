@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -53,20 +53,20 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_HasSubtype, get_HasSubtype, VARIANT_BOOL*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_DefaultSubtypeCode, get_DefaultSubtypeCode, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_DefaultSubtypeCode, put_DefaultSubtypeCode, LONG)
-    DECLARE_ARCOBJECTS_STDMETHOD3(GetDefaultValue, get_DefaultValue, LONG, BSTR, VARIANT*)
-    DECLARE_ARCOBJECTS_STDMETHOD3(SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
-    DECLARE_ARCOBJECTS_STDMETHOD3_SSO_RET(GetDomain, get_Domain, LONG, BSTR, IDomain)
-    DECLARE_ARCOBJECTS_STDMETHOD3_SSO(SetDomain, putref_Domain, LONG, BSTR, IDomain)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubtypeFieldName, get_SubtypeFieldName, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_SubtypeFieldName, put_SubtypeFieldName, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubtypeFieldIndex, get_SubtypeFieldIndex, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD2(GetSubtypeName, get_SubtypeName, LONG, BSTR*)
+    XMETHOD1(get_HasSubtype, PVARIANT_BOOL)
+    XMETHOD1(get_DefaultSubtypeCode, PLONG)
+    XMETHOD1(put_DefaultSubtypeCode, LONG)
+    XMETHOD3_B(GetDefaultValue, get_DefaultValue, LONG, BSTR, PVARIANT)
+    XMETHOD3_B(SetDefaultValue, put_DefaultValue, LONG, BSTR, VARIANT)
+    XMETHOD3_B(GetDomain, get_Domain, LONG, BSTR, PIDomain)
+    XMETHOD3_B(SetDomain, putref_Domain, LONG, BSTR, IDomain)
+    XMETHOD1(get_SubtypeFieldName, PBSTR)
+    XMETHOD1(put_SubtypeFieldName, BSTR)
+    XMETHOD1(get_SubtypeFieldIndex, PLONG)
+    XMETHOD2_B(GetSubtypeName, get_SubtypeName, LONG, PBSTR)
     STDMETHOD(get_Subtypes)(VARIANT* subtypes);
-    DECLARE_ARCOBJECTS_STDMETHOD2(AddSubtype, AddSubtype, LONG, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(DeleteSubtype, DeleteSubtype, LONG)
+    XMETHOD2(AddSubtype, LONG, BSTR)
+    XMETHOD1(DeleteSubtype, LONG)
 
 };
 

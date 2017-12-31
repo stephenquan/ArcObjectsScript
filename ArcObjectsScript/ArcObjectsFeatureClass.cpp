@@ -28,33 +28,3 @@ STDMETHODIMP CArcObjectsFeatureClass::InterfaceSupportsErrorInfo(REFIID riid)
     }
     return S_FALSE;
 }
-
-STDMETHODIMP CArcObjectsFeatureClass::Select(VARIANT queryFilter, LONG selectionType, LONG selectionOption, VARIANT workspace, VARIANT* argResult)
-{
-    HRESULT hr = S_OK;
-    if (!argResult) return E_INVALIDARG;
-    VariantInit(argResult);
-    if (!m_Inner) return E_POINTER;
-    CComPtr<IFeatureClass> spInner;
-    CHECKHR(m_Inner->QueryInterface(IID_IFeatureClass, (void**) &spInner));
-    CComPtr<IQueryFilter> spInnerObject;
-    hr = (CArcObjects::GetObject(&queryFilter, IID_IQueryFilter, (void**) &spInnerObject));
-    if (FAILED(hr)) return hr;
-    CComPtr<IWorkspace> spInnerObject2;
-    hr = (CArcObjects::GetObject(&workspace, IID_IWorkspace, (void**) &spInnerObject2));
-    if (FAILED(hr)) return hr;
-    CComPtr<ISelectionSet> spInnerResult;
-    CHECKHR(spInner->Select(spInnerObject, (esriSelectionType) selectionType, (esriSelectionOption) selectionOption, spInnerObject2, &spInnerResult));
-    if (!spInnerResult)
-    {
-        argResult->vt = VT_DISPATCH;
-        V_DISPATCH(argResult) = NULL;
-        return S_FALSE;
-    }
-    CComObject<CArcObjectsSelectionSet>* ptrOuterResult = NULL;
-    CHECKHR(CComObject<CArcObjectsSelectionSet>::CreateInstance(&ptrOuterResult));
-    ptrOuterResult->m_Inner = spInnerResult;
-    CHECKHR(CComVariant((IDispatch*) ptrOuterResult).Detach(argResult));
-    return hr;
-    return E_NOTIMPL;
-}

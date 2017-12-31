@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
@@ -52,19 +52,21 @@ END_COM_MAP()
 
 public:
     // IClass
-    DECLARE_ARCOBJECTS_STDMETHOD2(FindField, FindField, BSTR, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+    XMETHOD2(FindField, BSTR, PLONG)
+    XMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
     STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
     STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(AddIndex)(VARIANT index) { return E_NOTIMPL; }
     STDMETHOD(DeleteIndex)(VARIANT index) { return E_NOTIMPL; }
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_HasOID, get_HasOID, VARIANT_BOOL*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_OIDFieldName, get_OIDFieldName, BSTR*)
+    XMETHOD1(get_HasOID, PVARIANT_BOOL)
+    XMETHOD1(get_OIDFieldName, PBSTR)
     STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_Extension)(VARIANT* extension) { return E_NOTIMPL; }
     STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return E_NOTIMPL; }
+
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsClass), CArcObjectsClass)

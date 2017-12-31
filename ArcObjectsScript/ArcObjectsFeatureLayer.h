@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -52,7 +52,7 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1_O_RET(get_FeatureClass, get_FeatureClass, IFeatureClass)
+    XMETHOD1(get_FeatureClass, PIFeatureClass)
 
 
 };

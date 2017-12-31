@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -53,22 +53,22 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_DomainID, get_DomainID, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_DomainID, put_DomainID, LONG)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_Description, get_Description, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_Description, put_Description, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(get_FieldType, get_FieldType, esriFieldType)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E(put_FieldType, put_FieldType, esriFieldType)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(get_MergePolicy, get_MergePolicy, esriMergePolicyType)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E(put_MergePolicy, put_MergePolicy, esriMergePolicyType)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(get_SplitPolicy, get_SplitPolicy, esriSplitPolicyType)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E(put_SplitPolicy, put_SplitPolicy, esriSplitPolicyType)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_Name, get_Name, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_Name, put_Name, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_Owner, get_Owner, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_Owner, put_Owner, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1_E_RET(get_Type, get_Type, esriDomainType)
-    DECLARE_ARCOBJECTS_STDMETHOD2(MemberOf, MemberOf, VARIANT, VARIANT_BOOL*);
+    XMETHOD1(get_DomainID, PLONG)
+    XMETHOD1(put_DomainID, LONG)
+    XMETHOD1(get_Description, PBSTR)
+    XMETHOD1(put_Description, BSTR)
+    XMETHOD1(get_FieldType, PesriFieldType)
+    XMETHOD1(put_FieldType, esriFieldType)
+    XMETHOD1(get_MergePolicy, PesriMergePolicyType)
+    XMETHOD1(put_MergePolicy, esriMergePolicyType)
+    XMETHOD1(get_SplitPolicy, PesriSplitPolicyType)
+    XMETHOD1(put_SplitPolicy, esriSplitPolicyType)
+    XMETHOD1(get_Name, PBSTR)
+    XMETHOD1(put_Name, BSTR)
+    XMETHOD1(get_Owner, PBSTR)
+    XMETHOD1(put_Owner, BSTR)
+    XMETHOD1(get_Type, PesriDomainType)
+    XMETHOD2(MemberOf, VARIANT, PVARIANT_BOOL)
 
 };
 

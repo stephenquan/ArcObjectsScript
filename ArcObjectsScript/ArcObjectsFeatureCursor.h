@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
@@ -52,13 +52,13 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD2(FindField, FindField, BSTR, LONG*)
+    XMETHOD2(FindField, BSTR, PLONG)
     STDMETHOD(get_Fields)(VARIANT* fields);
-    DECLARE_ARCOBJECTS_STDMETHOD1_O_RET(NextFeature, NextFeature, IFeature)
-    DECLARE_ARCOBJECTS_STDMETHOD1_O(UpdateFeature, UpdateFeature, IFeature)
-    DECLARE_ARCOBJECTS_STDMETHOD0(DeleteFeature, DeleteFeature);
-    DECLARE_ARCOBJECTS_STDMETHOD2_OS(InsertFeature, InsertFeature, IFeatureBuffer, VARIANT*);
-    DECLARE_ARCOBJECTS_STDMETHOD0(Flush, Flush);
+    XMETHOD1(NextFeature, PIFeature)
+    XMETHOD1(UpdateFeature, IFeature)
+    XMETHOD0(DeleteFeature);
+    XMETHOD2(InsertFeature, IFeatureBuffer, PVARIANT);
+    XMETHOD0(Flush);
 
 };
 

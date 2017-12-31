@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 #include "ArcObjectsClass.h"
 #include "ArcObjectsDomain.h"
 #include "ArcObjectsFeature.h"

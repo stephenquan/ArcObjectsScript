@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 #include "ArcObjects.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 #include "ArcObjectsField.h"
 
 #ifdef X

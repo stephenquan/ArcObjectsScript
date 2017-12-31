@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
@@ -52,13 +52,13 @@ END_COM_MAP()
     }
 
 public:
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_SubFields, get_SubFields, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_SubFields, put_SubFields, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(AddField, AddField, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_WhereClause, get_WhereClause, BSTR*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(put_WhereClause, put_WhereClause, BSTR)
-    DECLARE_ARCOBJECTS_STDMETHOD2_SO_RET(GetOutputSpatialReference, get_OutputSpatialReference, BSTR, ISpatialReference)
-    DECLARE_ARCOBJECTS_STDMETHOD2_SO(SetOutputSpatialReference, putref_OutputSpatialReference, BSTR, ISpatialReference)
+    XMETHOD1(get_SubFields, PBSTR)
+    XMETHOD1(put_SubFields, BSTR)
+    XMETHOD1(AddField, BSTR)
+    XMETHOD1(get_WhereClause, PBSTR)
+    XMETHOD1(put_WhereClause, BSTR)
+    XMETHOD2_B(GetOutputSpatialReference, get_OutputSpatialReference, BSTR, PISpatialReference)
+    XMETHOD2_B(SetOutputSpatialReference, putref_OutputSpatialReference, BSTR, ISpatialReference)
 
 };
 

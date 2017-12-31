@@ -4,7 +4,7 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-#include "ArcObjectsInner.h"
+#include "XInner.h"
 
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
@@ -54,24 +54,24 @@ END_COM_MAP()
 
 public:
     // IClass
-    DECLARE_ARCOBJECTS_STDMETHOD2(FindField, FindField, BSTR, LONG*)
-    DECLARE_ARCOBJECTS_STDMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+    XMETHOD2(FindField, BSTR, PLONG)
+        XMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
     STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
     STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(AddIndex)(VARIANT index) { return E_NOTIMPL; }
     STDMETHOD(DeleteIndex)(VARIANT index) { return E_NOTIMPL; }
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_HasOID, get_HasOID, VARIANT_BOOL*)
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_OIDFieldName, get_OIDFieldName, BSTR*)
-    STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
+    XMETHOD1(get_HasOID, PVARIANT_BOOL)
+        XMETHOD1(get_OIDFieldName, PBSTR)
+        STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_Extension)(VARIANT* extension) { return E_NOTIMPL; }
     STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return E_NOTIMPL; }
 
     // IObjectClass
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_ObjectClassID, get_ObjectClassID, LONG*)
-    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return E_NOTIMPL;  }
-    DECLARE_ARCOBJECTS_STDMETHOD1(get_AliasName, get_AliasName, BSTR*)
+    XMETHOD1(get_ObjectClassID, PLONG)
+    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return E_NOTIMPL; }
+    XMETHOD1(get_AliasName, PBSTR)
 
 };
 
