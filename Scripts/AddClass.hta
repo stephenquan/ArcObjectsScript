@@ -1,0 +1,87 @@
+<html>
+<head><title>Create Class</title></head>
+<body>
+<form>
+Class Name:
+<input id="txtClassName" type="text" value="Envelope"/><br>
+<input id="btnRun" type="button" value="Run"/><br>
+<textarea id="txtResult" style="width:100%;height:300pt">
+</textarea>
+</form>
+</script>
+<script language="javascript">
+function process_string(str, obj) {
+  return str.replace(/\${(\w)*(\^\^)?}/g, function (word) {
+    var m = word.match(/{(.*?)(\^\^)?}/);
+	var name = m[1];
+	var opt = m[2];
+	var value = (obj && obj[name]) || " [[[ " + word + " ]]] ";
+	if (opt == "^^") {
+	  value = value.toUpperCase();
+	}
+    return value;
+  } );
+}
+
+function create_vars(className) {
+  return {
+    Class: className,
+	CLSID: create_guid(),
+	INTERFACE_UUID: create_guid()
+  };
+}
+
+</script>
+<script language="vbscript">
+dim project_dir
+project_dir ="C:\Users\step7069\Documents\GitHub\ArcObjectsScript"
+
+function create_guid
+  Dim typelib
+  Set typelib = CreateObject("Scriptlet.TypeLib")
+  create_guid = mid(typelib.guid, 2, 36)
+end function
+
+function readfile(path)
+  dim fso
+  set fso = CreateObject("Scripting.FileSystemObject")
+  set f = fso.OpenTextFile(path)
+  dim txt
+  txt = f.ReadAll
+  f.Close
+  Set f = Nothing
+  Set fso = Nothing
+  readfile = txt
+end function
+
+sub writefile(path, txt)
+  dim fso
+  set fso = CreateObject("Scripting.FileSystemObject")
+  set f = fso.CreateTextFile(path)
+  f.Write txt
+  f.Close
+  Set f = Nothing
+  Set fso = Nothing
+end sub
+
+function convert(templatefile, destfile, obj)
+  set txtResult = document.getElementById("txtResult")
+  txtResult.value = txtResult.value + "Converting " + templatefile + " -> " + destfile + vbCrLf
+  dim str
+  str = readfile(project_dir + "\Scripts\" + templatefile)
+  call writefile(project_dir + "\ArcObjectsScript\" + destfile, process_string(str, obj))
+end function
+
+sub btnRun_onclick
+  dim str, txtResult, obj, className
+  className = document.getElementById("txtClassName").value
+  set obj = create_vars(className)
+  call convert("Template_Class.idl", className + "_snippet_idl.txt", obj)
+  call convert("Template_Class.h", "ArcObjects" + className + ".h", obj)
+  call convert("Template_Class.cpp", "ArcObjects" + className + ".cpp", obj)
+  call convert("Template_Class.rgs", "ArcObjects" + className + ".rgs", obj)
+end sub
+</script>
+</body>
+</html>
+

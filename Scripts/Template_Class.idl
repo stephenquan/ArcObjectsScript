@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(${INTERFACE_UUID}),
+        dual,
+        nonextensible,
+        helpstring("IArcObjects${Class} Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjects${Class} : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(${CLSID}),
+        helpstring("ArcObjects${Class} Class")
+    ]
+    coclass ArcObjects${Class}
+    {
+        [default] interface IArcObjects${Class};
+    };
+
