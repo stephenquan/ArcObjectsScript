@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(A385267E-2B28-4532-9D59-0D75C3252CAA),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRow Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRow : IDispatch{
+    };
+
+    [
+        uuid(C1D9ABB1-CDCB-422E-BBE2-F4474EDF3383),
+        helpstring("ArcObjectsRow Class")
+    ]
+    coclass ArcObjectsRow
+    {
+        [default] interface IArcObjectsRow;
+    };
+

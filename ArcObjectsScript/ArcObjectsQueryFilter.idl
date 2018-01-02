@@ -1,0 +1,26 @@
+    [
+        object,
+        uuid(388BFECE-CC51-4A14-85F8-55F6C7EF1882),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsQueryFilter Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsQueryFilter : IDispatch{
+        [id(PROPID_SubFields), propget] HRESULT SubFields([out, retval] BSTR* subFields);
+        [id(PROPID_SubFields), propput] HRESULT SubFields([in] BSTR subFields);
+        [id(METHID_AddField)] HRESULT AddField([in] BSTR subField);
+        [id(PROPID_WhereClause), propget] HRESULT WhereClause([out, retval] BSTR* subFields);
+        [id(PROPID_WhereClause), propput] HRESULT WhereClause([in] BSTR subFields);
+        [id(METHID_GetOutputSpatialReference)] HRESULT GetOutputSpatialReference([in] BSTR fieldName, [out, retval] VARIANT* spatialReference);
+        [id(METHID_SetOutputSpatialReference)] HRESULT SetOutputSpatialReference([in] BSTR fieldName, [in] VARIANT spatialReference);
+    };
+
+    [
+        uuid(3B94564D-A3F3-4E56-B06C-530F90DC41FC),
+        helpstring("ArcObjectsQueryFilter Class")
+    ]
+    coclass ArcObjectsQueryFilter
+    {
+        [default] interface IArcObjectsQueryFilter;
+    };

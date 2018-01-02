@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(556ECD7E-70E1-4975-A5D1-662DA1B68CFE),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSelectionSet Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSelectionSet : IDispatch{
+    };
+
+    [
+        uuid(8ECEC491-F45D-4930-9300-DF16AD5D4E06),
+        helpstring("ArcObjectsSelectionSet Class")
+    ]
+    coclass ArcObjectsSelectionSet
+    {
+        [default] interface IArcObjectsSelectionSet;
+    };
+

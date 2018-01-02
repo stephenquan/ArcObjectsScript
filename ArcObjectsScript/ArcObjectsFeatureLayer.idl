@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(46D538AA-09F6-41b2-8B54-DCA59AD66335),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayer Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayer : IDispatch{
+        [id(PROPID_FeatureClass), propget] HRESULT FeatureClass([out, retval] VARIANT* featureClass);
+    }
+
+    [
+        uuid(F486D1BA-6EB6-481F-B446-93908A1B55A0),
+        helpstring("ArcObjectsFeatureLayer Class")
+    ]
+    coclass ArcObjectsFeatureLayer
+    {
+        [default] interface IArcObjectsFeatureLayer;
+    };

@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(A6EDDC18-676E-4DA1-80B4-51E22AC20D6A),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSpatialReference Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSpatialReference : IDispatch{
+    };
+
+    [
+        uuid(339C3A63-AEDF-442B-B5B3-A612F8FEA92D),
+        helpstring("ArcObjectsSpatialReference Class")
+    ]
+    coclass ArcObjectsSpatialReference
+    {
+        [default] interface IArcObjectsSpatialReference;
+    };
+

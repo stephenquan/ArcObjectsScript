@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(A763B430-513B-44A6-8CA8-FBCD81FFCCB1),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsStandaloneTable Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsStandaloneTable : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(F4B55881-02B9-49AA-98F3-5A69973CC585),
+        helpstring("ArcObjectsStandaloneTable Class")
+    ]
+    coclass ArcObjectsStandaloneTable
+    {
+        [default] interface IArcObjectsStandaloneTable;
+    };
+

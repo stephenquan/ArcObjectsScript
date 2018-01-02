@@ -1,0 +1,23 @@
+    [
+        object,
+        uuid(657B1AEC-BE5B-4DAC-8256-4014EE9E4360),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsObjectClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsObjectClass : IArcObjectsClass{
+        [id(PROPID_ObjectClassID), propget] HRESULT ObjectClassID([out, retval] LONG* objectClassID);
+        [id(METHID_GetRelationshipClasses)] HRESULT GetRelationshipClasses([in] LONG relRole, [out, retval] VARIANT* enumRelationshipClass);
+        [id(PROPID_AliasName), propget] HRESULT AliasName([out, retval] BSTR* name);
+
+    };
+
+    [
+        uuid(B8EF8668-B6E8-4C73-92A3-46CA75F78EDB),
+        helpstring("ArcObjectsObjectClass Class")
+    ]
+    coclass ArcObjectsObjectClass
+    {
+        [default] interface IArcObjectsObjectClass;
+    };

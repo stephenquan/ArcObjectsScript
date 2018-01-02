@@ -1,0 +1,37 @@
+    [
+        object,
+        uuid(273A1ED0-9C14-4E3F-AAEB-3A9611517225),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsLayer Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsLayer : IDispatch{
+        [id(PROPID_Name), propget] HRESULT Name([out, retval] BSTR* name);
+        [id(PROPID_Name), propput] HRESULT Name([in] BSTR name);
+        [id(PROPID_Valid), propget] HRESULT Valid([out, retval] VARIANT_BOOL* valid);
+        [id(PROPID_AreaOfInterest), propget] HRESULT AreaOfInterest([out, retval] VARIANT* aoi);
+        [id(PROPID_MinimumScale), propget] HRESULT MinimumScale([out, retval] double* minimumScale);
+        [id(PROPID_MinimumScale), propput] HRESULT MinimumScale([in] double maximumScale);
+        [id(PROPID_MaximumScale), propget] HRESULT MaximumScale([out, retval] double* maximumScale);
+        [id(PROPID_MaximumScale), propput] HRESULT MaximumScale([in] double maximumScale);
+        [id(PROPID_Visible), propget] HRESULT Visible([out, retval] VARIANT_BOOL* visible);
+        [id(PROPID_Visible), propput] HRESULT Visible([in] VARIANT_BOOL visible);
+        [id(PROPID_ShowTips), propget] HRESULT ShowTips([out, retval] VARIANT_BOOL* showTips);
+        [id(METHID_GetTipText)] HRESULT GetTipText([in] double x, [in] double y, [in] double tolerance, [out, retval] BSTR* text);
+        [id(PROPID_Cached), propget] HRESULT Cached([out, retval] VARIANT_BOOL* cached);
+        [id(PROPID_Cached), propput] HRESULT Cached([in] VARIANT_BOOL cached);
+        [id(PROPID_SupportedDrawPhases), propget] HRESULT SupportedDrawPhases([out, retval] LONG* drawPhases);
+        [id(PROPID_SpatialReference), propput] HRESULT SpatialReference([in] VARIANT spatialReference);
+        [id(METHID_Draw)] HRESULT Draw([in] LONG drawPhase, [in] VARIANT display, [in] VARIANT trackCancel);
+
+    };
+
+    [
+        uuid(E56DAD49-03A9-4AB3-8E9D-D861F98B95A3),
+        helpstring("ArcObjectsLayer Class")
+    ]
+    coclass ArcObjectsLayer
+    {
+        [default] interface IArcObjectsLayer;
+    };

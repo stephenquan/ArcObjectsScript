@@ -1,0 +1,19 @@
+    [
+        object,
+        uuid(045870E4-C01D-47DA-ABD7-5AE12BC4DEEB),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRowBuffer Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRowBuffer : IDispatch{
+    };
+
+    [
+        uuid(F31F451F-1745-45FD-BAA4-870702F1F8E9),
+        helpstring("ArcObjectsRowBuffer Class")
+    ]
+    coclass ArcObjectsRowBuffer
+    {
+        [default] interface IArcObjectsRowBuffer;
+    };

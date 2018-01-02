@@ -1,0 +1,38 @@
+    [
+        object,
+        uuid(E0C33B2F-936D-4AED-8B4D-D314AD9E47B2),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRelationshipClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRelationshipClass : IDispatch{
+        [id(PROPID_OriginPrimaryKey), propget] HRESULT OriginPrimaryKey([out, retval] BSTR* originPrimaryKey);
+        [id(PROPID_DestinationPrimaryKey), propget] HRESULT DestinationPrimaryKey([out, retval] BSTR* originPrimaryKey);
+        [id(PROPID_OriginForeignKey), propget] HRESULT OriginForeignKey([out, retval] BSTR* originForeignKey);
+        [id(PROPID_DestinationForeignKey), propget] HRESULT DestinationForeignKey([out, retval] BSTR* originForeignKey);
+        [id(PROPID_RelationshipClassID), propget] HRESULT RelationshipClassID([out, retval] LONG* relationshipClassID);
+        [id(PROPID_OriginClass), propget] HRESULT OriginClass([out, retval] VARIANT* objectClass);
+        [id(PROPID_DestinationClass), propget] HRESULT DestinationClass([out, retval] VARIANT* objectClass);
+        [id(PROPID_FeatureDataset), propget] HRESULT FeatureDataset([out, retval] VARIANT* featureDataset);
+        [id(PROPID_ForwardPathLabel), propget] HRESULT ForwardPathLabel([out, retval] BSTR* originPrimaryKey);
+        [id(PROPID_Cardinality), propget] HRESULT Cardinality([out, retval] LONG* relCardinality);
+        [id(PROPID_Notification), propget] HRESULT Notification([out, retval] LONG* relNotification);
+        [id(PROPID_IsAttributed), propget] HRESULT IsAttributed([out, retval] VARIANT_BOOL* isAttributed);
+        [id(PROPID_IsComposite), propget] HRESULT IsComposite([out, retval] VARIANT_BOOL* isComposite);
+        [id(METHID_CreateRelationship)] HRESULT CreateRelationship([in] VARIANT originObject, [in] VARIANT destinationObject, [out, retval] VARIANT* relationship);
+        [id(METHID_GetRelationship)] HRESULT GetRelationship([in] VARIANT originObject, [in] VARIANT destinationObject, [out, retval] VARIANT* relationship);
+        [id(METHID_DeleteRelationship)] HRESULT DeleteRelationship([in] VARIANT originObject, [in] VARIANT destinationObject);
+        [id(METHID_GetObjectsRelatedToObject)] HRESULT GetObjectsRelatedToObject([in] VARIANT anObject, [out, retval] VARIANT* anObjectSet);
+
+    };
+
+    [
+        uuid(C20091AA-E727-4848-BCA4-CB218A89B90A),
+        helpstring("ArcObjectsRelationshipClass Class")
+    ]
+    coclass ArcObjectsRelationshipClass
+    {
+        [default] interface IArcObjectsRelationshipClass;
+    };
+

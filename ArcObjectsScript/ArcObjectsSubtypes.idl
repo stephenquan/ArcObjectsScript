@@ -1,0 +1,33 @@
+    [
+        object,
+        uuid(22B75AA7-23FC-4F76-8471-C20789509FF1),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSubtypes Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSubtypes : IDispatch{
+        [id(PROPID_HasSubtype), propget] HRESULT HasSubtype([out, retval] VARIANT_BOOL* hasSubtype);
+        [id(PROPID_DefaultSubtypeCode), propget] HRESULT DefaultSubtypeCode([out, retval] LONG* subtypeCode);
+        [id(PROPID_DefaultSubtypeCode), propput] HRESULT DefaultSubtypeCode([in] LONG subtypeCode);
+        [id(METHID_GetDefaultValue)] HRESULT GetDefaultValue([in] LONG subtypeCode, [in] BSTR fieldName, [out, retval] VARIANT* value);
+        [id(METHID_SetDefaultValue)] HRESULT SetDefaultValue([in] LONG subtypeCode, [in] BSTR fieldName, [in] VARIANT value);
+        [id(METHID_GetDomain)] HRESULT GetDomain([in] LONG subtypeCode, [in] BSTR fieldName, [out, retval] VARIANT* domain);
+        [id(METHID_SetDomain)] HRESULT SetDomain([in] LONG subtypeCode, [in] BSTR fieldName, [in] VARIANT domain);
+        [id(PROPID_SubtypeFieldName), propget] HRESULT SubtypeFieldName([out, retval] BSTR* fieldName);
+        [id(PROPID_SubtypeFieldName), propput] HRESULT SubtypeFieldName([in] BSTR fieldName);
+        [id(PROPID_SubtypeFieldIndex), propget] HRESULT SubtypeFieldIndex([out, retval] LONG* index);
+        [id(METHID_GetSubtypeName)] HRESULT GetSubtypeName([in] LONG subtypeCode, [out, retval] BSTR* value);
+        [id(PROPID_Subtypes), propget] HRESULT Subtypes([out, retval] VARIANT* subtypes);
+        [id(METHID_AddSubtype)] HRESULT AddSubtype([in] LONG subtypeCode, [in] BSTR subtypeName);
+        [id(METHID_DeleteSubtype)] HRESULT DeleteSubtype([in] LONG subtypeCode);
+    };
+
+    [
+        uuid(9CED7FA7-2522-4730-805E-88555783F05C),
+        helpstring("ArcObjectsSubtypes Class")
+    ]
+    coclass ArcObjectsSubtypes
+    {
+        [default] interface IArcObjectsSubtypes;
+    };

@@ -308,26 +308,6 @@ using namespace ATL;
 #define RET_PIEnvelope(arg) RET_POBJECT(IEnvelope, arg)
 
 
-#define ARG_IField(arg) ARG_OBJECT(IField, arg)
-#define PRE_IField(arg) PRE_OBJECT(IField, arg)
-#define CAL_IField(arg) CAL_OBJECT(IField, arg)
-#define RET_IField(arg) RET_OBJECT(IField, arg)
-#define ARG_PIField(arg) ARG_POBJECT(IField, arg)
-#define PRE_PIField(arg) PRE_POBJECT(IField, arg)
-#define CAL_PIField(arg) CAL_POBJECT(IField, arg)
-#define RET_PIField(arg) RET_POBJECT(IField, arg)
-
-
-#define ARG_IFields(arg) ARG_OBJECT(IFields, arg)
-#define PRE_IFields(arg) PRE_OBJECT(IFields, arg)
-#define CAL_IFields(arg) CAL_OBJECT(IFields, arg)
-#define RET_IFields(arg) RET_OBJECT(IFields, arg)
-#define ARG_PIFields(arg) ARG_POBJECT(IFields, arg)
-#define PRE_PIFields(arg) PRE_POBJECT(IFields, arg)
-#define CAL_PIFields(arg) CAL_POBJECT(IFields, arg)
-#define RET_PIFields(arg) RET_POBJECT(IFields, arg)
-
-
 #define ARG_IFeature(arg) ARG_OBJECT(IFeature, arg)
 #define PRE_IFeature(arg) PRE_OBJECT(IFeature, arg)
 #define CAL_IFeature(arg) CAL_OBJECT(IFeature, arg)
@@ -376,6 +356,36 @@ using namespace ATL;
 #define PRE_PIFeatureDataset(arg) PRE_POBJECT(IFeatureDataset, arg)
 #define CAL_PIFeatureDataset(arg) CAL_POBJECT(IFeatureDataset, arg)
 #define RET_PIFeatureDataset(arg) RET_POBJECT(IFeatureDataset, arg)
+
+
+#define ARG_IField(arg) ARG_OBJECT(IField, arg)
+#define PRE_IField(arg) PRE_OBJECT(IField, arg)
+#define CAL_IField(arg) CAL_OBJECT(IField, arg)
+#define RET_IField(arg) RET_OBJECT(IField, arg)
+#define ARG_PIField(arg) ARG_POBJECT(IField, arg)
+#define PRE_PIField(arg) PRE_POBJECT(IField, arg)
+#define CAL_PIField(arg) CAL_POBJECT(IField, arg)
+#define RET_PIField(arg) RET_POBJECT(IField, arg)
+
+
+#define ARG_IFieldInfo(arg) ARG_OBJECT(IFieldInfo, arg)
+#define PRE_IFieldInfo(arg) PRE_OBJECT(IFieldInfo, arg)
+#define CAL_IFieldInfo(arg) CAL_OBJECT(IFieldInfo, arg)
+#define RET_IFieldInfo(arg) RET_OBJECT(IFieldInfo, arg)
+#define ARG_PIFieldInfo(arg) ARG_POBJECT(IFieldInfo, arg)
+#define PRE_PIFieldInfo(arg) PRE_POBJECT(IFieldInfo, arg)
+#define CAL_PIFieldInfo(arg) CAL_POBJECT(IFieldInfo, arg)
+#define RET_PIFieldInfo(arg) RET_POBJECT(IFieldInfo, arg)
+
+
+#define ARG_IFields(arg) ARG_OBJECT(IFields, arg)
+#define PRE_IFields(arg) PRE_OBJECT(IFields, arg)
+#define CAL_IFields(arg) CAL_OBJECT(IFields, arg)
+#define RET_IFields(arg) RET_OBJECT(IFields, arg)
+#define ARG_PIFields(arg) ARG_POBJECT(IFields, arg)
+#define PRE_PIFields(arg) PRE_POBJECT(IFields, arg)
+#define CAL_PIFields(arg) CAL_POBJECT(IFields, arg)
+#define RET_PIFields(arg) RET_POBJECT(IFields, arg)
 
 
 #define ARG_ILayer(arg) ARG_OBJECT(ILayer, arg)
@@ -486,6 +496,46 @@ using namespace ATL;
 #define PRE_PISpatialReference(arg) PRE_POBJECT(ISpatialReference, arg)
 #define CAL_PISpatialReference(arg) CAL_POBJECT(ISpatialReference, arg)
 #define RET_PISpatialReference(arg) RET_POBJECT(ISpatialReference, arg)
+
+
+#define ARG_IStandaloneTable(arg) ARG_OBJECT(IStandaloneTable, arg)
+#define PRE_IStandaloneTable(arg) PRE_OBJECT(IStandaloneTable, arg)
+#define CAL_IStandaloneTable(arg) CAL_OBJECT(IStandaloneTable, arg)
+#define RET_IStandaloneTable(arg) RET_OBJECT(IStandaloneTable, arg)
+#define ARG_PIStandaloneTable(arg) ARG_POBJECT(IStandaloneTable, arg)
+#define PRE_PIStandaloneTable(arg) PRE_POBJECT(IStandaloneTable, arg)
+#define CAL_PIStandaloneTable(arg) CAL_POBJECT(IStandaloneTable, arg)
+#define RET_PIStandaloneTable(arg) RET_POBJECT(IStandaloneTable, arg)
+
+
+#define ARG_IStandaloneTableCollection(arg) ARG_OBJECT(IStandaloneTableCollection, arg)
+#define PRE_IStandaloneTableCollection(arg) PRE_OBJECT(IStandaloneTableCollection, arg)
+#define CAL_IStandaloneTableCollection(arg) CAL_OBJECT(IStandaloneTableCollection, arg)
+#define RET_IStandaloneTableCollection(arg) RET_OBJECT(IStandaloneTableCollection, arg)
+#define ARG_PIStandaloneTableCollection(arg) ARG_POBJECT(IStandaloneTableCollection, arg)
+#define PRE_PIStandaloneTableCollection(arg) PRE_POBJECT(IStandaloneTableCollection, arg)
+#define CAL_PIStandaloneTableCollection(arg) CAL_POBJECT(IStandaloneTableCollection, arg)
+#define RET_PIStandaloneTableCollection(arg) RET_POBJECT(IStandaloneTableCollection, arg)
+
+
+#define ARG_ITable(arg) ARG_OBJECT(ITable, arg)
+#define PRE_ITable(arg) PRE_OBJECT(ITable, arg)
+#define CAL_ITable(arg) CAL_OBJECT(ITable, arg)
+#define RET_ITable(arg) RET_OBJECT(ITable, arg)
+#define ARG_PITable(arg) ARG_POBJECT(ITable, arg)
+#define PRE_PITable(arg) PRE_POBJECT(ITable, arg)
+#define CAL_PITable(arg) CAL_POBJECT(ITable, arg)
+#define RET_PITable(arg) RET_POBJECT(ITable, arg)
+
+
+#define ARG_ITableFields(arg) ARG_OBJECT(ITableFields, arg)
+#define PRE_ITableFields(arg) PRE_OBJECT(ITableFields, arg)
+#define CAL_ITableFields(arg) CAL_OBJECT(ITableFields, arg)
+#define RET_ITableFields(arg) RET_OBJECT(ITableFields, arg)
+#define ARG_PITableFields(arg) ARG_POBJECT(ITableFields, arg)
+#define PRE_PITableFields(arg) PRE_POBJECT(ITableFields, arg)
+#define CAL_PITableFields(arg) CAL_POBJECT(ITableFields, arg)
+#define RET_PITableFields(arg) RET_POBJECT(ITableFields, arg)
 
 
 #define ARG_ITrackCancel(arg) ARG_OBJECT(ITrackCancel, arg)

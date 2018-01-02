@@ -72,6 +72,7 @@ public:
     XCREATE(FeatureLayerDefinition);
     XCREATE(FeatureLayerExtendedDefinition);
     XCREATE(Field);
+	XCREATE(FieldInfo);
 	XCREATE(Fields);
     XCREATE(Layer);
     XCREATE(Map);
@@ -86,10 +87,12 @@ public:
     XCREATE(RowBuffer);
     XCREATE(SelectionSet);
     XCREATE(SpatialReference);
-    XCREATE(Subtypes);
-    XCREATE(Workspace);
-
-
+	XCREATE(StandaloneTable);
+	XCREATE(StandaloneTableCollection);
+	XCREATE(Subtypes);
+	XCREATE(Table);
+	XCREATE(TableFields);
+	XCREATE(Workspace);
 
 };
 

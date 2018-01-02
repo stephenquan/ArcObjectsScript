@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(B09065FB-9CB8-4751-A4DA-05B250F29F1A),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRelationship Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRelationship : IDispatch{
+    };
+
+    [
+        uuid(B17747A9-B4EF-4577-8E39-BC27FC7FEE64),
+        helpstring("ArcObjectsRelationship Class")
+    ]
+    coclass ArcObjectsRelationship
+    {
+        [default] interface IArcObjectsRelationship;
+    };
+

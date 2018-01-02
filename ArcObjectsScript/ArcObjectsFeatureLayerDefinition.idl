@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(EDEBC24E-0607-4E49-89DD-44E65B5A4194),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayerDefinition Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayerDefinition : IDispatch{
+        [id(PROPID_DefinitionExpression), propget] HRESULT DefinitionExpression([out, retval] BSTR* expression);
+    };
+
+    [
+        uuid(9841539F-1640-4957-A244-425BC461BA44),
+        helpstring("ArcObjectsFeatureLayerDefinition Class")
+    ]
+    coclass ArcObjectsFeatureLayerDefinition
+    {
+        [default] interface IArcObjectsFeatureLayerDefinition;
+    };

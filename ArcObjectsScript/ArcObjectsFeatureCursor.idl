@@ -1,0 +1,27 @@
+    [
+        object,
+        uuid(F4CB1C17-1F80-4FFF-99E8-BAA530B3C0A0),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureCursor Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureCursor : IDispatch{
+        [id(METHID_FindField)] HRESULT FindField([in] BSTR name, [out, retval] LONG* fieldIndex);
+        [id(PROPID_Fields), propget] HRESULT Fields([out, retval] VARIANT* fields);
+        [id(METHID_NextFeature)] HRESULT NextFeature([out, retval] VARIANT* feature);
+        [id(METHID_UpdateFeature)] HRESULT UpdateFeature([in] VARIANT feature);
+        [id(METHID_DeleteFeature)] HRESULT DeleteFeature();
+        [id(METHID_InsertFeature)] HRESULT InsertFeature([in] VARIANT featureBuffer, [out, retval] VARIANT* id);
+        [id(METHID_Flush)] HRESULT Flush();
+    };
+
+    [
+        uuid(A959131E-E7B9-4441-846A-ADA93E68AFD2),
+        helpstring("ArcObjectsFeatureCursor Class")
+    ]
+    coclass ArcObjectsFeatureCursor
+    {
+        [default] interface IArcObjectsFeatureCursor;
+    };
+

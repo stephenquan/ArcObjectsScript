@@ -1,0 +1,21 @@
+    [
+        object,
+        uuid(6F983B78-D22F-4366-8BDC-523EFFAABD1D),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsMap Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsMap : IDispatch{
+        [id(PROPID_LayerCount), propget] HRESULT LayerCount([out, retval] LONG* layerCount);
+        [id(METHID_Layer)] HRESULT Layer(LONG index, [out, retval] VARIANT* layer);
+    };
+
+    [
+        uuid(CFE34595-9E4F-4805-88F5-BA47E4E7BABA),
+        helpstring("ArcObjectsMap Class")
+    ]
+    coclass ArcObjectsMap
+    {
+        [default] interface IArcObjectsMap;
+    };

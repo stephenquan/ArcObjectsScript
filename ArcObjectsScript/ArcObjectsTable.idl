@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(4FEB945B-E45D-4C25-BA00-985C07EE4E87),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsTable Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsTable : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(8442DBA4-AB94-4736-9F8C-641A446C9CF1),
+        helpstring("ArcObjectsTable Class")
+    ]
+    coclass ArcObjectsTable
+    {
+        [default] interface IArcObjectsTable;
+    };
+

@@ -1,0 +1,24 @@
+    [
+        object,
+        uuid(F1F0D66D-C343-4765-B6DB-7A75C77A7D3D),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFields Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFields : IDispatch{
+        [id(PROPID_FieldCount), propget] HRESULT FieldCount([out, retval] LONG* numFields);
+        [id(METHID_GetField)] HRESULT GetField([in] LONG index, [out, retval] VARIANT* field);
+        [id(METHID_FindField)] HRESULT FindField([in] BSTR name, [out, retval] LONG* fieldIndex);
+        [id(METHID_FindFieldByAliasName)] HRESULT FindFieldByAliasName([in] BSTR name, [out, retval] LONG* fieldIndex);
+
+    };
+
+    [
+        uuid(C5192344-FF6C-40C9-83A7-C7FAD6CCE0B9),
+        helpstring("ArcObjectsFields Class")
+    ]
+    coclass ArcObjectsFields
+    {
+        [default] interface IArcObjectsFields;
+    };

@@ -1,0 +1,19 @@
+    [
+        object,
+        uuid(1E2BF6C5-97DB-453A-97DC-2A67F5600652),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureLayerExtendedDefinition Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureLayerExtendedDefinition : IDispatch{
+    };
+
+    [
+        uuid(A4F5A94C-41B0-4C8B-B421-4497EE3C53D6),
+        helpstring("ArcObjectsFeatureLayerExtendedDefinition Class")
+    ]
+    coclass ArcObjectsFeatureLayerExtendedDefinition
+    {
+        [default] interface IArcObjectsFeatureLayerExtendedDefinition;
+    };

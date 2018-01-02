@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(48A35F46-8761-43A3-A144-2FC759E8AFFD),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsTableFields Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsTableFields : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(B576AF31-C59A-446F-872C-621B6A500070),
+        helpstring("ArcObjectsTableFields Class")
+    ]
+    coclass ArcObjectsTableFields
+    {
+        [default] interface IArcObjectsTableFields;
+    };
+

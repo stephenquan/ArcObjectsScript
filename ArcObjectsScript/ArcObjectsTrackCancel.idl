@@ -1,0 +1,19 @@
+	[
+		object,
+		uuid(D67EE815-88DE-4E53-B256-40538EB626AE),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsTrackCancel Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsTrackCancel : IDispatch {
+	};
+
+	[
+		uuid(7514AFCA-23CB-4D59-B66B-5D47DF6BF7F8),
+		helpstring("ArcObjectsTrackCancel Class")
+	]
+	coclass ArcObjectsTrackCancel
+	{
+		[default] interface IArcObjectsTrackCancel;
+	};

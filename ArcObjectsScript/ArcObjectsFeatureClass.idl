@@ -1,0 +1,35 @@
+    [
+        object,
+        uuid(4BC4FDCF-878D-42DB-A28E-ED2927DC2D8E),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureClass : IArcObjectsObjectClass {
+        [id(PROPID_ShapeType), propget] HRESULT ShapeType([out, retval] LONG* geometryType);
+        [id(PROPID_FeatureType), propget] HRESULT FeatureType([out, retval] LONG* featureType);
+        [id(PROPID_ShapeFieldName), propget] HRESULT ShapeFieldName([out, retval] BSTR* fieldName);
+        [id(PROPID_AreaField), propget] HRESULT AreaField([out, retval] VARIANT* field);
+        [id(PROPID_LengthField), propget] HRESULT LengthField([out, retval] VARIANT* field);
+        [id(PROPID_FeatureDataset), propget] HRESULT FeatureDataset([out, retval] VARIANT* featureDataset);
+        [id(METHID_CreateFeature)] HRESULT CreateFeature([out, retval] VARIANT* feature);
+        [id(METHID_GetFeatures)] HRESULT GetFeatures([in] VARIANT fids, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+        [id(METHID_CreateFeatureBuffer)] HRESULT CreateFeatureBuffer([out, retval] VARIANT* featureBuffer);
+        [id(METHID_FeatureCount)] HRESULT FeatureCount([in] VARIANT queryFilter, [out, retval] LONG* numFeatures);
+        [id(METHID_Search)] HRESULT Search([in] VARIANT queryFilter, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+        [id(METHID_Update)] HRESULT Update([in] VARIANT queryFilter, [in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+        [id(METHID_Insert)] HRESULT Insert([in] VARIANT_BOOL recycling, [out, retval] VARIANT* featureCursor);
+        [id(METHID_Select)] HRESULT Select([in] VARIANT queryFilter, [in] LONG selectionType, [in] LONG selectionOption, [in] VARIANT workspace, [out, retval] VARIANT* selectionSet);
+
+    };
+
+    [
+        uuid(F031CF0C-88CA-482C-9FF8-188300272205),
+        helpstring("ArcObjectsFeatureClass Class")
+    ]
+    coclass ArcObjectsFeatureClass
+    {
+        [default] interface IArcObjectsFeatureClass;
+    };
+

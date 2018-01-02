@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(56504920-EFE1-4448-9CD4-AD2C2DA28F31),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsField Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsField : IDispatch{
+        [id(PROPID_Name), propget] HRESULT Name([out, retval] BSTR* name);
+    };
+
+    [
+        uuid(46711B21-F34D-4EBB-BCB1-021909A1AA7C),
+        helpstring("ArcObjectsField Class")
+    ]
+    coclass ArcObjectsField
+    {
+        [default] interface IArcObjectsField;
+    };

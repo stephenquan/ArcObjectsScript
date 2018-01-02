@@ -1,0 +1,26 @@
+
+    [
+        object,
+        uuid(754E54C2-F493-40F6-AE06-A132BED8DD80),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsStandaloneTableCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsStandaloneTableCollection : IDispatch {
+        [id(PROPID_StandaloneTableCount), propget] HRESULT StandaloneTableCount([out, retval] LONG* counts);
+        [id(METHID_GetStandaloneTable)] HRESULT GetStandaloneTable([in] LONG index, [out, retval] VARIANT* standaloneTable);
+        [id(METHID_AddStandaloneTable)] HRESULT AddStandaloneTable([in] VARIANT standaloneTable);
+        [id(METHID_RemoveStandaloneTable)] HRESULT RemoveStandaloneTable([in] VARIANT standaloneTable);
+        [id(METHID_RemoveAllStandaloneTables)] HRESULT RemoveAllStandaloneTables();
+
+    };
+
+    [
+        uuid(588FC4A7-0355-4726-A9E5-5E496D697B05),
+        helpstring("ArcObjectsStandaloneTableCollection Class")
+    ]
+    coclass ArcObjectsStandaloneTableCollection
+    {
+        [default] interface IArcObjectsStandaloneTableCollection;
+    };

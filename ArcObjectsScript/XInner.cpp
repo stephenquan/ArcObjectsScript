@@ -13,6 +13,7 @@
 #include "ArcObjectsFeatureLayerDefinition.h"
 #include "ArcObjectsFeatureLayerExtendedDefinition.h"
 #include "ArcObjectsField.h"
+#include "ArcObjectsFieldInfo.h"
 #include "ArcObjectsFields.h"
 #include "ArcObjectsLayer.h"
 #include "ArcObjectsMap.h"
@@ -28,7 +29,11 @@
 #include "ArcObjectsSelectionSet.h"
 #include "ArcObjectsSet.h"
 #include "ArcObjectsSpatialReference.h"
+#include "ArcObjectsStandaloneTable.h"
+#include "ArcObjectsStandaloneTableCollection.h"
 #include "ArcObjectsSubtypes.h"
+#include "ArcObjectsTable.h"
+#include "ArcObjectsTableFields.h"
 #include "ArcObjectsWorkspace.h"
 
 
@@ -95,6 +100,7 @@ IMPLEMENT_TO_VARIANT(FeatureLayer)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(FeatureLayerDefinition)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(FeatureLayerExtendedDefinition)
 IMPLEMENT_TO_VARIANT(Field)
+IMPLEMENT_TO_VARIANT(FieldInfo)
 IMPLEMENT_TO_VARIANT(Fields)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(Layer)
 IMPLEMENT_TO_VARIANT(Map)
@@ -110,5 +116,9 @@ IMPLEMENT_TO_VARIANT_NON_CREATABLE(Rule)
 IMPLEMENT_TO_VARIANT(SelectionSet)
 IMPLEMENT_TO_VARIANT(Set)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(SpatialReference)
+IMPLEMENT_TO_VARIANT(StandaloneTable)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(StandaloneTableCollection)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(Subtypes)
+IMPLEMENT_TO_VARIANT(Table)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(TableFields)
 IMPLEMENT_TO_VARIANT(Workspace)

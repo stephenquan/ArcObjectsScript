@@ -1,0 +1,20 @@
+	[
+		object,
+		uuid(FEE504B6-4FE6-45CF-B1E3-786E17F01CD4),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsEnvelope Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsEnvelope : IDispatch {
+	};
+
+	[
+		uuid(B4F1F425-93FC-485E-8929-3A79C0669AF0),
+		helpstring("ArcObjectsEnvelope Class")
+	]
+	coclass ArcObjectsEnvelope
+	{
+		[default] interface IArcObjectsEnvelope;
+	};
+

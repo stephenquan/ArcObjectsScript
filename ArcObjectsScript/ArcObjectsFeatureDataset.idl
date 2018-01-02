@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(1C6949C5-EE65-46D4-BCC2-066D9AA4181A),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureDataset Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureDataset : IDispatch{
+    };
+
+    [
+        uuid(6FAB68D7-92A3-4A9E-8C29-4B0C232F0A8E),
+        helpstring("ArcObjectsFeatureDataset Class")
+    ]
+    coclass ArcObjectsFeatureDataset
+    {
+        [default] interface IArcObjectsFeatureDataset;
+    };
+

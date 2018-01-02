@@ -1,0 +1,21 @@
+    [
+        object,
+        uuid(292AEF13-9D8D-4911-BBE9-4F9E6EC39822),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsEnumRelationshipClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsEnumRelationshipClass : IDispatch{
+		[id(METHID_Next)] HRESULT Next([out, retval] VARIANT* relationshipClass);
+		[id(METHID_Reset)] HRESULT Reset();
+    };
+
+    [
+        uuid(8ACB6344-CB78-416B-9803-BD484AFBF1CC),
+        helpstring("ArcObjectsEnumRelationshipClass Class")
+    ]
+    coclass ArcObjectsEnumRelationshipClass
+    {
+        [default] interface IArcObjectsEnumRelationshipClass;
+    };

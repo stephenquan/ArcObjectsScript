@@ -160,6 +160,11 @@ IDR_ARCOBJECTSRULE REGISTRY                "ArcObjectsRule.rgs"
 IDR_ARCOBJECTSRELATIONSHIP REGISTRY                "ArcObjectsRelationship.rgs"
 IDR_ARCOBJECTSENUMRELATIONSHIPCLASS REGISTRY                "ArcObjectsEnumRelationshipClass.rgs"
 IDR_ARCOBJECTSFIELDS REGISTRY                "ArcObjectsFields.rgs"
+IDR_ARCOBJECTSSTANDALONETABLE REGISTRY                "ArcObjectsStandaloneTable.rgs"
+IDR_ARCOBJECTSSTANDALONETABLECOLLECTION REGISTRY                "ArcObjectsStandaloneTableCollection.rgs"
+IDR_ARCOBJECTSTABLEFIELDS REGISTRY                "ArcObjectsTableFields.rgs"
+IDR_ARCOBJECTSFIELDINFO REGISTRY                "ArcObjectsFieldInfo.rgs"
+IDR_ARCOBJECTSTABLE REGISTRY                "ArcObjectsTable.rgs"
 
 
 #endif    // English (Australia) resources

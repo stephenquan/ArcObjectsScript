@@ -1,0 +1,21 @@
+    [
+        object,
+        uuid(6B8647B7-618D-4CCF-85D4-1DA37A5A850E),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsMapDocument Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsMapDocument : IDispatch{
+        [id(PROPID_MapCount), propget] HRESULT MapCount([out, retval] LONG* mapCount);
+        [id(METHID_Map)] HRESULT Map(LONG index, [out, retval] VARIANT* map);
+    };
+
+    [
+        uuid(F4441B0B-52FA-4064-AFFF-EFA435D72773),
+        helpstring("ArcObjectsMapDocument Class")
+    ]
+    coclass ArcObjectsMapDocument
+    {
+        [default] interface IArcObjectsMapDocument;
+    };

@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.StandaloneTable = s 'ArcObjectsStandaloneTable Class'
+    {
+        CLSID = s '{F4B55881-02B9-49AA-98F3-5A69973CC585}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {F4B55881-02B9-49AA-98F3-5A69973CC585} = s 'ArcObjectsStandaloneTable Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.StandaloneTable'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.StandaloneTable'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

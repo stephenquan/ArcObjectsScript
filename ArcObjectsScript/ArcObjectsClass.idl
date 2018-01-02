@@ -1,0 +1,33 @@
+    [
+        object,
+        uuid(BD55CC31-347E-4E17-A00F-182A9D04BED3),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsClass : IDispatch{
+        [id(METHID_FindField)] HRESULT FindField([in] BSTR name, [out, retval] LONG* fieldIndex);
+        [id(PROPID_Fields), propget] HRESULT Fields([out, retval] VARIANT* fields);
+        [id(PROPID_Indexes), propget] HRESULT Indexes([out, retval] VARIANT* indexes);
+        [id(METHID_AddField)] HRESULT AddField([in] VARIANT field);
+        [id(METHID_DeleteField)] HRESULT DeleteField([in] VARIANT field);
+        [id(METHID_AddIndex)] HRESULT AddIndex([in] VARIANT index);
+        [id(METHID_DeleteIndex)] HRESULT DeleteIndex([in] VARIANT index);
+        [id(PROPID_HasOID), propget] HRESULT HasOID([out, retval] VARIANT_BOOL* hasOID);
+        [id(PROPID_OIDFieldName), propget] HRESULT OIDFieldName([out, retval] BSTR* name);
+        [id(PROPID_CLSID), propget] HRESULT CLSID([out, retval] VARIANT* clsid);
+        [id(PROPID_EXTCLSID), propget] HRESULT EXTCLSID([out, retval] VARIANT* clsid);
+        [id(PROPID_Extension), propget] HRESULT Extension([out, retval] VARIANT* extension);
+        [id(PROPID_ExtensionProperties), propget] HRESULT ExtensionProperties([out, retval] VARIANT* extensionProperties);
+
+    };
+
+    [
+        uuid(1CBEC865-753B-47F3-952F-D87386824729),
+        helpstring("ArcObjectsClass Class")
+    ]
+    coclass ArcObjectsClass
+    {
+        [default] interface IArcObjectsClass;
+    };

@@ -1,0 +1,20 @@
+    [
+        object,
+        uuid(9B1E4173-B553-4FDA-8206-B57BBBCA404A),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFeatureBuffer Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFeatureBuffer : IDispatch{
+    };
+
+    [
+        uuid(F657386C-3528-4509-B8DF-B7AA078F00C0),
+        helpstring("ArcObjectsFeatureBuffer Class")
+    ]
+    coclass ArcObjectsFeatureBuffer
+    {
+        [default] interface IArcObjectsFeatureBuffer;
+    };
+

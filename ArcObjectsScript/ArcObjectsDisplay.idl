@@ -1,0 +1,20 @@
+	[
+		object,
+		uuid(11A80BCB-403C-4A4B-B394-E78F4E446C86),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsDisplay Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsDisplay : IDispatch {
+	};
+
+	[
+		uuid(6E6A8B46-A4B4-4BE7-B5EB-2488CAD4855B),
+		helpstring("ArcObjectsDisplay Class")
+	]
+	coclass ArcObjectsDisplay
+	{
+		[default] interface IArcObjectsDisplay;
+	};
+

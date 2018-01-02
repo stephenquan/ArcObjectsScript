@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(B6B6914A-7BAF-44C8-991A-5B36DDAD2255),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFieldInfo Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFieldInfo : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(B9C87958-4E96-4943-BCA0-D2F6B9395C30),
+        helpstring("ArcObjectsFieldInfo Class")
+    ]
+    coclass ArcObjectsFieldInfo
+    {
+        [default] interface IArcObjectsFieldInfo;
+    };
+
