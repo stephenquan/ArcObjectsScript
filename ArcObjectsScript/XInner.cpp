@@ -31,14 +31,18 @@
 #include "ArcObjectsSubtypes.h"
 #include "ArcObjectsWorkspace.h"
 
-//`    template <> \
 
-#define IMPLEMENT_TO_VARIANT(TYPE_NAME) \
+#define IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID) \
     template < > \
-    HRESULT XInner<I##TYPE_NAME>::ToVariant(I##TYPE_NAME* ptrInner, VARIANT* value) \
+    HRESULT XInner<I##TYPE_NAME>::ToVariant(IUnknown* pInner, VARIANT* value) \
     { \
         HRESULT hr = S_OK; \
-		if (!ptrInner) \
+		CComPtr<I##TYPE_NAME> spInner; \
+		if (pInner) \
+		{ \
+			hr = pInner->QueryInterface(&spInner); \
+		} \
+		if (!spInner) \
 		{ \
 		    value->vt = VT_DISPATCH; \
 			V_DISPATCH(value) = NULL; \
@@ -46,26 +50,53 @@
 		} \
         CComObject<CArcObjects##TYPE_NAME>* ptrOuter = NULL; \
         CHECKHR(CComObject<CArcObjects##TYPE_NAME>::CreateInstance(&ptrOuter)); \
-        ptrOuter->m_Inner = ptrInner; \
+        ptrOuter->m_Inner = spInner; \
         CHECKHR(CComVariant((IDispatch*)ptrOuter).Detach(value)); \
         return hr; \
-    }
+    } \
+	template < > \
+	HRESULT XInner<I##TYPE_NAME>::CreateVariant(VARIANT* inner, VARIANT* value) \
+    { \
+		HRESULT hr = S_OK; \
+		if (!inner) return ToVariant(NULL, value); \
+		if (inner->vt == (VT_BYREF | VT_VARIANT)) \
+		{ \
+			inner = V_VARIANTREF(inner); \
+		} \
+		CComPtr<I##TYPE_NAME> spInner; \
+		switch (inner->vt) \
+		{ \
+		case VT_UNKNOWN: return ToVariant(V_UNKNOWN(inner), value); \
+		case VT_DISPATCH: return ToVariant(V_DISPATCH(inner), value); \
+		case VT_BYREF | VT_UNKNOWN: return ToVariant(*V_UNKNOWNREF(inner), value); \
+		case VT_BYREF | VT_DISPATCH: return ToVariant(*V_DISPATCHREF(inner), value); \
+		case VT_ERROR: \
+			if (CLSID == CLSID_NULL) return ToVariant(NULL, value); \
+			CHECKHR(CoCreateInstance(CLSID, NULL, CLSCTX_INPROC_SERVER, IID_I##TYPE_NAME, (void**)&spInner)); \
+			return ToVariant(spInner, value); \
+		} \
+		return ToVariant(NULL, value); \
+	}
 
-IMPLEMENT_TO_VARIANT(Class)
-IMPLEMENT_TO_VARIANT(Domain)
-IMPLEMENT_TO_VARIANT(EnumRelationshipClass)
+
+#define IMPLEMENT_TO_VARIANT(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID_##TYPE_NAME)
+#define IMPLEMENT_TO_VARIANT_NON_CREATABLE(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID_NULL)
+
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(Class)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(Domain)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(EnumRelationshipClass)
 IMPLEMENT_TO_VARIANT(Envelope)
 IMPLEMENT_TO_VARIANT(Feature)
-IMPLEMENT_TO_VARIANT(FeatureBuffer)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(FeatureBuffer)
 IMPLEMENT_TO_VARIANT(FeatureClass)
 IMPLEMENT_TO_VARIANT(FeatureCursor)
 IMPLEMENT_TO_VARIANT(FeatureDataset)
 IMPLEMENT_TO_VARIANT(FeatureLayer)
-IMPLEMENT_TO_VARIANT(FeatureLayerDefinition)
-IMPLEMENT_TO_VARIANT(FeatureLayerExtendedDefinition)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(FeatureLayerDefinition)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(FeatureLayerExtendedDefinition)
 IMPLEMENT_TO_VARIANT(Field)
 IMPLEMENT_TO_VARIANT(Fields)
-IMPLEMENT_TO_VARIANT(Layer)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(Layer)
 IMPLEMENT_TO_VARIANT(Map)
 IMPLEMENT_TO_VARIANT(MapDocument)
 IMPLEMENT_TO_VARIANT(Object)
@@ -75,9 +106,9 @@ IMPLEMENT_TO_VARIANT(Relationship)
 IMPLEMENT_TO_VARIANT(RelationshipClass)
 IMPLEMENT_TO_VARIANT(Row)
 IMPLEMENT_TO_VARIANT(RowBuffer)
-IMPLEMENT_TO_VARIANT(Rule)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(Rule)
 IMPLEMENT_TO_VARIANT(SelectionSet)
 IMPLEMENT_TO_VARIANT(Set)
-IMPLEMENT_TO_VARIANT(SpatialReference)
-IMPLEMENT_TO_VARIANT(Subtypes)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(SpatialReference)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(Subtypes)
 IMPLEMENT_TO_VARIANT(Workspace)

@@ -4,16 +4,18 @@
 #include "resource.h"       // main symbols
 
 #include "ArcObjectsScript_i.h"
-
+#include "XInner.h"
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
 #endif
 
-#define DECLARE_ARCOBJECTS_CLASS_FACTORY(T) \
-    public: \
-        STDMETHOD(T)(VARIANT inner, VARIANT* outer);
 
+#define XCREATE(T) \
+    STDMETHOD(T)(VARIANT inner, VARIANT* outer) \
+    { \
+        return XInner<I##T>::CreateVariant(&inner, outer); \
+    }
 
 
 // CArcObjects
@@ -57,29 +59,37 @@ public:
     static HRESULT GetObject(VARIANT* obj, REFIID riid, void** ptr);
 
 public:
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Class)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Domain)
-	DECLARE_ARCOBJECTS_CLASS_FACTORY(Envelope)
-	DECLARE_ARCOBJECTS_CLASS_FACTORY(Feature)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureBuffer)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureClass)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureCursor)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureDataset)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayer)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayerDefinition)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(FeatureLayerExtendedDefinition)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Field)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Layer)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Map)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(MapDocument)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(ObjectClass)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(QueryFilter)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Row)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(RowBuffer)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(SelectionSet)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(SpatialReference)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Subtypes)
-    DECLARE_ARCOBJECTS_CLASS_FACTORY(Workspace)
+	XCREATE(Class);
+    XCREATE(Domain);
+	XCREATE(EnumRelationshipClass);
+	XCREATE(Envelope);
+	XCREATE(Feature);
+    XCREATE(FeatureBuffer);
+    XCREATE(FeatureClass);
+    XCREATE(FeatureCursor);
+    XCREATE(FeatureDataset);
+    XCREATE(FeatureLayer);
+    XCREATE(FeatureLayerDefinition);
+    XCREATE(FeatureLayerExtendedDefinition);
+    XCREATE(Field);
+	XCREATE(Fields);
+    XCREATE(Layer);
+    XCREATE(Map);
+    XCREATE(MapDocument);
+	XCREATE(Object);
+	XCREATE(ObjectClass);
+    XCREATE(QueryFilter);
+	XCREATE(Relationship);
+	XCREATE(RelationshipClass);
+	XCREATE(Rule);
+	XCREATE(Row);
+    XCREATE(RowBuffer);
+    XCREATE(SelectionSet);
+    XCREATE(SpatialReference);
+    XCREATE(Subtypes);
+    XCREATE(Workspace);
+
+
 
 };
 

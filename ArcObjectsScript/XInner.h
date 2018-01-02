@@ -52,7 +52,8 @@ public:
         return hr;
     }
 
-    static HRESULT ToVariant(T* ptr, VARIANT* output);
+	static HRESULT ToVariant(IUnknown* pInner, VARIANT* output);
+	static HRESULT CreateVariant(VARIANT* inner, VARIANT *output);
 
 };
 
