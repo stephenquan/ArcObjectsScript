@@ -27,27 +27,32 @@
 #pragma warning(disable : 4146)
 
 #import "C:\Program Files (x86)\Common Files\ArcGIS\bin\ArcGISVersion.dll" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriSystem.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("OLE_COLOR", "OLE_HANDLE", "VARTYPE")  exclude("esriProductCode")
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriSystemUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("IProgressDialog")
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriGeometry.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDisplay.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriOutput.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriGeoDatabase.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids 
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDataSourcesRaster.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriCarto.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("UINT_PTR", "OLE_COLOR", "OLE_HANDLE", "VARTYPE") 
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriFramework.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("UINT_PTR")
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriGISClient.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriEditor.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDataSourcesRaster.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriGeoDatabaseUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("VersionManager", "CLSID_VersionManager")
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriGeoProcessing.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriArcMapUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriCatalog.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriCatalogUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDataSourcesRasterUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDataSourcesGDB.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriDataSourcesFile.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
-#import "C:\Program Files (x86)\ArcGIS\Desktop10.6\com\esriServer.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+
+//
+// subst X: "C:\Program Files (x86)\ArcGIS\Desktop10.5"
+//
+
+#import "X:\com\esriSystem.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("OLE_COLOR", "OLE_HANDLE", "VARTYPE")  exclude("esriProductCode")
+#import "X:\com\esriSystemUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("IProgressDialog")
+#import "X:\com\esriGeometry.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriDisplay.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriOutput.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriGeoDatabase.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids 
+#import "X:\com\esriDataSourcesRaster.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriCarto.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("UINT_PTR", "OLE_COLOR", "OLE_HANDLE", "VARTYPE") 
+#import "X:\com\esriFramework.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("UINT_PTR")
+#import "X:\com\esriGISClient.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriEditor.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriDataSourcesRaster.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriGeoDatabaseUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids exclude("VersionManager", "CLSID_VersionManager")
+#import "X:\com\esriGeoProcessing.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriArcMapUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriCatalog.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriCatalogUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriDataSourcesRasterUI.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriDataSourcesGDB.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriDataSourcesFile.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
+#import "X:\com\esriServer.olb" raw_interfaces_only, raw_native_types, no_namespace, named_guids
 
 #pragma warning(pop)
 

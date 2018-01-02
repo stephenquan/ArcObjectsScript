@@ -218,7 +218,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsDisplay.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsDomain.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsEnvelope.cpp"
 				>
 			</File>
 			<File
@@ -258,10 +266,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsInner.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\ArcObjectsLayer.cpp"
 				>
 			</File>
@@ -275,10 +279,6 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsObjectClass.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsObjectClassInner.cpp"
 				>
 			</File>
 			<File
@@ -315,6 +315,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSubtypes.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsTrackCancel.cpp"
 				>
 			</File>
 			<File
@@ -362,6 +366,10 @@
 						UsePrecompiledHeader="1"
 					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\XInner.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
@@ -419,10 +427,6 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsField.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsInner.h"
 				>
 			</File>
 			<File
@@ -487,6 +491,10 @@
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\XInner.h"
 				>
 			</File>
 		</Filter>
