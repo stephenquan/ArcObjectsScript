@@ -91,7 +91,7 @@ sub btnRun_onclick
   dim str, txtResult, obj, className
   className = document.getElementById("txtClassName").value
   set obj = create_vars(className)
-  call convert("Template_Class.idl", className + "_snippet_idl.txt", obj)
+  call convert("Template_Class.idl", "ArcObjects" + className + ".idl", obj)
   call convert("Template_Class.h", "ArcObjects" + className + ".h", obj)
   call convert("Template_Class.cpp", "ArcObjects" + className + ".cpp", obj)
   call convert("Template_Class.rgs", "ArcObjects" + className + ".rgs", obj)
