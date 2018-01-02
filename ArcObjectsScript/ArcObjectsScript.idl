@@ -20,9 +20,11 @@ enum
     PROPID_A = 0x10100,
     PROPID_AliasName,
     PROPID_AreaField,
+	PROPID_AreaOfInterest,
 
     PROPID_C = 0x10300,
-    PROPID_CLSID,
+	PROPID_Cached,
+	PROPID_CLSID,
 
     PROPID_D = 0x10400,
     PROPID_DefaultSubtypeCode,
@@ -59,7 +61,9 @@ enum
 
     PROPID_M = 0x10D00,
     PROPID_MapCount,
-    PROPID_MergePolicy,
+	PROPID_MaximumScale,
+	PROPID_MergePolicy,
+	PROPID_MinimumScale,
 
     PROPID_N = 0x10E00,
     PROPID_Name,
@@ -78,22 +82,34 @@ enum
     PROPID_S = 0x11300,
     PROPID_ShapeFieldName,
     PROPID_ShapeType,
-    PROPID_SplitPolicy,
+	PROPID_ShowTips,
+	PROPID_SpatialReference,
+	PROPID_SplitPolicy,
     PROPID_SubFields,
     PROPID_SubtypeFieldIndex,
     PROPID_SubtypeFieldName,
     PROPID_Subtypes,
+	PROPID_SupportedDrawPhases,
 
     PROPID_T = 0x11400,
-    PROPID_Type,
+	PROPID_Type,
 
     PROPID_U = 0x11500,
+
     PROPID_V = 0x11600,
+	PROPID_Valid,
+	PROPID_Visible,
 
     PROPID_W = 0x11700,
     PROPID_WhereClause,
 
-    //
+	PROPID_X = 0x11800,
+
+	PROPID_Y = 0x11900,
+
+	PROPID_Z = 0x11A00,
+
+	//
     //
     //
 
@@ -112,6 +128,7 @@ enum
     METHID_DeleteIndex,
     METHID_DeleteSubtype,
     METHID_Domain,
+	METHID_Draw,
 
     METHID_F = 0x20600,
     METHID_Feature,
@@ -131,6 +148,7 @@ enum
     METHID_GetFeatures,
     METHID_GetOutputSpatialReference,
     METHID_GetSubtypeName,
+	METHID_GetTipText,
 
     METHID_H = 0x20800,
 
@@ -409,7 +427,23 @@ library ArcObjectsScriptLib
     interface IArcObjectsLayer : IDispatch{
         [id(PROPID_Name), propget] HRESULT Name([out, retval] BSTR* name);
         [id(PROPID_Name), propput] HRESULT Name([in] BSTR name);
-    };
+		[id(PROPID_Valid), propget] HRESULT Valid([out, retval] VARIANT_BOOL* valid);
+		[id(PROPID_AreaOfInterest), propget] HRESULT AreaOfInterest([out, retval] VARIANT* aoi);
+		[id(PROPID_MinimumScale), propget] HRESULT MinimumScale([out, retval] double* minimumScale);
+		[id(PROPID_MinimumScale), propput] HRESULT MinimumScale([in] double maximumScale);
+		[id(PROPID_MaximumScale), propget] HRESULT MaximumScale([out, retval] double* maximumScale);
+		[id(PROPID_MaximumScale), propput] HRESULT MaximumScale([in] double maximumScale);
+		[id(PROPID_Visible), propget] HRESULT Visible([out, retval] VARIANT_BOOL* visible);
+		[id(PROPID_Visible), propput] HRESULT Visible([in] VARIANT_BOOL visible);
+		[id(PROPID_ShowTips), propget] HRESULT ShowTips([out, retval] VARIANT_BOOL* showTips);
+		[id(METHID_GetTipText)] HRESULT GetTipText([in] double x, [in] double y, [in] double tolerance, [out, retval] BSTR* text);
+		[id(PROPID_Cached), propget] HRESULT Cached([out, retval] VARIANT_BOOL* cached);
+		[id(PROPID_Cached), propput] HRESULT Cached([in] VARIANT_BOOL cached);
+		[id(PROPID_SupportedDrawPhases), propget] HRESULT SupportedDrawPhases([out, retval] LONG* drawPhases);
+		[id(PROPID_SpatialReference), propput] HRESULT SpatialReference([in] VARIANT spatialReference);
+		[id(METHID_Draw)] HRESULT Draw([in] LONG drawPhase, [in] VARIANT display, [in] VARIANT trackCancel);
+
+	};
 
     //
     //
@@ -946,8 +980,92 @@ library ArcObjectsScriptLib
         [default] interface IArcObjectsSelectionSet;
     };
 
+	//
+	//
+	//
+
+	[
+		object,
+		uuid(FEE504B6-4FE6-45CF-B1E3-786E17F01CD4),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsEnvelope Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsEnvelope : IDispatch {
+	};
+
+	//
+	//
+	//
+
+	[
+		uuid(B4F1F425-93FC-485E-8929-3A79C0669AF0),
+		helpstring("ArcObjectsEnvelope Class")
+	]
+	coclass ArcObjectsEnvelope
+	{
+		[default] interface IArcObjectsEnvelope;
+	};
+
+	//
+	//
+	//
+
+	[
+		object,
+		uuid(11A80BCB-403C-4A4B-B394-E78F4E446C86),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsDisplay Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsDisplay : IDispatch {
+	};
+
+	//
+	//
+	//
+
+	[
+		uuid(6E6A8B46-A4B4-4BE7-B5EB-2488CAD4855B),
+		helpstring("ArcObjectsDisplay Class")
+	]
+	coclass ArcObjectsDisplay
+	{
+		[default] interface IArcObjectsDisplay;
+	};
+
     //
     //
     //
+
+	[
+		object,
+		uuid(D67EE815-88DE-4E53-B256-40538EB626AE),
+		dual,
+		nonextensible,
+		helpstring("IArcObjectsTrackCancel Interface"),
+		pointer_default(unique)
+	]
+	interface IArcObjectsTrackCancel : IDispatch {
+	};
+
+	//
+	//
+	//
+
+	[
+		uuid(7514AFCA-23CB-4D59-B66B-5D47DF6BF7F8),
+		helpstring("ArcObjectsTrackCancel Class")
+	]
+	coclass ArcObjectsTrackCancel
+	{
+		[default] interface IArcObjectsTrackCancel;
+	};
+
+	//
+	//
+	//
 
 };

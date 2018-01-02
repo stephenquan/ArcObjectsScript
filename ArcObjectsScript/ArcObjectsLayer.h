@@ -55,6 +55,22 @@ END_COM_MAP()
 public:
     XMETHOD1(get_Name, PBSTR)
     XMETHOD1(put_Name, BSTR)
+	XMETHOD1(get_Valid, PVARIANT_BOOL)
+	XMETHOD1(get_AreaOfInterest, PIEnvelope)
+	XMETHOD1(get_MinimumScale, Pdouble)
+	XMETHOD1(put_MinimumScale, double)
+	XMETHOD1(get_MaximumScale, Pdouble)
+	XMETHOD1(put_MaximumScale, double)
+	XMETHOD1(get_Visible, PVARIANT_BOOL)
+	XMETHOD1(put_Visible, VARIANT_BOOL)
+	XMETHOD1(get_ShowTips, PVARIANT_BOOL)
+	XMETHOD1(put_ShowTips, VARIANT_BOOL)
+	XMETHOD4_B(GetTipText, get_TipText, double, double, double, PBSTR)
+	XMETHOD1(get_Cached, PVARIANT_BOOL)
+	XMETHOD1(put_Cached, VARIANT_BOOL)
+	XMETHOD1(get_SupportedDrawPhases, PLONG)
+	XMETHOD1_B(put_SpatialReference, putref_SpatialReference, ISpatialReference)
+	XMETHOD3(Draw, esriDrawPhase, IDisplay, ITrackCancel)
 
 };
 

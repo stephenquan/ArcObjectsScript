@@ -83,6 +83,16 @@ using namespace ATL;
 #define RET_PBSTR(arg) RET_PSCALAR(BSTR, arg)
 
 
+#define ARG_double(arg) ARG_SCALAR(double, arg)
+#define PRE_double(arg) PRE_SCALAR(double, arg)
+#define CAL_double(arg) CAL_SCALAR(double, arg)
+#define RET_double(arg) RET_SCALAR(double, arg)
+#define ARG_Pdouble(arg) ARG_PSCALAR(double, arg)
+#define PRE_Pdouble(arg) PRE_PSCALAR(double, arg)
+#define CAL_Pdouble(arg) CAL_PSCALAR(double, arg)
+#define RET_Pdouble(arg) RET_PSCALAR(double, arg)
+
+
 #define ARG_LONG(arg) ARG_SCALAR(LONG, arg)
 #define PRE_LONG(arg) PRE_SCALAR(LONG, arg)
 #define CAL_LONG(arg) CAL_SCALAR(LONG, arg)
@@ -131,6 +141,16 @@ using namespace ATL;
 #define PRE_PesriDomainType(arg) PRE_PENUM(esriDomainType, arg)
 #define CAL_PesriDomainType(arg) CAL_PENUM(esriDomainType, arg)
 #define RET_PesriDomainType(arg) RET_PENUM(esriDomainType, arg)
+
+
+#define ARG_esriDrawPhase(arg) ARG_ENUM(esriDrawPhase, arg)
+#define PRE_esriDrawPhase(arg) PRE_ENUM(esriDrawPhase, arg)
+#define CAL_esriDrawPhase(arg) CAL_ENUM(esriDrawPhase, arg)
+#define RET_esriDrawPhase(arg) RET_ENUM(esriDrawPhase, arg)
+#define ARG_PesriDrawPhase(arg) ARG_PENUM(esriDrawPhase, arg)
+#define PRE_PesriDrawPhase(arg) PRE_PENUM(esriDrawPhase, arg)
+#define CAL_PesriDrawPhase(arg) CAL_PENUM(esriDrawPhase, arg)
+#define RET_PesriDrawPhase(arg) RET_PENUM(esriDrawPhase, arg)
 
 
 #define ARG_esriFeatureType(arg) ARG_ENUM(esriFeatureType, arg)
@@ -213,6 +233,16 @@ using namespace ATL;
 #define RET_POBJECT(T, arg) CHECKHR(XInner<##T>::ToVariant(sp_##arg, ##arg));
 
 
+#define ARG_IDisplay(arg) ARG_OBJECT(IDisplay, arg)
+#define PRE_IDisplay(arg) PRE_OBJECT(IDisplay, arg)
+#define CAL_IDisplay(arg) CAL_OBJECT(IDisplay, arg)
+#define RET_IDisplay(arg) RET_OBJECT(IDisplay, arg)
+#define ARG_PIDisplay(arg) ARG_POBJECT(IDisplay, arg)
+#define PRE_PIDisplay(arg) PRE_POBJECT(IDisplay, arg)
+#define CAL_PIDisplay(arg) CAL_POBJECT(IDisplay, arg)
+#define RET_PIDisplay(arg) RET_POBJECT(IDisplay, arg)
+
+
 #define ARG_IDomain(arg) ARG_OBJECT(IDomain, arg)
 #define PRE_IDomain(arg) PRE_OBJECT(IDomain, arg)
 #define CAL_IDomain(arg) CAL_OBJECT(IDomain, arg)
@@ -221,6 +251,16 @@ using namespace ATL;
 #define PRE_PIDomain(arg) PRE_POBJECT(IDomain, arg)
 #define CAL_PIDomain(arg) CAL_POBJECT(IDomain, arg)
 #define RET_PIDomain(arg) RET_POBJECT(IDomain, arg)
+
+
+#define ARG_IEnvelope(arg) ARG_OBJECT(IEnvelope, arg)
+#define PRE_IEnvelope(arg) PRE_OBJECT(IEnvelope, arg)
+#define CAL_IEnvelope(arg) CAL_OBJECT(IEnvelope, arg)
+#define RET_IEnvelope(arg) RET_OBJECT(IEnvelope, arg)
+#define ARG_PIEnvelope(arg) ARG_POBJECT(IEnvelope, arg)
+#define PRE_PIEnvelope(arg) PRE_POBJECT(IEnvelope, arg)
+#define CAL_PIEnvelope(arg) CAL_POBJECT(IEnvelope, arg)
+#define RET_PIEnvelope(arg) RET_POBJECT(IEnvelope, arg)
 
 
 #define ARG_IField(arg) ARG_OBJECT(IField, arg)
@@ -333,6 +373,16 @@ using namespace ATL;
 #define RET_PISpatialReference(arg) RET_POBJECT(ISpatialReference, arg)
 
 
+#define ARG_ITrackCancel(arg) ARG_OBJECT(ITrackCancel, arg)
+#define PRE_ITrackCancel(arg) PRE_OBJECT(ITrackCancel, arg)
+#define CAL_ITrackCancel(arg) CAL_OBJECT(ITrackCancel, arg)
+#define RET_ITrackCancel(arg) RET_OBJECT(ITrackCancel, arg)
+#define ARG_PITrackCancel(arg) ARG_POBJECT(ITrackCancel, arg)
+#define PRE_PITrackCancel(arg) PRE_POBJECT(ITrackCancel, arg)
+#define CAL_PITrackCancel(arg) CAL_POBJECT(ITrackCancel, arg)
+#define RET_PITrackCancel(arg) RET_POBJECT(ITrackCancel, arg)
+
+
 #define ARG_IWorkspace(arg) ARG_OBJECT(IWorkspace, arg)
 #define PRE_IWorkspace(arg) PRE_OBJECT(IWorkspace, arg)
 #define CAL_IWorkspace(arg) CAL_OBJECT(IWorkspace, arg)
@@ -407,6 +457,27 @@ using namespace ATL;
 
 #define XMETHOD3(NAME, T1, T2, T3) XMETHOD3_B(NAME, NAME, T1, T2, T3)
 
+
+
+#define XMETHOD4_B(OUTER_NAME, INNER_NAME, T1, T2, T3, T4) \
+    STDMETHOD(OUTER_NAME)(ARG_##T1(arg1), ARG_##T2(arg2), ARG_##T3(arg3), ARG_##T4(arg4)) \
+    { \
+        HRESULT hr = S_OK; \
+        if (!m_Inner) return E_POINTER; \
+        PRE_##T1(arg1) \
+        PRE_##T2(arg2) \
+        PRE_##T3(arg3) \
+        PRE_##T4(arg4) \
+        CHECKHR(m_Inner->##INNER_NAME(CAL_##T1(arg1), CAL_##T2(arg2), CAL_##T3(arg3), CAL_##T4(arg4))); \
+        RET_##T1(arg1) \
+        RET_##T2(arg2) \
+        RET_##T3(arg3) \
+        RET_##T4(arg4) \
+        return hr; \
+    }
+
+
+#define XMETHOD4(NAME, T1, T2, T3, T4) XMETHOD4_B(NAME, NAME, T1, T2, T3, T4)
 
 #define XMETHOD5_B(OUTER_NAME, INNER_NAME, T1, T2, T3, T4, T5) \
     STDMETHOD(OUTER_NAME)(ARG_##T1(arg1), ARG_##T2(arg2), ARG_##T3(arg3), ARG_##T4(arg4), ARG_##T5(arg5)) \

@@ -2,6 +2,7 @@
 #include "XInner.h"
 #include "ArcObjectsClass.h"
 #include "ArcObjectsDomain.h"
+#include "ArcObjectsEnvelope.h"
 #include "ArcObjectsFeature.h"
 #include "ArcObjectsFeatureBuffer.h"
 #include "ArcObjectsFeatureClass.h"
@@ -39,6 +40,7 @@
 
 IMPLEMENT_TO_VARIANT(Class)
 IMPLEMENT_TO_VARIANT(Domain)
+IMPLEMENT_TO_VARIANT(Envelope)
 IMPLEMENT_TO_VARIANT(Feature)
 IMPLEMENT_TO_VARIANT(FeatureBuffer)
 IMPLEMENT_TO_VARIANT(FeatureClass)

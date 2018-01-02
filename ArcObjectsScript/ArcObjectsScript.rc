@@ -150,6 +150,11 @@ IDR_ARCOBJECTSFEATUREDATASET REGISTRY                "ArcObjectsFeatureDataset.r
 IDR_ARCOBJECTSWORKSPACE REGISTRY                "ArcObjectsWorkspace.rgs"
 IDR_ARCOBJECTSSELECTIONSET REGISTRY                "ArcObjectsSelectionSet.rgs"
 IDR_ARCOBJECTSOBJECTCLASS REGISTRY                "ArcObjectsObjectClass.rgs"
+IDR_ARCOBJECTSENVELOPE REGISTRY                "ArcObjectsEnvelope.rgs"
+IDR_ARCOBJECTSDISPLAY REGISTRY                "ArcObjectsDisplay.rgs"
+IDR_ARCOBJECTSTRACKCANCEL REGISTRY                "ArcObjectsTrackCancel.rgs"
+
+
 #endif    // English (Australia) resources
 /////////////////////////////////////////////////////////////////////////////
 

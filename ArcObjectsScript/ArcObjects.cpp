@@ -4,6 +4,7 @@
 #include "ArcObjects.h"
 #include "ArcObjectsClass.h"
 #include "ArcObjectsDomain.h"
+#include "ArcObjectsEnvelope.h"
 #include "ArcObjectsFeature.h"
 #include "ArcObjectsFeatureBuffer.h"
 #include "ArcObjectsFeatureClass.h"
@@ -205,6 +206,7 @@ HRESULT CArcObjects::GetObject(VARIANT* obj, REFIID riid, void** ptr)
 
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(Class)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(Domain)
+IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Envelope)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(Feature)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY_NON_CREATABLE(FeatureBuffer)
 IMPLEMENT_ARCOBJECTS_CLASS_FACTORY(FeatureClass)

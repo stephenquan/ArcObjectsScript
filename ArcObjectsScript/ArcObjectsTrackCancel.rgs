@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.TrackCancel = s 'ArcObjectsTrackCancel Class'
+    {
+        CLSID = s '{7514AFCA-23CB-4D59-B66B-5D47DF6BF7F8}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {7514AFCA-23CB-4D59-B66B-5D47DF6BF7F8} = s 'ArcObjectsTrackCancel Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.TrackCancel'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.TrackCancel'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}
