@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.Relationship = s 'ArcObjectsRelationship Class'
+    {
+        CLSID = s '{B17747A9-B4EF-4577-8E39-BC27FC7FEE64}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {B17747A9-B4EF-4577-8E39-BC27FC7FEE64} = s 'ArcObjectsRelationship Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.Relationship'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.Relationship'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

@@ -22,14 +22,21 @@ enum
     PROPID_AreaField,
 	PROPID_AreaOfInterest,
 
+	PROPID_B = 0x10200,
+    PROPID_BackwardPathLabel,
+
     PROPID_C = 0x10300,
 	PROPID_Cached,
+	PROPID_Cardinality,
 	PROPID_CLSID,
 
     PROPID_D = 0x10400,
     PROPID_DefaultSubtypeCode,
     PROPID_DefinitionExpression,
     PROPID_Description,
+	PROPID_DestinationClass,
+	PROPID_DestinationForeignKey,
+	PROPID_DestinationPrimaryKey,
     PROPID_DomainID,
 
     PROPID_E = 0x10500,
@@ -41,8 +48,10 @@ enum
     PROPID_FeatureClass,
     PROPID_FeatureDataset,
     PROPID_FeatureType,
+    PROPID_FieldCount,
     PROPID_Fields,
     PROPID_FieldType,
+    PROPID_ForwardPathLabel,
 
     PROPID_H = 0x10800,
     PROPID_HasOID,
@@ -50,6 +59,8 @@ enum
 
     PROPID_I = 0x10900,
     PROPID_Indexes,
+	PROPID_IsAttributed,
+	PROPID_IsComposite,
 
     PROPID_J = 0x10A00,
 
@@ -67,10 +78,14 @@ enum
 
     PROPID_N = 0x10E00,
     PROPID_Name,
+	PROPID_Notification,
 
     PROPID_O = 0x10F00,
     PROPID_ObjectClassID,
     PROPID_OIDFieldName,
+	PROPID_OriginClass,
+	PROPID_OriginForeignKey,
+	PROPID_OriginPrimaryKey,
     PROPID_Owner,
 
     PROPID_P = 0x11000,
@@ -78,6 +93,7 @@ enum
 
     PROPID_R = 0x11200,
     PROPID_RelationshipClasses,
+	PROPID_RelationshipClassID,
 
     PROPID_S = 0x11300,
     PROPID_ShapeFieldName,
@@ -121,11 +137,13 @@ enum
     METHID_C = 0x20300,
     METHID_CreateFeature,
     METHID_CreateFeatureBuffer,
+	METHID_CreateRelationship,
 
     METHID_D = 0x20400,
     METHID_DeleteFeature,
     METHID_DeleteField,
     METHID_DeleteIndex,
+	METHID_DeleteRelationship,
     METHID_DeleteSubtype,
     METHID_Domain,
 	METHID_Draw,
@@ -140,13 +158,18 @@ enum
     METHID_FeatureLayerExtendedDefinition,
     METHID_Field,
     METHID_FindField,
+    METHID_FindFieldByAliasName,
     METHID_Flush,
 
     METHID_G = 0x20700,
     METHID_GetDefaultValue,
     METHID_GetDomain,
     METHID_GetFeatures,
+    METHID_GetField,
+	METHID_GetObjectsRelatedToObject,
     METHID_GetOutputSpatialReference,
+	METHID_GetRelationship,
+	METHID_GetRelationshipClasses,
     METHID_GetSubtypeName,
 	METHID_GetTipText,
 
@@ -169,6 +192,7 @@ enum
     METHID_MemberOf,
 
     METHID_N = 0x20E00,
+    METHID_Next,
     METHID_NextFeature,
 
     METHID_O = 0x20F00,
@@ -180,6 +204,7 @@ enum
     METHID_QueryFilter,
 
     METHID_R = 0x21200,
+    METHID_Reset,
     METHID_Row,
 
     METHID_S = 0x21300,
@@ -600,7 +625,7 @@ library ArcObjectsScriptLib
     ]
     interface IArcObjectsObjectClass : IArcObjectsClass{
         [id(PROPID_ObjectClassID), propget] HRESULT ObjectClassID([out, retval] LONG* objectClassID);
-        [id(PROPID_RelationshipClasses), propget] HRESULT RelationshipClasses([in] LONG relRole, [out, retval] VARIANT* relationshipClasses);
+        [id(METHID_GetRelationshipClasses)] HRESULT GetRelationshipClasses([in] LONG relRole, [out, retval] VARIANT* enumRelationshipClass);
         [id(PROPID_AliasName), propget] HRESULT AliasName([out, retval] BSTR* name);
 
     };
@@ -1067,5 +1092,227 @@ library ArcObjectsScriptLib
 	//
 	//
 	//
+
+    [
+        object,
+        uuid(E0C33B2F-936D-4AED-8B4D-D314AD9E47B2),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRelationshipClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRelationshipClass : IDispatch{
+		[id(PROPID_OriginPrimaryKey), propget] HRESULT OriginPrimaryKey([out, retval] BSTR* originPrimaryKey);
+		[id(PROPID_DestinationPrimaryKey), propget] HRESULT DestinationPrimaryKey([out, retval] BSTR* originPrimaryKey);
+		[id(PROPID_OriginForeignKey), propget] HRESULT OriginForeignKey([out, retval] BSTR* originForeignKey);
+		[id(PROPID_DestinationForeignKey), propget] HRESULT DestinationForeignKey([out, retval] BSTR* originForeignKey);
+		[id(PROPID_RelationshipClassID), propget] HRESULT RelationshipClassID([out, retval] LONG* relationshipClassID);
+		[id(PROPID_OriginClass), propget] HRESULT OriginClass([out, retval] VARIANT* objectClass);
+		[id(PROPID_DestinationClass), propget] HRESULT DestinationClass([out, retval] VARIANT* objectClass);
+        [id(PROPID_FeatureDataset), propget] HRESULT FeatureDataset([out, retval] VARIANT* featureDataset);
+		[id(PROPID_ForwardPathLabel), propget] HRESULT ForwardPathLabel([out, retval] BSTR* originPrimaryKey);
+		[id(PROPID_Cardinality), propget] HRESULT Cardinality([out, retval] LONG* relCardinality);
+		[id(PROPID_Notification), propget] HRESULT Notification([out, retval] LONG* relNotification);
+		[id(PROPID_IsAttributed), propget] HRESULT IsAttributed([out, retval] VARIANT_BOOL* isAttributed);
+		[id(PROPID_IsComposite), propget] HRESULT IsComposite([out, retval] VARIANT_BOOL* isComposite);
+		[id(METHID_CreateRelationship)] HRESULT CreateRelationship([in] VARIANT originObject, [in] VARIANT destinationObject, [out, retval] VARIANT* relationship);
+		[id(METHID_GetRelationship)] HRESULT GetRelationship([in] VARIANT originObject, [in] VARIANT destinationObject, [out, retval] VARIANT* relationship);
+		[id(METHID_DeleteRelationship)] HRESULT DeleteRelationship([in] VARIANT originObject, [in] VARIANT destinationObject);
+		[id(METHID_GetObjectsRelatedToObject)] HRESULT GetObjectsRelatedToObject([in] VARIANT anObject, [out, retval] VARIANT* anObjectSet);
+
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(C20091AA-E727-4848-BCA4-CB218A89B90A),
+        helpstring("ArcObjectsRelationshipClass Class")
+    ]
+    coclass ArcObjectsRelationshipClass
+    {
+        [default] interface IArcObjectsRelationshipClass;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(550ED161-B2BE-4362-91C1-A8E25B38DC05),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsObject Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsObject : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(D9109FC0-D409-4306-AFCE-66AA8B46D05A),
+        helpstring("ArcObjectsObject Class")
+    ]
+    coclass ArcObjectsObject
+    {
+        [default] interface IArcObjectsObject;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(7EBA8412-1F96-4DA3-9B02-263AEAF88569),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsSet Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsSet : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(25B126A9-ADBD-4DC8-84AB-121443888013),
+        helpstring("ArcObjectsSet Class")
+    ]
+    coclass ArcObjectsSet
+    {
+        [default] interface IArcObjectsSet;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(B8491380-6131-4451-9B53-D76FC73F2D50),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRule Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRule : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(7000FDAC-3981-47CA-9D95-0A04BB58338F),
+        helpstring("ArcObjectsRule Class")
+    ]
+    coclass ArcObjectsRule
+    {
+        [default] interface IArcObjectsRule;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(B09065FB-9CB8-4751-A4DA-05B250F29F1A),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsRelationship Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsRelationship : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(B17747A9-B4EF-4577-8E39-BC27FC7FEE64),
+        helpstring("ArcObjectsRelationship Class")
+    ]
+    coclass ArcObjectsRelationship
+    {
+        [default] interface IArcObjectsRelationship;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(292AEF13-9D8D-4911-BBE9-4F9E6EC39822),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsEnumRelationshipClass Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsEnumRelationshipClass : IDispatch{
+		[id(METHID_Next)] HRESULT Next([out, retval] VARIANT* relationshipClass);
+		[id(METHID_Reset)] HRESULT Reset();
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(8ACB6344-CB78-416B-9803-BD484AFBF1CC),
+        helpstring("ArcObjectsEnumRelationshipClass Class")
+    ]
+    coclass ArcObjectsEnumRelationshipClass
+    {
+        [default] interface IArcObjectsEnumRelationshipClass;
+    };
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(F1F0D66D-C343-4765-B6DB-7A75C77A7D3D),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsFields Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsFields : IDispatch{
+        [id(PROPID_FieldCount), propget] HRESULT FieldCount([out, retval] LONG* numFields);
+        [id(METHID_GetField)] HRESULT GetField([in] LONG index, [out, retval] VARIANT* field);
+        [id(METHID_FindField)] HRESULT FindField([in] BSTR name, [out, retval] LONG* fieldIndex);
+        [id(METHID_FindFieldByAliasName)] HRESULT FindFieldByAliasName([in] BSTR name, [out, retval] LONG* fieldIndex);
+
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(C5192344-FF6C-40C9-83A7-C7FAD6CCE0B9),
+        helpstring("ArcObjectsFields Class")
+    ]
+    coclass ArcObjectsFields
+    {
+        [default] interface IArcObjectsFields;
+    };
+
+
+    //
+    //
+    //
 
 };

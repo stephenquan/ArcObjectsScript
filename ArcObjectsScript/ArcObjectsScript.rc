@@ -153,6 +153,13 @@ IDR_ARCOBJECTSOBJECTCLASS REGISTRY                "ArcObjectsObjectClass.rgs"
 IDR_ARCOBJECTSENVELOPE REGISTRY                "ArcObjectsEnvelope.rgs"
 IDR_ARCOBJECTSDISPLAY REGISTRY                "ArcObjectsDisplay.rgs"
 IDR_ARCOBJECTSTRACKCANCEL REGISTRY                "ArcObjectsTrackCancel.rgs"
+IDR_ARCOBJECTSRELATIONSHIPCLASS REGISTRY                "ArcObjectsRelationshipClass.rgs"
+IDR_ARCOBJECTSOBJECT REGISTRY                "ArcObjectsObject.rgs"
+IDR_ARCOBJECTSSET REGISTRY                "ArcObjectsSet.rgs"
+IDR_ARCOBJECTSRULE REGISTRY                "ArcObjectsRule.rgs"
+IDR_ARCOBJECTSRELATIONSHIP REGISTRY                "ArcObjectsRelationship.rgs"
+IDR_ARCOBJECTSENUMRELATIONSHIPCLASS REGISTRY                "ArcObjectsEnumRelationshipClass.rgs"
+IDR_ARCOBJECTSFIELDS REGISTRY                "ArcObjectsFields.rgs"
 
 
 #endif    // English (Australia) resources

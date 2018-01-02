@@ -226,6 +226,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsEnumRelationshipClass.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsEnvelope.cpp"
 				>
 			</File>
@@ -266,6 +270,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFields.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsLayer.cpp"
 				>
 			</File>
@@ -278,6 +286,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsObject.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsObjectClass.cpp"
 				>
 			</File>
@@ -286,11 +298,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRelationship.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRelationshipClass.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRow.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\ArcObjectsRowBuffer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRule.cpp"
 				>
 			</File>
 			<File
@@ -307,6 +331,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSelectionSet.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSet.cpp"
 				>
 			</File>
 			<File
@@ -394,6 +422,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsEnumRelationshipClass.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeature.h"
 				>
 			</File>
@@ -430,6 +462,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFields.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsLayer.h"
 				>
 			</File>
@@ -439,6 +475,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsMapDocument.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsObject.h"
 				>
 			</File>
 			<File
@@ -454,6 +494,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRelationship.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRelationshipClass.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRow.h"
 				>
 			</File>
@@ -462,7 +510,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRule.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsSelectionSet.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSet.h"
 				>
 			</File>
 			<File
@@ -516,6 +572,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsEnumRelationshipClass.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeature.rgs"
 				>
 			</File>
@@ -552,6 +612,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFields.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsLayer.rgs"
 				>
 			</File>
@@ -564,6 +628,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsObject.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsObjectClass.rgs"
 				>
 			</File>
@@ -572,11 +640,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRelationship.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRelationshipClass.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRow.rgs"
 				>
 			</File>
 			<File
 				RelativePath=".\ArcObjectsRowBuffer.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRule.rgs"
 				>
 			</File>
 			<File
@@ -589,6 +669,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSelectionSet.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSet.rgs"
 				>
 			</File>
 			<File

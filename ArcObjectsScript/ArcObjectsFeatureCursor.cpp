@@ -23,37 +23,3 @@ STDMETHODIMP CArcObjectsFeatureCursor::InterfaceSupportsErrorInfo(REFIID riid)
     }
     return S_FALSE;
 }
-
-
-STDMETHODIMP CArcObjectsFeatureCursor::get_Fields(VARIANT* fields)
-{
-    HRESULT hr = S_OK;
-
-    if (!fields) return E_INVALIDARG;
-    VariantInit(fields);
-
-    if (!m_Inner) return E_POINTER;
-
-    CComPtr<IFeatureCursor> spIFeatureCursor;
-    CHECKHR(m_Inner->QueryInterface(IID_IFeatureCursor, (void**) &spIFeatureCursor));
-    
-    CComPtr<IFields> spIFields;
-    CHECKHR(spIFeatureCursor->get_Fields(&spIFields));
-
-    CComSafeArray<VARIANT> values;
-    LONG numFields = -1;
-    CHECKHR(spIFields->get_FieldCount(&numFields));
-    for (LONG idx = 0; idx < numFields; idx++)
-    {
-        CComPtr<IField> spInnerField;
-        CHECKHR(spIFields->get_Field(idx, &spInnerField));
-        CComObject<CArcObjectsField>* ptrOuterField = NULL;
-        CHECKHR(CComObject<CArcObjectsField>::CreateInstance(&ptrOuterField));
-        ptrOuterField->m_Inner = spInnerField;
-        CHECKHR(values.Add(CComVariant((IDispatch*) ptrOuterField)));
-    }
-
-    CHECKHR(CComVariant(values).Detach(fields));
-
-    return hr;
-}

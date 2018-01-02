@@ -54,7 +54,7 @@ END_COM_MAP()
 public:
     // IClass
     XMETHOD2(FindField, BSTR, PLONG)
-    XMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+	XMETHOD1(get_Fields, PIFields)
     STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
     STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }
@@ -69,7 +69,7 @@ public:
 
     // IObjectClass
     XMETHOD1(get_ObjectClassID, PLONG)
-    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return E_NOTIMPL; }
+	XMETHOD2_B(GetRelationshipClasses, get_RelationshipClasses, esriRelRole, PIEnumRelationshipClass)
     XMETHOD1(get_AliasName, PBSTR)
 
     // IFeatureClass

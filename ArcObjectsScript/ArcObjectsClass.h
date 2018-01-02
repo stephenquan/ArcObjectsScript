@@ -53,7 +53,7 @@ END_COM_MAP()
 public:
     // IClass
     XMETHOD2(FindField, BSTR, PLONG)
-    XMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+	XMETHOD1(get_Fields, PIFields)
     STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
     STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }

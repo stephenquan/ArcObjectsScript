@@ -55,22 +55,22 @@ END_COM_MAP()
 public:
     // IClass
     XMETHOD2(FindField, BSTR, PLONG)
-        XMETHOD_ENUM(get_Fields, get_Fields, IFields, get_FieldCount, get_Field, IField)
+	XMETHOD1(get_Fields, PIFields)
     STDMETHOD(get_Indexes)(VARIANT* indexes) { return E_NOTIMPL; }
     STDMETHOD(AddField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(DeleteField)(VARIANT field) { return E_NOTIMPL; }
     STDMETHOD(AddIndex)(VARIANT index) { return E_NOTIMPL; }
     STDMETHOD(DeleteIndex)(VARIANT index) { return E_NOTIMPL; }
     XMETHOD1(get_HasOID, PVARIANT_BOOL)
-        XMETHOD1(get_OIDFieldName, PBSTR)
-        STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
+    XMETHOD1(get_OIDFieldName, PBSTR)
+    STDMETHOD(get_CLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_EXTCLSID)(VARIANT* clsid) { return E_NOTIMPL; }
     STDMETHOD(get_Extension)(VARIANT* extension) { return E_NOTIMPL; }
     STDMETHOD(get_ExtensionProperties)(VARIANT* propertySet) { return E_NOTIMPL; }
 
     // IObjectClass
     XMETHOD1(get_ObjectClassID, PLONG)
-    STDMETHOD(get_RelationshipClasses)(LONG relRole, VARIANT* relationshipClasses) { return E_NOTIMPL; }
+	XMETHOD2_B(GetRelationshipClasses, get_RelationshipClasses, esriRelRole, PIEnumRelationshipClass)
     XMETHOD1(get_AliasName, PBSTR)
 
 };

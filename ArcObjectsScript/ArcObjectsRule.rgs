@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.Rule = s 'ArcObjectsRule Class'
+    {
+        CLSID = s '{7000FDAC-3981-47CA-9D95-0A04BB58338F}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {7000FDAC-3981-47CA-9D95-0A04BB58338F} = s 'ArcObjectsRule Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.Rule'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.Rule'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

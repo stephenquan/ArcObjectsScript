@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.EnumRelationshipClass = s 'ArcObjectsEnumRelationshipClass Class'
+    {
+        CLSID = s '{8ACB6344-CB78-416B-9803-BD484AFBF1CC}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {8ACB6344-CB78-416B-9803-BD484AFBF1CC} = s 'ArcObjectsEnumRelationshipClass Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.EnumRelationshipClass'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.EnumRelationshipClass'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

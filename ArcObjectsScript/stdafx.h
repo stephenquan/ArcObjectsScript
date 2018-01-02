@@ -198,6 +198,36 @@ using namespace ATL;
 #define RET_PesriMergePolicyType(arg) RET_PENUM(esriMergePolicyType, arg)
 
 
+#define ARG_esriRelCardinality(arg) ARG_ENUM(esriRelCardinality, arg)
+#define PRE_esriRelCardinality(arg) PRE_ENUM(esriRelCardinality, arg)
+#define CAL_esriRelCardinality(arg) CAL_ENUM(esriRelCardinality, arg)
+#define RET_esriRelCardinality(arg) RET_ENUM(esriRelCardinality, arg)
+#define ARG_PesriRelCardinality(arg) ARG_PENUM(esriRelCardinality, arg)
+#define PRE_PesriRelCardinality(arg) PRE_PENUM(esriRelCardinality, arg)
+#define CAL_PesriRelCardinality(arg) CAL_PENUM(esriRelCardinality, arg)
+#define RET_PesriRelCardinality(arg) RET_PENUM(esriRelCardinality, arg)
+
+
+#define ARG_esriRelNotification(arg) ARG_ENUM(esriRelNotification, arg)
+#define PRE_esriRelNotification(arg) PRE_ENUM(esriRelNotification, arg)
+#define CAL_esriRelNotification(arg) CAL_ENUM(esriRelNotification, arg)
+#define RET_esriRelNotification(arg) RET_ENUM(esriRelNotification, arg)
+#define ARG_PesriRelNotification(arg) ARG_PENUM(esriRelNotification, arg)
+#define PRE_PesriRelNotification(arg) PRE_PENUM(esriRelNotification, arg)
+#define CAL_PesriRelNotification(arg) CAL_PENUM(esriRelNotification, arg)
+#define RET_PesriRelNotification(arg) RET_PENUM(esriRelNotification, arg)
+
+
+#define ARG_esriRelRole(arg) ARG_ENUM(esriRelRole, arg)
+#define PRE_esriRelRole(arg) PRE_ENUM(esriRelRole, arg)
+#define CAL_esriRelRole(arg) CAL_ENUM(esriRelRole, arg)
+#define RET_esriRelRole(arg) RET_ENUM(esriRelRole, arg)
+#define ARG_PesriRelRole(arg) ARG_PENUM(esriRelRole, arg)
+#define PRE_PesriRelRole(arg) PRE_PENUM(esriRelRole, arg)
+#define CAL_PesriRelRole(arg) CAL_PENUM(esriRelRole, arg)
+#define RET_PesriRelRole(arg) RET_PENUM(esriRelRole, arg)
+
+
 #define ARG_esriSelectionType(arg) ARG_ENUM(esriSelectionType, arg)
 #define PRE_esriSelectionType(arg) PRE_ENUM(esriSelectionType, arg)
 #define CAL_esriSelectionType(arg) CAL_ENUM(esriSelectionType, arg)
@@ -258,6 +288,16 @@ using namespace ATL;
 #define RET_PIDomain(arg) RET_POBJECT(IDomain, arg)
 
 
+#define ARG_IEnumRelationshipClass(arg) ARG_OBJECT(IEnumRelationshipClass, arg)
+#define PRE_IEnumRelationshipClass(arg) PRE_OBJECT(IEnumRelationshipClass, arg)
+#define CAL_IEnumRelationshipClass(arg) CAL_OBJECT(IEnumRelationshipClass, arg)
+#define RET_IEnumRelationshipClass(arg) RET_OBJECT(IEnumRelationshipClass, arg)
+#define ARG_PIEnumRelationshipClass(arg) ARG_POBJECT(IEnumRelationshipClass, arg)
+#define PRE_PIEnumRelationshipClass(arg) PRE_POBJECT(IEnumRelationshipClass, arg)
+#define CAL_PIEnumRelationshipClass(arg) CAL_POBJECT(IEnumRelationshipClass, arg)
+#define RET_PIEnumRelationshipClass(arg) RET_POBJECT(IEnumRelationshipClass, arg)
+
+
 #define ARG_IEnvelope(arg) ARG_OBJECT(IEnvelope, arg)
 #define PRE_IEnvelope(arg) PRE_OBJECT(IEnvelope, arg)
 #define CAL_IEnvelope(arg) CAL_OBJECT(IEnvelope, arg)
@@ -276,6 +316,16 @@ using namespace ATL;
 #define PRE_PIField(arg) PRE_POBJECT(IField, arg)
 #define CAL_PIField(arg) CAL_POBJECT(IField, arg)
 #define RET_PIField(arg) RET_POBJECT(IField, arg)
+
+
+#define ARG_IFields(arg) ARG_OBJECT(IFields, arg)
+#define PRE_IFields(arg) PRE_OBJECT(IFields, arg)
+#define CAL_IFields(arg) CAL_OBJECT(IFields, arg)
+#define RET_IFields(arg) RET_OBJECT(IFields, arg)
+#define ARG_PIFields(arg) ARG_POBJECT(IFields, arg)
+#define PRE_PIFields(arg) PRE_POBJECT(IFields, arg)
+#define CAL_PIFields(arg) CAL_POBJECT(IFields, arg)
+#define RET_PIFields(arg) RET_POBJECT(IFields, arg)
 
 
 #define ARG_IFeature(arg) ARG_OBJECT(IFeature, arg)
@@ -348,6 +398,26 @@ using namespace ATL;
 #define RET_PIMap(arg) RET_POBJECT(IMap, arg)
 
 
+#define ARG_IObject(arg) ARG_OBJECT(IObject, arg)
+#define PRE_IObject(arg) PRE_OBJECT(IObject, arg)
+#define CAL_IObject(arg) CAL_OBJECT(IObject, arg)
+#define RET_IObject(arg) RET_OBJECT(IObject, arg)
+#define ARG_PIObject(arg) ARG_POBJECT(IObject, arg)
+#define PRE_PIObject(arg) PRE_POBJECT(IObject, arg)
+#define CAL_PIObject(arg) CAL_POBJECT(IObject, arg)
+#define RET_PIObject(arg) RET_POBJECT(IObject, arg)
+
+
+#define ARG_IObjectClass(arg) ARG_OBJECT(IObjectClass, arg)
+#define PRE_IObjectClass(arg) PRE_OBJECT(IObjectClass, arg)
+#define CAL_IObjectClass(arg) CAL_OBJECT(IObjectClass, arg)
+#define RET_IObjectClass(arg) RET_OBJECT(IObjectClass, arg)
+#define ARG_PIObjectClass(arg) ARG_POBJECT(IObjectClass, arg)
+#define PRE_PIObjectClass(arg) PRE_POBJECT(IObjectClass, arg)
+#define CAL_PIObjectClass(arg) CAL_POBJECT(IObjectClass, arg)
+#define RET_PIObjectClass(arg) RET_POBJECT(IObjectClass, arg)
+
+
 #define ARG_IQueryFilter(arg) ARG_OBJECT(IQueryFilter, arg)
 #define PRE_IQueryFilter(arg) PRE_OBJECT(IQueryFilter, arg)
 #define CAL_IQueryFilter(arg) CAL_OBJECT(IQueryFilter, arg)
@@ -358,6 +428,36 @@ using namespace ATL;
 #define RET_PIQueryFilter(arg) RET_POBJECT(IQueryFilter, arg)
 
 
+#define ARG_IRelationship(arg) ARG_OBJECT(IRelationship, arg)
+#define PRE_IRelationship(arg) PRE_OBJECT(IRelationship, arg)
+#define CAL_IRelationship(arg) CAL_OBJECT(IRelationship, arg)
+#define RET_IRelationship(arg) RET_OBJECT(IRelationship, arg)
+#define ARG_PIRelationship(arg) ARG_POBJECT(IRelationship, arg)
+#define PRE_PIRelationship(arg) PRE_POBJECT(IRelationship, arg)
+#define CAL_PIRelationship(arg) CAL_POBJECT(IRelationship, arg)
+#define RET_PIRelationship(arg) RET_POBJECT(IRelationship, arg)
+
+
+#define ARG_IRelationshipClass(arg) ARG_OBJECT(IRelationshipClass, arg)
+#define PRE_IRelationshipClass(arg) PRE_OBJECT(IRelationshipClass, arg)
+#define CAL_IRelationshipClass(arg) CAL_OBJECT(IRelationshipClass, arg)
+#define RET_IRelationshipClass(arg) RET_OBJECT(IRelationshipClass, arg)
+#define ARG_PIRelationshipClass(arg) ARG_POBJECT(IRelationshipClass, arg)
+#define PRE_PIRelationshipClass(arg) PRE_POBJECT(IRelationshipClass, arg)
+#define CAL_PIRelationshipClass(arg) CAL_POBJECT(IRelationshipClass, arg)
+#define RET_PIRelationshipClass(arg) RET_POBJECT(IRelationshipClass, arg)
+
+
+#define ARG_IRule(arg) ARG_OBJECT(IRule, arg)
+#define PRE_IRule(arg) PRE_OBJECT(IRule, arg)
+#define CAL_IRule(arg) CAL_OBJECT(IRule, arg)
+#define RET_IRule(arg) RET_OBJECT(IRule, arg)
+#define ARG_PIRule(arg) ARG_POBJECT(IRule, arg)
+#define PRE_PIRule(arg) PRE_POBJECT(IRule, arg)
+#define CAL_PIRule(arg) CAL_POBJECT(IRule, arg)
+#define RET_PIRule(arg) RET_POBJECT(IRule, arg)
+
+
 #define ARG_ISelectionSet(arg) ARG_OBJECT(ISelectionSet, arg)
 #define PRE_ISelectionSet(arg) PRE_OBJECT(ISelectionSet, arg)
 #define CAL_ISelectionSet(arg) CAL_OBJECT(ISelectionSet, arg)
@@ -366,6 +466,16 @@ using namespace ATL;
 #define PRE_PISelectionSet(arg) PRE_POBJECT(ISelectionSet, arg)
 #define CAL_PISelectionSet(arg) CAL_POBJECT(ISelectionSet, arg)
 #define RET_PISelectionSet(arg) RET_POBJECT(ISelectionSet, arg)
+
+
+#define ARG_ISet(arg) ARG_OBJECT(ISet, arg)
+#define PRE_ISet(arg) PRE_OBJECT(ISet, arg)
+#define CAL_ISet(arg) CAL_OBJECT(ISet, arg)
+#define RET_ISet(arg) RET_OBJECT(ISet, arg)
+#define ARG_PISet(arg) ARG_POBJECT(ISet, arg)
+#define PRE_PISet(arg) PRE_POBJECT(ISet, arg)
+#define CAL_PISet(arg) CAL_POBJECT(ISet, arg)
+#define RET_PISet(arg) RET_POBJECT(ISet, arg)
 
 
 #define ARG_ISpatialReference(arg) ARG_OBJECT(ISpatialReference, arg)
