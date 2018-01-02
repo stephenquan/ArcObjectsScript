@@ -292,167 +292,7 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\ArcObjects.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsClass.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsDomain.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsEnumRelationshipClass.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeature.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureBuffer.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureClass.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureCursor.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureDataset.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureLayer.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureLayerDefinition.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsField.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFieldInfo.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsFields.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsLayer.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsMap.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsMapDocument.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsObject.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsObjectClass.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsQueryFilter.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsRelationship.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsRelationshipClass.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsRow.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsRowBuffer.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsRule.rgs"
-				>
-			</File>
-			<File
 				RelativePath=".\ArcObjectsScript.rc"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsScript.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsSelectionSet.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsSet.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsSpatialReference.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTable.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTable.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTable.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTableCollection.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTableCollection.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsStandaloneTableCollection.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsSubtypes.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsTable.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsTableFields.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\ArcObjectsWorkspace.rgs"
 				>
 			</File>
 		</Filter>
@@ -499,6 +339,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjects.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsClass.cpp"
 				>
 			</File>
@@ -508,6 +352,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsClass.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsClass.rgs"
 				>
 			</File>
 			<File
@@ -535,6 +383,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsDomain.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsEnumRelationshipClass.cpp"
 				>
 			</File>
@@ -544,6 +396,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsEnumRelationshipClass.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsEnumRelationshipClass.rgs"
 				>
 			</File>
 			<File
@@ -571,6 +427,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeature.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureBuffer.cpp"
 				>
 			</File>
@@ -580,6 +440,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureBuffer.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureBuffer.rgs"
 				>
 			</File>
 			<File
@@ -595,6 +459,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeatureClass.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureCursor.cpp"
 				>
 			</File>
@@ -604,6 +472,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureCursor.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureCursor.rgs"
 				>
 			</File>
 			<File
@@ -619,6 +491,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeatureDataset.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureLayer.cpp"
 				>
 			</File>
@@ -628,6 +504,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureLayer.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureLayer.rgs"
 				>
 			</File>
 			<File
@@ -643,6 +523,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFeatureLayerDefinition.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.cpp"
 				>
 			</File>
@@ -652,6 +536,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.rgs"
 				>
 			</File>
 			<File
@@ -667,6 +555,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsField.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsFieldInfo.cpp"
 				>
 			</File>
@@ -676,6 +568,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsFieldInfo.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsFieldInfo.rgs"
 				>
 			</File>
 			<File
@@ -691,6 +587,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsFields.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsLayer.cpp"
 				>
 			</File>
@@ -700,6 +600,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsLayer.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsLayer.rgs"
 				>
 			</File>
 			<File
@@ -715,6 +619,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsMap.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsMapDocument.cpp"
 				>
 			</File>
@@ -724,6 +632,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsMapDocument.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsMapDocument.rgs"
 				>
 			</File>
 			<File
@@ -739,6 +651,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsObject.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsObjectClass.cpp"
 				>
 			</File>
@@ -748,6 +664,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsObjectClass.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsObjectClass.rgs"
 				>
 			</File>
 			<File
@@ -763,6 +683,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsQueryFilter.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRelationship.cpp"
 				>
 			</File>
@@ -772,6 +696,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsRelationship.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRelationship.rgs"
 				>
 			</File>
 			<File
@@ -787,6 +715,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRelationshipClass.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRow.cpp"
 				>
 			</File>
@@ -796,6 +728,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsRow.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsRow.rgs"
 				>
 			</File>
 			<File
@@ -811,6 +747,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRowBuffer.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsRule.cpp"
 				>
 			</File>
@@ -823,11 +763,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsRule.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsScript.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\ArcObjectsScript.def"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsScript.rgs"
 				>
 			</File>
 			<File
@@ -843,6 +791,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsSelectionSet.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsSet.cpp"
 				>
 			</File>
@@ -852,6 +804,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsSet.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsSet.rgs"
 				>
 			</File>
 			<File
@@ -867,11 +823,39 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsSpatialReference.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsStandaloneTable.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsStandaloneTable.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsStandaloneTable.idl"
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsStandaloneTable.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsStandaloneTableCollection.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsStandaloneTableCollection.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsStandaloneTableCollection.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsStandaloneTableCollection.rgs"
 				>
 			</File>
 			<File
@@ -887,6 +871,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsSubtypes.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsTable.cpp"
 				>
 			</File>
@@ -899,6 +887,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsTable.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsTableFields.cpp"
 				>
 			</File>
@@ -908,6 +900,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsTableFields.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsTableFields.rgs"
 				>
 			</File>
 			<File
@@ -932,6 +928,10 @@
 			</File>
 			<File
 				RelativePath=".\ArcObjectsWorkspace.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsWorkspace.rgs"
 				>
 			</File>
 		</Filter>

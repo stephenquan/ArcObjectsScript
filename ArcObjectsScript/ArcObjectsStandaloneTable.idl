@@ -12,11 +12,14 @@
         pointer_default(unique)
     ]
     interface IArcObjectsStandaloneTable : IDispatch{
-    };
+		[id(PROPID_Name), propget] HRESULT Name([out, retval] BSTR* name);
+		[id(PROPID_Name), propput] HRESULT Name([in] BSTR name);
+		[id(PROPID_Table), propget] HRESULT Table([out, retval] VARIANT* table);
+		[id(PROPID_Valid), propget] HRESULT Valid([out, retval] VARIANT_BOOL* valid);
+		[id(PROPID_DisplayField), propget] HRESULT DisplayField([out, retval] BSTR* fieldName);
+		[id(PROPID_DisplayField), propput] HRESULT DisplayField([in] BSTR fieldName);
 
-    //
-    //
-    //
+    };
 
     [
         uuid(F4B55881-02B9-49AA-98F3-5A69973CC585),

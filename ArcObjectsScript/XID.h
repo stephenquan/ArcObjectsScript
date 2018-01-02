@@ -26,6 +26,7 @@ enum
     PROPID_DestinationClass,
     PROPID_DestinationForeignKey,
     PROPID_DestinationPrimaryKey,
+	PROPID_DisplayField,
     PROPID_DomainID,
 
     PROPID_E = 0x10500,
@@ -98,6 +99,7 @@ enum
     PROPID_SupportedDrawPhases,
 
     PROPID_T = 0x11400,
+	PROPID_Table,
     PROPID_Type,
 
     PROPID_U = 0x11500,
