@@ -351,7 +351,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsClass.idl"
+				RelativePath=".\ArcObjectsClass_idl.txt"
 				>
 			</File>
 			<File
@@ -367,7 +367,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsDisplay.idl"
+				RelativePath=".\ArcObjectsDisplay_idl.txt"
 				>
 			</File>
 			<File
@@ -379,7 +379,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsDomain.idl"
+				RelativePath=".\ArcObjectsDomain_idl.txt"
 				>
 			</File>
 			<File
@@ -395,7 +395,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsEnumRelationshipClass.idl"
+				RelativePath=".\ArcObjectsEnumRelationshipClass_idl.txt"
 				>
 			</File>
 			<File
@@ -411,7 +411,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsEnvelope.idl"
+				RelativePath=".\ArcObjectsEnvelope_idl.txt"
 				>
 			</File>
 			<File
@@ -423,7 +423,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeature.idl"
+				RelativePath=".\ArcObjectsFeature_idl.txt"
 				>
 			</File>
 			<File
@@ -439,7 +439,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureBuffer.idl"
+				RelativePath=".\ArcObjectsFeatureBuffer_idl.txt"
 				>
 			</File>
 			<File
@@ -455,7 +455,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureClass.idl"
+				RelativePath=".\ArcObjectsFeatureClass_idl.txt"
 				>
 			</File>
 			<File
@@ -471,7 +471,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureCursor.idl"
+				RelativePath=".\ArcObjectsFeatureCursor_idl.txt"
 				>
 			</File>
 			<File
@@ -487,7 +487,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureDataset.idl"
+				RelativePath=".\ArcObjectsFeatureDataset_idl.txt"
 				>
 			</File>
 			<File
@@ -503,7 +503,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureLayer.idl"
+				RelativePath=".\ArcObjectsFeatureLayer_idl.txt"
 				>
 			</File>
 			<File
@@ -519,7 +519,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureLayerDefinition.idl"
+				RelativePath=".\ArcObjectsFeatureLayerDefinition_idl.txt"
 				>
 			</File>
 			<File
@@ -535,7 +535,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition.idl"
+				RelativePath=".\ArcObjectsFeatureLayerExtendedDefinition_idl.txt"
 				>
 			</File>
 			<File
@@ -551,7 +551,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsField.idl"
+				RelativePath=".\ArcObjectsField_idl.txt"
 				>
 			</File>
 			<File
@@ -567,7 +567,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFieldInfo.idl"
+				RelativePath=".\ArcObjectsFieldInfo_idl.txt"
 				>
 			</File>
 			<File
@@ -583,7 +583,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsFields.idl"
+				RelativePath=".\ArcObjectsFields_idl.txt"
 				>
 			</File>
 			<File
@@ -599,7 +599,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsLayer.idl"
+				RelativePath=".\ArcObjectsLayer_idl.txt"
 				>
 			</File>
 			<File
@@ -615,7 +615,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsMap.idl"
+				RelativePath=".\ArcObjectsMap_idl.txt"
 				>
 			</File>
 			<File
@@ -631,7 +631,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsMapDocument.idl"
+				RelativePath=".\ArcObjectsMapDocument_idl.txt"
 				>
 			</File>
 			<File
@@ -647,7 +647,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsNumberFormat.idl"
+				RelativePath=".\ArcObjectsNumberFormat_idl.txt"
 				>
 			</File>
 			<File
@@ -663,7 +663,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsObject.idl"
+				RelativePath=".\ArcObjectsObject_idl.txt"
 				>
 			</File>
 			<File
@@ -679,7 +679,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsObjectClass.idl"
+				RelativePath=".\ArcObjectsObjectClass_idl.txt"
 				>
 			</File>
 			<File
@@ -695,7 +695,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsQueryFilter.idl"
+				RelativePath=".\ArcObjectsQueryFilter_idl.txt"
 				>
 			</File>
 			<File
@@ -711,7 +711,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsRelationship.idl"
+				RelativePath=".\ArcObjectsRelationship_idl.txt"
 				>
 			</File>
 			<File
@@ -727,7 +727,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsRelationshipClass.idl"
+				RelativePath=".\ArcObjectsRelationshipClass_idl.txt"
 				>
 			</File>
 			<File
@@ -743,7 +743,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsRow.idl"
+				RelativePath=".\ArcObjectsRow_idl.txt"
 				>
 			</File>
 			<File
@@ -759,7 +759,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsRowBuffer.idl"
+				RelativePath=".\ArcObjectsRowBuffer_idl.txt"
 				>
 			</File>
 			<File
@@ -775,7 +775,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsRule.idl"
+				RelativePath=".\ArcObjectsRule_idl.txt"
 				>
 			</File>
 			<File
@@ -803,7 +803,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsSelectionSet.idl"
+				RelativePath=".\ArcObjectsSelectionSet_idl.txt"
 				>
 			</File>
 			<File
@@ -819,7 +819,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsSet.idl"
+				RelativePath=".\ArcObjectsSet_idl.txt"
 				>
 			</File>
 			<File
@@ -835,7 +835,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsSpatialReference.idl"
+				RelativePath=".\ArcObjectsSpatialReference_idl.txt"
 				>
 			</File>
 			<File
@@ -851,7 +851,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsStandaloneTable.idl"
+				RelativePath=".\ArcObjectsStandaloneTable_idl.txt"
 				>
 			</File>
 			<File
@@ -867,7 +867,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsStandaloneTableCollection.idl"
+				RelativePath=".\ArcObjectsStandaloneTableCollection_idl.txt"
 				>
 			</File>
 			<File
@@ -883,7 +883,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsSubtypes.idl"
+				RelativePath=".\ArcObjectsSubtypes_idl.txt"
 				>
 			</File>
 			<File
@@ -899,7 +899,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsTable.idl"
+				RelativePath=".\ArcObjectsTable_idl.txt"
 				>
 			</File>
 			<File
@@ -915,7 +915,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsTableFields.idl"
+				RelativePath=".\ArcObjectsTableFields_idl.txt"
 				>
 			</File>
 			<File
@@ -931,7 +931,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsTrackCancel.idl"
+				RelativePath=".\ArcObjectsTrackCancel_idl.txt"
 				>
 			</File>
 			<File
@@ -943,7 +943,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ArcObjectsWorkspace.idl"
+				RelativePath=".\ArcObjectsWorkspace_idl.txt"
 				>
 			</File>
 			<File
