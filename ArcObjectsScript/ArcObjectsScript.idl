@@ -31,6 +31,7 @@ library ArcObjectsScriptLib
     ]
     interface IArcObjects : IDispatch{
         [id(METHID_Domain)] HRESULT Domain([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_Envelope)] HRESULT Envelope([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Feature)] HRESULT Feature([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_FeatureClass)] HRESULT FeatureClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_FeatureDataset)] HRESULT FeatureDataset([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
@@ -44,6 +45,7 @@ library ArcObjectsScriptLib
         [id(METHID_MapDocument)] HRESULT MapDocument([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_NumberFormat)] HRESULT NumberFormat([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_ObjectClass)] HRESULT ObjectClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_Point)] HRESULT Point([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_QueryFilter)] HRESULT QueryFilter([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Row)] HRESULT Row([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_SelectionSet)] HRESULT SelectionSet([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
@@ -104,5 +106,6 @@ library ArcObjectsScriptLib
 	#include "ArcObjectsFieldInfo_idl.txt"
 	#include "ArcObjectsTable_idl.txt"
 	#include "ArcObjectsNumberFormat_idl.txt"
+	#include "ArcObjectsPoint_idl.txt"
 
 };

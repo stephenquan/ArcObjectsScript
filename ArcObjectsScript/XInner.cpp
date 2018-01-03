@@ -22,6 +22,7 @@
 #include "ArcObjectsObject.h"
 #include "ArcObjectsObjectClass.h"
 #include "ArcObjectsQueryFilter.h"
+#include "ArcObjectsPoint.h"
 #include "ArcObjectsRelationship.h"
 #include "ArcObjectsRelationshipClass.h"
 #include "ArcObjectsRow.h"
@@ -38,12 +39,12 @@
 #include "ArcObjectsWorkspace.h"
 
 
-#define IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID) \
+#define IMPLEMENT_TO_VARIANT_B(INTERFACE_TYPE_NAME, TYPE_NAME, CLSID) \
     template < > \
-    HRESULT XInner<I##TYPE_NAME>::ToVariant(IUnknown* pInner, VARIANT* value) \
+	HRESULT XInner<##INTERFACE_TYPE_NAME>::ToVariant(IUnknown* pInner, VARIANT* value) \
     { \
         HRESULT hr = S_OK; \
-		CComPtr<I##TYPE_NAME> spInner; \
+		CComPtr<##INTERFACE_TYPE_NAME> spInner; \
 		if (pInner) \
 		{ \
 			hr = pInner->QueryInterface(&spInner); \
@@ -61,7 +62,7 @@
         return hr; \
     } \
 	template < > \
-	HRESULT XInner<I##TYPE_NAME>::CreateVariant(VARIANT* inner, VARIANT* value) \
+	HRESULT XInner<##INTERFACE_TYPE_NAME>::CreateVariant(VARIANT* inner, VARIANT* value) \
     { \
 		HRESULT hr = S_OK; \
 		if (!inner) return ToVariant(NULL, value); \
@@ -69,7 +70,7 @@
 		{ \
 			inner = V_VARIANTREF(inner); \
 		} \
-		CComPtr<I##TYPE_NAME> spInner; \
+		CComPtr<##INTERFACE_TYPE_NAME> spInner; \
 		switch (inner->vt) \
 		{ \
 		case VT_UNKNOWN: return ToVariant(V_UNKNOWN(inner), value); \
@@ -78,15 +79,15 @@
 		case VT_BYREF | VT_DISPATCH: return ToVariant(*V_DISPATCHREF(inner), value); \
 		case VT_ERROR: \
 			if (CLSID == CLSID_NULL) return ToVariant(NULL, value); \
-			CHECKHR(CoCreateInstance(CLSID, NULL, CLSCTX_INPROC_SERVER, IID_I##TYPE_NAME, (void**)&spInner)); \
+			CHECKHR(CoCreateInstance(CLSID, NULL, CLSCTX_INPROC_SERVER, IID_##INTERFACE_TYPE_NAME, (void**)&spInner)); \
 			return ToVariant(spInner, value); \
 		} \
 		return ToVariant(NULL, value); \
 	}
 
 
-#define IMPLEMENT_TO_VARIANT(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID_##TYPE_NAME)
-#define IMPLEMENT_TO_VARIANT_NON_CREATABLE(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(TYPE_NAME, CLSID_NULL)
+#define IMPLEMENT_TO_VARIANT(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(I##TYPE_NAME, TYPE_NAME, CLSID_##TYPE_NAME)
+#define IMPLEMENT_TO_VARIANT_NON_CREATABLE(TYPE_NAME) IMPLEMENT_TO_VARIANT_B(I##TYPE_NAME, TYPE_NAME, CLSID_NULL)
 
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(Class)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(Domain)
@@ -109,6 +110,7 @@ IMPLEMENT_TO_VARIANT(MapDocument)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(NumberFormat)
 IMPLEMENT_TO_VARIANT(Object)
 IMPLEMENT_TO_VARIANT(ObjectClass)
+IMPLEMENT_TO_VARIANT(Point)
 IMPLEMENT_TO_VARIANT(QueryFilter)
 IMPLEMENT_TO_VARIANT(Relationship)
 IMPLEMENT_TO_VARIANT(RelationshipClass)

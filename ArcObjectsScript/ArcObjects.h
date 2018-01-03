@@ -80,6 +80,7 @@ public:
     XCREATE(NumberFormat);
 	XCREATE(Object);
 	XCREATE(ObjectClass);
+	XCREATE(Point);
     XCREATE(QueryFilter);
 	XCREATE(Relationship);
 	XCREATE(RelationshipClass);

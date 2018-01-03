@@ -18,16 +18,18 @@ enum
     PROPID_C = 0x10300,
     PROPID_Cached,
     PROPID_Cardinality,
+    PROPID_CenterAt,
     PROPID_CLSID,
 
     PROPID_D = 0x10400,
     PROPID_DefaultSubtypeCode,
     PROPID_DefinitionExpression,
+    PROPID_Depth,
     PROPID_Description,
     PROPID_DestinationClass,
     PROPID_DestinationForeignKey,
     PROPID_DestinationPrimaryKey,
-	PROPID_DisplayField,
+    PROPID_DisplayField,
     PROPID_DomainID,
 
     PROPID_E = 0x10500,
@@ -47,6 +49,7 @@ enum
     PROPID_H = 0x10800,
     PROPID_HasOID,
     PROPID_HasSubtype,
+    PROPID_Height,
 
     PROPID_I = 0x10900,
     PROPID_Indexes,
@@ -60,12 +63,16 @@ enum
     PROPID_L = 0x10C00,
     PROPID_LayerCount,
     PROPID_LengthField,
+    PROPID_LowerLeft,
+    PROPID_LowerRight,
 
     PROPID_M = 0x10D00,
     PROPID_MapCount,
     PROPID_MaximumScale,
     PROPID_MergePolicy,
     PROPID_MinimumScale,
+    PROPID_MMin,
+    PROPID_MMax,
 
     PROPID_N = 0x10E00,
     PROPID_Name,
@@ -101,10 +108,12 @@ enum
     PROPID_SupportedDrawPhases,
 
     PROPID_T = 0x11400,
-	PROPID_Table,
+    PROPID_Table,
     PROPID_Type,
 
     PROPID_U = 0x11500,
+    PROPID_UpperLeft,
+    PROPID_UpperRight,
 
     PROPID_V = 0x11600,
     PROPID_Valid,
@@ -112,12 +121,19 @@ enum
 
     PROPID_W = 0x11700,
     PROPID_WhereClause,
+    PROPID_Width,
 
     PROPID_X = 0x11800,
+    PROPID_XMin,
+    PROPID_XMax,
 
     PROPID_Y = 0x11900,
+    PROPID_YMin,
+    PROPID_YMax,
 
     PROPID_Z = 0x11A00,
+    PROPID_ZMin,
+    PROPID_ZMax,
 
     //
     //
@@ -131,6 +147,7 @@ enum
     METHID_AsString,
 
     METHID_C = 0x20300,
+    METHID_CenterAt,
     METHID_CreateFeature,
     METHID_CreateFeatureBuffer,
     METHID_CreateRelationship,
@@ -143,6 +160,12 @@ enum
     METHID_DeleteSubtype,
     METHID_Domain,
     METHID_Draw,
+
+    METHID_E = 0x20500,
+    METHID_Envelope,
+    METHID_Expand,
+    METHID_ExpandZ,
+    METHID_ExpandM,
 
     METHID_F = 0x20600,
     METHID_Feature,
@@ -159,12 +182,12 @@ enum
     METHID_Flush,
 
     METHID_G = 0x20700,
-	METHID_GetAsString,
+    METHID_GetAsString,
     METHID_GetDefaultValue,
     METHID_GetDomain,
     METHID_GetFeatures,
     METHID_GetField,
-	METHID_GetFieldInfo,
+    METHID_GetFieldInfo,
     METHID_GetObjectsRelatedToObject,
     METHID_GetOutputSpatialReference,
     METHID_GetRelationship,
@@ -177,6 +200,7 @@ enum
     METHID_I = 0x20900,
     METHID_Insert,
     METHID_InsertFeature,
+    METHID_Intersect,
 
     METHID_J = 0x20A00,
 
@@ -197,8 +221,13 @@ enum
 
     METHID_O = 0x20F00,
     METHID_ObjectClass,
+    METHID_Offset,
+    METHID_OffsetM,
+    METHID_OffsetZ,
 
     METHID_P = 0x21000,
+    METHID_Point,
+    METHID_PutCoords,
 
     METHID_Q = 0x21100,
     METHID_QueryFilter,
@@ -226,6 +255,7 @@ enum
     METHID_TableFields,
 
     METHID_U = 0x21500,
+    METHID_Union,
     METHID_Update,
     METHID_UpdateFeature,
 

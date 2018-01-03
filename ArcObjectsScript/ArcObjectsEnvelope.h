@@ -53,6 +53,53 @@ END_COM_MAP()
     }
 
 public:
+	XMETHOD1(get_Width, Pdouble);
+	XMETHOD1(put_Width, double);
+	XMETHOD1(get_Height, Pdouble);
+	XMETHOD1(put_Height, double);
+	XMETHOD1(get_Depth, Pdouble);
+	XMETHOD1(put_Depth, double);
+	XMETHOD1(get_LowerLeft, PIPoint)
+	XMETHOD1(put_LowerLeft, IPoint)
+	XMETHOD1(get_UpperLeft, PIPoint)
+	XMETHOD1(put_UpperLeft, IPoint)
+	XMETHOD1(get_UpperRight, PIPoint)
+	XMETHOD1(put_UpperRight, IPoint)
+	XMETHOD1(get_LowerRight, PIPoint)
+	XMETHOD1(put_LowerRight, IPoint)
+	XMETHOD1(get_XMin, Pdouble);
+	XMETHOD1(put_XMin, double);
+	XMETHOD1(get_YMin, Pdouble);
+	XMETHOD1(put_YMin, double);
+	XMETHOD1(get_XMax, Pdouble);
+	XMETHOD1(put_XMax, double);
+	XMETHOD1(get_YMax, Pdouble);
+	XMETHOD1(put_YMax, double);
+	XMETHOD1(get_MMin, Pdouble);
+	XMETHOD1(put_MMin, double);
+	XMETHOD1(get_MMax, Pdouble);
+	XMETHOD1(put_MMax, double);
+	XMETHOD1(get_ZMin, Pdouble);
+	XMETHOD1(put_ZMin, double);
+	XMETHOD1(get_ZMax, Pdouble);
+	XMETHOD1(put_ZMax, double);
+	XMETHOD1(Union, IEnvelope);
+	XMETHOD1(Intersect, IEnvelope);
+	XMETHOD2(Offset, double, double);
+	XMETHOD1(OffsetZ, double);
+	XMETHOD1(OffsetM, double);
+	XMETHOD3(Expand, double, double, VARIANT_BOOL);
+	XMETHOD2(ExpandZ, double, VARIANT_BOOL);
+	XMETHOD2(ExpandM, double, VARIANT_BOOL);
+	// DefineFromWKSPoints
+	// DefineFromPoints
+	// QueryWKSCoords
+	// PutWKSCoords
+	XMETHOD4(PutCoords, double, double, double, double)
+	// QUeryCoords
+	XMETHOD1(CenterAt, IPoint)
+	// get_MinMaxAttributes
+	// put_MinMaxAttributes
 
 };
 

@@ -198,6 +198,16 @@ using namespace ATL;
 #define RET_PesriMergePolicyType(arg) RET_PENUM(esriMergePolicyType, arg)
 
 
+#define ARG_esriPointAttributes(arg) ARG_ENUM(esriPointAttributes, arg)
+#define PRE_esriPointAttributes(arg) PRE_ENUM(esriPointAttributes, arg)
+#define CAL_esriPointAttributes(arg) CAL_ENUM(esriPointAttributes, arg)
+#define RET_esriPointAttributes(arg) RET_ENUM(esriPointAttributes, arg)
+#define ARG_PesriPointAttributes(arg) ARG_PENUM(esriPointAttributes, arg)
+#define PRE_PesriPointAttributes(arg) PRE_PENUM(esriPointAttributes, arg)
+#define CAL_PesriPointAttributes(arg) CAL_PENUM(esriPointAttributes, arg)
+#define RET_PesriPointAttributes(arg) RET_PENUM(esriPointAttributes, arg)
+
+
 #define ARG_esriRelCardinality(arg) ARG_ENUM(esriRelCardinality, arg)
 #define PRE_esriRelCardinality(arg) PRE_ENUM(esriRelCardinality, arg)
 #define CAL_esriRelCardinality(arg) CAL_ENUM(esriRelCardinality, arg)
@@ -436,6 +446,16 @@ using namespace ATL;
 #define PRE_PIObjectClass(arg) PRE_POBJECT(IObjectClass, arg)
 #define CAL_PIObjectClass(arg) CAL_POBJECT(IObjectClass, arg)
 #define RET_PIObjectClass(arg) RET_POBJECT(IObjectClass, arg)
+
+
+#define ARG_IPoint(arg) ARG_OBJECT(IPoint, arg)
+#define PRE_IPoint(arg) PRE_OBJECT(IPoint, arg)
+#define CAL_IPoint(arg) CAL_OBJECT(IPoint, arg)
+#define RET_IPoint(arg) RET_OBJECT(IPoint, arg)
+#define ARG_PIPoint(arg) ARG_POBJECT(IPoint, arg)
+#define PRE_PIPoint(arg) PRE_POBJECT(IPoint, arg)
+#define CAL_PIPoint(arg) CAL_POBJECT(IPoint, arg)
+#define RET_PIPoint(arg) RET_POBJECT(IPoint, arg)
 
 
 #define ARG_IQueryFilter(arg) ARG_OBJECT(IQueryFilter, arg)

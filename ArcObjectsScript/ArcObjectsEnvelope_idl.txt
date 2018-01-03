@@ -7,6 +7,54 @@
 		pointer_default(unique)
 	]
 	interface IArcObjectsEnvelope : IDispatch {
+		[id(PROPID_Width), propget] HRESULT Width([out, retval] double* width);
+		[id(PROPID_Width), propput] HRESULT Width([in] double width);
+		[id(PROPID_Height), propget] HRESULT Height([out, retval] double* Height);
+		[id(PROPID_Height), propput] HRESULT Height([in] double Height);
+		[id(PROPID_Depth), propget] HRESULT Depth([out, retval] double* Depth);
+		[id(PROPID_Depth), propput] HRESULT Depth([in] double Depth);
+		[id(PROPID_LowerLeft), propget] HRESULT LowerLeft([out, retval] VARIANT* point);
+		[id(PROPID_LowerLeft), propput] HRESULT LowerLeft([in] VARIANT point);
+		[id(PROPID_UpperLeft), propget] HRESULT UpperLeft([out, retval] VARIANT* point);
+		[id(PROPID_UpperLeft), propput] HRESULT UpperLeft([in] VARIANT point);
+		[id(PROPID_UpperRight), propget] HRESULT UpperRight([out, retval] VARIANT* point);
+		[id(PROPID_UpperRight), propput] HRESULT UpperRight([in] VARIANT point);
+		[id(PROPID_LowerRight), propget] HRESULT LowerRight([out, retval] VARIANT* point);
+		[id(PROPID_LowerRight), propput] HRESULT LowerRight([in] VARIANT point);
+		[id(PROPID_XMin), propget] HRESULT XMin([out, retval] double* xMin);
+		[id(PROPID_XMin), propput] HRESULT XMin([in] double xMin);
+		[id(PROPID_YMin), propget] HRESULT YMin([out, retval] double* yMin);
+		[id(PROPID_YMin), propput] HRESULT YMin([in] double yMin);
+		[id(PROPID_XMax), propget] HRESULT XMax([out, retval] double* xMax);
+		[id(PROPID_XMax), propput] HRESULT XMax([in] double xMax);
+		[id(PROPID_YMax), propget] HRESULT YMax([out, retval] double* yMax);
+		[id(PROPID_YMax), propput] HRESULT YMax([in] double yMax);
+		[id(PROPID_MMin), propget] HRESULT MMin([out, retval] double* mMin);
+		[id(PROPID_MMin), propput] HRESULT MMin([in] double mMin);
+		[id(PROPID_MMax), propget] HRESULT MMax([out, retval] double* mMax);
+		[id(PROPID_MMax), propput] HRESULT MMax([in] double mMax);
+		[id(PROPID_ZMin), propget] HRESULT ZMin([out, retval] double* zMin);
+		[id(PROPID_ZMin), propput] HRESULT ZMin([in] double zMin);
+		[id(PROPID_ZMax), propget] HRESULT ZMax([out, retval] double* zMax);
+		[id(PROPID_ZMax), propput] HRESULT ZMax([in] double zMax);
+		[id(METHID_Union)] HRESULT Union([in] VARIANT inEnvelope);
+		[id(METHID_Intersect)] HRESULT Intersect([in] VARIANT inEnvelope);
+		[id(METHID_Offset)] HRESULT Offset([in] double x, [in] double y);
+		[id(METHID_OffsetZ)] HRESULT OffsetZ([in] double z);
+		[id(METHID_OffsetM)] HRESULT OffsetM([in] double m);
+		[id(METHID_Expand)] HRESULT Expand([in] double dx, [in] double dy, [in] VARIANT_BOOL asRatio);
+		[id(METHID_ExpandZ)] HRESULT ExpandZ([in] double dz, [in] VARIANT_BOOL asRatio);
+		[id(METHID_ExpandM)] HRESULT ExpandM([in] double dm, [in] VARIANT_BOOL asRatio);
+		// DefineFromWKSPoints
+		// DefineFromPoints
+		// QueryWKSCoords
+		// PutWKSCoords
+		[id(METHID_PutCoords)] HRESULT PutCoords([in] double xMin, [in] double yMin, [in] double xMax, [in] double yMax);
+		// QueryCoords
+		[id(METHID_CenterAt)] HRESULT CenterAt([in] VARIANT point);
+		// get_MinMaxAttributes
+		// put_MinMaxAttributes
+	
 	};
 
 	[
