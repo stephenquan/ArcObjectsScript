@@ -54,8 +54,8 @@ END_COM_MAP()
 
 public:
 	XMETHOD1(get_FieldCount, PLONG)
-	XMETHOD2_B(GetField, get_Field, LONG, PIField)
-	XMETHOD2_B(GetFieldInfo, get_FieldInfo, LONG, PIFieldInfo)
+	XMETHOD2_B(Field, get_Field, LONG, PIField)
+	XMETHOD2_B(FieldInfo, get_FieldInfo, LONG, PIFieldInfo)
 	XMETHOD2(FindField, BSTR, PLONG)
 
 };

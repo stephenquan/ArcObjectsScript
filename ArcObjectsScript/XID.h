@@ -169,7 +169,6 @@ enum
     METHID_GetOutputSpatialReference,
     METHID_GetRelationship,
     METHID_GetRelationshipClasses,
-    METHID_GetStandaloneTable,
     METHID_GetSubtypeName,
     METHID_GetTipText,
 

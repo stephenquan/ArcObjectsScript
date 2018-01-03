@@ -54,7 +54,7 @@ END_COM_MAP()
 
 public:
 	XMETHOD1(get_StandaloneTableCount, PLONG)
-	XMETHOD2_B(GetStandaloneTable, get_StandaloneTable, LONG, PIStandaloneTable)
+	XMETHOD2_B(StandaloneTable, get_StandaloneTable, LONG, PIStandaloneTable)
 	XMETHOD1(AddStandaloneTable, IStandaloneTable)
 	XMETHOD1(RemoveStandaloneTable, IStandaloneTable)
 	XMETHOD0(RemoveAllStandaloneTables)

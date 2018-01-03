@@ -8,8 +8,8 @@
     ]
     interface IArcObjectsTableFields : IDispatch{
 		[id(PROPID_FieldCount), propget] HRESULT FieldCount([out, retval] LONG* count);
-		[id(METHID_GetField)] HRESULT GetField([in] LONG index, [out, retval] VARIANT* field);
-		[id(METHID_GetFieldInfo)] HRESULT GetFieldInfo([in] LONG index, [out, retval] VARIANT* fieldInfo);
+		[id(METHID_Field)] HRESULT Field([in] LONG index, [out, retval] VARIANT* field);
+		[id(METHID_FieldInfo)] HRESULT FieldInfo([in] LONG index, [out, retval] VARIANT* fieldInfo);
 		[id(METHID_FindField)] HRESULT FindField([in] BSTR fieldName, [out, retval] LONG* index);
 
     };

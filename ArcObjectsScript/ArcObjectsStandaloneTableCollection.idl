@@ -9,7 +9,7 @@
     ]
     interface IArcObjectsStandaloneTableCollection : IDispatch {
         [id(PROPID_StandaloneTableCount), propget] HRESULT StandaloneTableCount([out, retval] LONG* counts);
-        [id(METHID_GetStandaloneTable)] HRESULT GetStandaloneTable([in] LONG index, [out, retval] VARIANT* standaloneTable);
+        [id(METHID_StandaloneTable)] HRESULT StandaloneTable([in] LONG index, [out, retval] VARIANT* standaloneTable);
         [id(METHID_AddStandaloneTable)] HRESULT AddStandaloneTable([in] VARIANT standaloneTable);
         [id(METHID_RemoveStandaloneTable)] HRESULT RemoveStandaloneTable([in] VARIANT standaloneTable);
         [id(METHID_RemoveAllStandaloneTables)] HRESULT RemoveAllStandaloneTables();
