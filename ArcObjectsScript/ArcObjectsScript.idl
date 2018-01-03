@@ -42,6 +42,7 @@ library ArcObjectsScriptLib
 		[id(METHID_Layer)] HRESULT Layer([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Map)] HRESULT Map([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_MapDocument)] HRESULT MapDocument([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
+        [id(METHID_NumberFormat)] HRESULT NumberFormat([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_ObjectClass)] HRESULT ObjectClass([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_QueryFilter)] HRESULT QueryFilter([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
         [id(METHID_Row)] HRESULT Row([in, optional] VARIANT inner, [out, retval] VARIANT* outer);
@@ -102,5 +103,6 @@ library ArcObjectsScriptLib
 	#include "ArcObjectsTableFields.idl"
 	#include "ArcObjectsFieldInfo.idl"
 	#include "ArcObjectsTable.idl"
+	#include "ArcObjectsNumberFormat.idl"
 
 };

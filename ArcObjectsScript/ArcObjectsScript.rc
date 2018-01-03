@@ -165,6 +165,7 @@ IDR_ARCOBJECTSSTANDALONETABLECOLLECTION REGISTRY                "ArcObjectsStand
 IDR_ARCOBJECTSTABLEFIELDS REGISTRY                "ArcObjectsTableFields.rgs"
 IDR_ARCOBJECTSFIELDINFO REGISTRY                "ArcObjectsFieldInfo.rgs"
 IDR_ARCOBJECTSTABLE REGISTRY                "ArcObjectsTable.rgs"
+IDR_ARCOBJECTSNUMBERFORMAT REGISTRY                "ArcObjectsNumberFormat.rgs"
 
 
 #endif    // English (Australia) resources

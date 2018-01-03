@@ -53,6 +53,13 @@ END_COM_MAP()
     }
 
 public:
+	XMETHOD1(get_Visible, PVARIANT_BOOL)
+	XMETHOD1(put_Visible, VARIANT_BOOL)
+	XMETHOD1(get_Alias, PBSTR)
+	XMETHOD1(put_Alias, BSTR)
+	XMETHOD1(get_NumberFormat, PINumberFormat)
+	XMETHOD1_B(put_NumberFormat, putref_NumberFormat, INumberFormat);
+	XMETHOD2_B(AsString, get_AsString, VARIANT, PBSTR)
 
 };
 

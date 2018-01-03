@@ -18,6 +18,7 @@
 #include "ArcObjectsLayer.h"
 #include "ArcObjectsMap.h"
 #include "ArcObjectsMapDocument.h"
+#include "ArcObjectsNumberFormat.h"
 #include "ArcObjectsObject.h"
 #include "ArcObjectsObjectClass.h"
 #include "ArcObjectsQueryFilter.h"
@@ -105,6 +106,7 @@ IMPLEMENT_TO_VARIANT(Fields)
 IMPLEMENT_TO_VARIANT_NON_CREATABLE(Layer)
 IMPLEMENT_TO_VARIANT(Map)
 IMPLEMENT_TO_VARIANT(MapDocument)
+IMPLEMENT_TO_VARIANT_NON_CREATABLE(NumberFormat)
 IMPLEMENT_TO_VARIANT(Object)
 IMPLEMENT_TO_VARIANT(ObjectClass)
 IMPLEMENT_TO_VARIANT(QueryFilter)

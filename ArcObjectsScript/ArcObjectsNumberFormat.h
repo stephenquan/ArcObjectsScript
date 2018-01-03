@@ -1,4 +1,4 @@
-// ArcObjectsTableFields.h : Declaration of the CArcObjectsTableFields
+// ArcObjectsNumberFormat.h : Declaration of the CArcObjectsNumberFormat
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -13,25 +13,25 @@
 
 
 
-// CArcObjectsTableFields
+// CArcObjectsNumberFormat
 
-class ATL_NO_VTABLE CArcObjectsTableFields :
+class ATL_NO_VTABLE CArcObjectsNumberFormat :
     public CComObjectRootEx<CComSingleThreadModel>,
-    public CComCoClass<CArcObjectsTableFields, &CLSID_ArcObjectsTableFields>,
+    public CComCoClass<CArcObjectsNumberFormat, &CLSID_ArcObjectsNumberFormat>,
     public ISupportErrorInfo,
-    public IDispatchImpl<IArcObjectsTableFields, &IID_IArcObjectsTableFields, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-    public XInner<ITableFields>
+    public IDispatchImpl<IArcObjectsNumberFormat, &IID_IArcObjectsNumberFormat, &LIBID_ArcObjectsScriptLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public XInner<INumberFormat>
 {
 public:
-    CArcObjectsTableFields()
+    CArcObjectsNumberFormat()
     {
     }
 
-DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSTABLEFIELDS)
+DECLARE_REGISTRY_RESOURCEID(IDR_ARCOBJECTSNUMBERFORMAT)
 
 
-BEGIN_COM_MAP(CArcObjectsTableFields)
-    COM_INTERFACE_ENTRY(IArcObjectsTableFields)
+BEGIN_COM_MAP(CArcObjectsNumberFormat)
+    COM_INTERFACE_ENTRY(IArcObjectsNumberFormat)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(ISupportErrorInfo)
     COM_INTERFACE_ENTRY_AGGREGATE_BLIND(m_Inner)
@@ -53,11 +53,7 @@ END_COM_MAP()
     }
 
 public:
-	XMETHOD1(get_FieldCount, PLONG)
-	XMETHOD2_B(GetField, get_Field, LONG, PIField)
-	XMETHOD2_B(GetFieldInfo, get_FieldInfo, LONG, PIFieldInfo)
-	XMETHOD2(FindField, BSTR, PLONG)
 
 };
 
-OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsTableFields), CArcObjectsTableFields)
+OBJECT_ENTRY_AUTO(__uuidof(ArcObjectsNumberFormat), CArcObjectsNumberFormat)

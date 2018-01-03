@@ -77,6 +77,7 @@ public:
     XCREATE(Layer);
     XCREATE(Map);
     XCREATE(MapDocument);
+    XCREATE(NumberFormat);
 	XCREATE(Object);
 	XCREATE(ObjectClass);
     XCREATE(QueryFilter);

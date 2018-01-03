@@ -1,8 +1,3 @@
-
-    //
-    //
-    //
-
     [
         object,
         uuid(B6B6914A-7BAF-44C8-991A-5B36DDAD2255),
@@ -12,11 +7,15 @@
         pointer_default(unique)
     ]
     interface IArcObjectsFieldInfo : IDispatch{
-    };
+		[id(PROPID_Visible), propget] HRESULT Visible([out, retval] VARIANT_BOOL* visible);
+		[id(PROPID_Visible), propput] HRESULT Visible([in] VARIANT_BOOL visible);
+		[id(PROPID_Alias), propget] HRESULT Alias([out, retval] BSTR* aliasName);
+		[id(PROPID_Alias), propput] HRESULT Alias([in] BSTR aliasName);
+		[id(PROPID_NumberFormat), propget] HRESULT NumberFormat([out, retval] VARIANT* numberFormat);
+		[id(PROPID_NumberFormat), propput] HRESULT NumberFormat([in] VARIANT numberFormat);
+		[id(METHID_AsString)] HRESULT AsString([in] VARIANT value, [out, retval] BSTR* stringRep);
 
-    //
-    //
-    //
+    };
 
     [
         uuid(B9C87958-4E96-4943-BCA0-D2F6B9395C30),

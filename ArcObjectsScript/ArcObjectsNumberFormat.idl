@@ -1,0 +1,29 @@
+
+    //
+    //
+    //
+
+    [
+        object,
+        uuid(685960E2-61D8-4C62-A468-6F1EFCF4AC14),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsNumberFormat Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsNumberFormat : IDispatch{
+    };
+
+    //
+    //
+    //
+
+    [
+        uuid(3F2E7E89-B57D-4554-A391-F0636A649CFA),
+        helpstring("ArcObjectsNumberFormat Class")
+    ]
+    coclass ArcObjectsNumberFormat
+    {
+        [default] interface IArcObjectsNumberFormat;
+    };
+

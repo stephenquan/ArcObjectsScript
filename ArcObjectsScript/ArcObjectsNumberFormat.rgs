@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.NumberFormat = s 'ArcObjectsNumberFormat Class'
+    {
+        CLSID = s '{3F2E7E89-B57D-4554-A391-F0636A649CFA}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {3F2E7E89-B57D-4554-A391-F0636A649CFA} = s 'ArcObjectsNumberFormat Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.NumberFormat'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.NumberFormat'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

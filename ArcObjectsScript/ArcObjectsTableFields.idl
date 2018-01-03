@@ -1,8 +1,3 @@
-
-    //
-    //
-    //
-
     [
         object,
         uuid(48A35F46-8761-43A3-A144-2FC759E8AFFD),
@@ -12,11 +7,12 @@
         pointer_default(unique)
     ]
     interface IArcObjectsTableFields : IDispatch{
-    };
+		[id(PROPID_FieldCount), propget] HRESULT FieldCount([out, retval] LONG* count);
+		[id(METHID_GetField)] HRESULT GetField([in] LONG index, [out, retval] VARIANT* field);
+		[id(METHID_GetFieldInfo)] HRESULT GetFieldInfo([in] LONG index, [out, retval] VARIANT* fieldInfo);
+		[id(METHID_FindField)] HRESULT FindField([in] BSTR fieldName, [out, retval] LONG* index);
 
-    //
-    //
-    //
+    };
 
     [
         uuid(B576AF31-C59A-446F-872C-621B6A500070),

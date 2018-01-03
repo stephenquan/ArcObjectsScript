@@ -7,6 +7,7 @@ enum
     //
 
     PROPID_A = 0x10100,
+    PROPID_Alias,
     PROPID_AliasName,
     PROPID_AreaField,
     PROPID_AreaOfInterest,
@@ -69,6 +70,7 @@ enum
     PROPID_N = 0x10E00,
     PROPID_Name,
     PROPID_Notification,
+    PROPID_NumberFormat,
 
     PROPID_O = 0x10F00,
     PROPID_ObjectClassID,
@@ -126,6 +128,7 @@ enum
     METHID_AddIndex,
     METHID_AddStandaloneTable,
     METHID_AddSubtype,
+    METHID_AsString,
 
     METHID_C = 0x20300,
     METHID_CreateFeature,
@@ -156,10 +159,12 @@ enum
     METHID_Flush,
 
     METHID_G = 0x20700,
+	METHID_GetAsString,
     METHID_GetDefaultValue,
     METHID_GetDomain,
     METHID_GetFeatures,
     METHID_GetField,
+	METHID_GetFieldInfo,
     METHID_GetObjectsRelatedToObject,
     METHID_GetOutputSpatialReference,
     METHID_GetRelationship,
@@ -189,6 +194,7 @@ enum
     METHID_N = 0x20E00,
     METHID_Next,
     METHID_NextFeature,
+    METHID_NumberFormat,
 
     METHID_O = 0x20F00,
     METHID_ObjectClass,

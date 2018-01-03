@@ -408,6 +408,16 @@ using namespace ATL;
 #define RET_PIMap(arg) RET_POBJECT(IMap, arg)
 
 
+#define ARG_INumberFormat(arg) ARG_OBJECT(INumberFormat, arg)
+#define PRE_INumberFormat(arg) PRE_OBJECT(INumberFormat, arg)
+#define CAL_INumberFormat(arg) CAL_OBJECT(INumberFormat, arg)
+#define RET_INumberFormat(arg) RET_OBJECT(INumberFormat, arg)
+#define ARG_PINumberFormat(arg) ARG_POBJECT(INumberFormat, arg)
+#define PRE_PINumberFormat(arg) PRE_POBJECT(INumberFormat, arg)
+#define CAL_PINumberFormat(arg) CAL_POBJECT(INumberFormat, arg)
+#define RET_PINumberFormat(arg) RET_POBJECT(INumberFormat, arg)
+
+
 #define ARG_IObject(arg) ARG_OBJECT(IObject, arg)
 #define PRE_IObject(arg) PRE_OBJECT(IObject, arg)
 #define CAL_IObject(arg) CAL_OBJECT(IObject, arg)

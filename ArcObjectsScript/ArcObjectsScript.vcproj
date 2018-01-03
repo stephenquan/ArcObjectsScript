@@ -639,6 +639,22 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArcObjectsNumberFormat.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsNumberFormat.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsNumberFormat.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\ArcObjectsNumberFormat.rgs"
+				>
+			</File>
+			<File
 				RelativePath=".\ArcObjectsObject.cpp"
 				>
 			</File>
