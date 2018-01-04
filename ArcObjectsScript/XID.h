@@ -52,6 +52,7 @@ enum
     PROPID_Height,
 
     PROPID_I = 0x10900,
+    PROPID_ID,
     PROPID_Indexes,
     PROPID_IsAttributed,
     PROPID_IsComposite,
@@ -148,6 +149,9 @@ enum
 
     METHID_C = 0x20300,
     METHID_CenterAt,
+    METHID_Compare,
+    METHID_ConstrainAngle,
+    METHID_ConstrainDistance,
     METHID_CreateFeature,
     METHID_CreateFeatureBuffer,
     METHID_CreateRelationship,
@@ -194,6 +198,7 @@ enum
     METHID_GetRelationshipClasses,
     METHID_GetSubtypeName,
     METHID_GetTipText,
+    METHID_GetVertexAttribute,
 
     METHID_H = 0x20800,
 
@@ -230,6 +235,7 @@ enum
     METHID_PutCoords,
 
     METHID_Q = 0x21100,
+    METHID_QueryCoords,
     METHID_QueryFilter,
 
     METHID_R = 0x21200,
@@ -245,6 +251,7 @@ enum
     METHID_SetDefaultValue,
     METHID_SetDomain,
     METHID_SetOutputSpatialReference,
+    METHID_SetVertexAttribute,
     METHID_SpatialReference,
     METHID_StandaloneTable,
     METHID_StandaloneTableCollection,

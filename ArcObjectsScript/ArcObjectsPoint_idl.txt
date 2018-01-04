@@ -1,0 +1,38 @@
+    [
+        object,
+        uuid(3E77CAFD-0161-4ED6-B3A8-7ACC6B0D504C),
+        dual,
+        nonextensible,
+        helpstring("IArcObjectsPoint Interface"),
+        pointer_default(unique)
+    ]
+    interface IArcObjectsPoint : IDispatch{
+		// QueryCoords
+		[id(METHID_PutCoords)] HRESULT PutCoords([in] double x, [in] double y);
+		[id(PROPID_X), propget] HRESULT X([out, retval] double *x);
+		[id(PROPID_X), propput] HRESULT X([in] double x);
+		[id(PROPID_Y), propget] HRESULT Y([out, retval] double *y);
+		[id(PROPID_Y), propput] HRESULT Y([in] double y);
+		[id(PROPID_Z), propget] HRESULT Z([out, retval] double *z);
+		[id(PROPID_Z), propput] HRESULT Z([in] double z);
+		[id(PROPID_M), propget] HRESULT M([out, retval] double *m);
+		[id(PROPID_M), propput] HRESULT M([in] double m);
+		[id(PROPID_ID), propget] HRESULT ID([out, retval] LONG *id);
+		[id(PROPID_ID), propput] HRESULT ID([in] LONG id);
+		[id(METHID_GetVertexAttribute)] HRESULT GetVertexAttribute([in] LONG geometryAttributes, [out, retval] double *attributeValue);
+		[id(METHID_SetVertexAttribute)] HRESULT SetVertexAttribute([in] LONG geometryAttributes, [in] double attributeValue);
+		[id(METHID_ConstrainDistance)] HRESULT ConstrainDistance([in] double constraintRadius, [in] VARIANT point);
+		[id(METHID_ConstrainAngle)] HRESULT ConstrainAngle([in] double constraintAngle, [in] VARIANT point, [in] VARIANT_BOOL allowOpposite);
+		[id(METHID_Compare)] HRESULT Compare([in] VARIANT point, [out, retval] int* result);
+    
+    };
+
+    [
+        uuid(03D6F64C-D45C-42D2-A3E9-BBFDFFDF31C2),
+        helpstring("ArcObjectsPoint Class")
+    ]
+    coclass ArcObjectsPoint
+    {
+        [default] interface IArcObjectsPoint;
+    };
+

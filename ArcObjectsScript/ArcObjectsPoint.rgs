@@ -1,0 +1,21 @@
+HKCR
+{
+    Scripting.ArcObjects.Point = s 'ArcObjectsPoint Class'
+    {
+        CLSID = s '{03D6F64C-D45C-42D2-A3E9-BBFDFFDF31C2}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {03D6F64C-D45C-42D2-A3E9-BBFDFFDF31C2} = s 'ArcObjectsPoint Class'
+        {
+            ProgID = s 'Scripting.ArcObjects.Point'
+            VersionIndependentProgID = s 'Scripting.ArcObjects.Point'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{DAE30B55-BB5F-436E-8A60-5E6CD71E9050}'
+        }
+    }
+}

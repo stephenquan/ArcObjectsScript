@@ -98,6 +98,16 @@ using namespace ATL;
 #define RET_Pdouble(arg) RET_PSCALAR(double, arg)
 
 
+#define ARG_int(arg) ARG_SCALAR(int, arg)
+#define PRE_int(arg) PRE_SCALAR(int, arg)
+#define CAL_int(arg) CAL_SCALAR(int, arg)
+#define RET_int(arg) RET_SCALAR(int, arg)
+#define ARG_Pint(arg) ARG_PSCALAR(int, arg)
+#define PRE_Pint(arg) PRE_PSCALAR(int, arg)
+#define CAL_Pint(arg) CAL_PSCALAR(int, arg)
+#define RET_Pint(arg) RET_PSCALAR(int, arg)
+
+
 #define ARG_LONG(arg) ARG_SCALAR(LONG, arg)
 #define PRE_LONG(arg) PRE_SCALAR(LONG, arg)
 #define CAL_LONG(arg) CAL_SCALAR(LONG, arg)
@@ -176,6 +186,16 @@ using namespace ATL;
 #define PRE_PesriFieldType(arg) PRE_PENUM(esriFieldType, arg)
 #define CAL_PesriFieldType(arg) CAL_PENUM(esriFieldType, arg)
 #define RET_PesriFieldType(arg) RET_PENUM(esriFieldType, arg)
+
+
+#define ARG_esriGeometryAttributes(arg) ARG_ENUM(esriGeometryAttributes, arg)
+#define PRE_esriGeometryAttributes(arg) PRE_ENUM(esriGeometryAttributes, arg)
+#define CAL_esriGeometryAttributes(arg) CAL_ENUM(esriGeometryAttributes, arg)
+#define RET_esriGeometryAttributes(arg) RET_ENUM(esriGeometryAttributes, arg)
+#define ARG_PesriGeometryAttributes(arg) ARG_PENUM(esriGeometryAttributes, arg)
+#define PRE_PesriGeometryAttributes(arg) PRE_PENUM(esriGeometryAttributes, arg)
+#define CAL_PesriGeometryAttributes(arg) CAL_PENUM(esriGeometryAttributes, arg)
+#define RET_PesriGeometryAttributes(arg) RET_PENUM(esriGeometryAttributes, arg)
 
 
 #define ARG_esriGeometryType(arg) ARG_ENUM(esriGeometryType, arg)
